@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    <head>
+        <title><?php echo isset($title_for_layout) ? $title_for_layout : '' ?></title>
+        <?php $this->load->view('includes/templates/metronics4/include_meta.php'); ?>
+        <?php $this->load->view('includes/templates/metronics4/include_css.php'); ?>
+        <?php $this->load->view('includes/templates/metronics4/include_favicon.php'); ?>
+    </head>
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
+        <div id="timer"></div>
+        <audio id="messageSound">
+            <source src="<?php echo static_url("sound/definite.mp3") ?>" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div id="loading" hidden> {{ message }} </div>
+        <?php $this->load->view('components/flash_message.php'); ?>
+        <!-- BEGIN HEADER -->
+        <?php $this->load->view('includes/templates/metronics4/header.php'); ?>        
+        <!-- END HEADER -->
+        <div class="clearfix">
+        </div>
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            <?php $this->load->view('includes/templates/metronics4/sidebar.php'); ?>            
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <?php $this->load->view('components/content.html.php'); ?>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <?php $this->load->view('includes/templates/metronics4/footer.php'); ?>   
+        <!-- END FOOTER -->
+        <?php $this->load->view('includes/templates/metronics4/include_js.php'); ?> 
+    </body>
+    <!-- END BODY -->
+</html>
