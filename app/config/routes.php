@@ -47,7 +47,7 @@ $route['vendor/lock-screen'] = 'vendor/user/lock_screen';
 $route['vendor/unlock-screen'] = 'vendor/user/un_lock_screen';
 
 //monitor route
-$route['monitor'] = 'monitor/user/login';
+$route['monitor'] = 'auth/user/login';
 $route['monitor/auth-user'] = 'auth/user/check_data';
 $route['monitor/login'] = 'auth/user/login';
 $route['monitor/logout'] = 'auth/user/logout';
