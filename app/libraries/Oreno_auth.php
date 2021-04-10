@@ -162,9 +162,9 @@ class Oreno_auth {
             $pass_hashed = password_hash($password, PASSWORD_BCRYPT, $options);
             if (password_verify($password, $pass_hashed)) {
                 return $pass_hashed;
-            }else{
+            } else {
                 debug('wew');
-               return password_hash($password, PASSWORD_BCRYPT, $options);
+                return password_hash($password, PASSWORD_BCRYPT, $options);
             }
         }
     }
@@ -212,6 +212,8 @@ class Oreno_auth {
             )
                 )
         );
+        debug($result);
+
         $return = array('result' => array('content' => 'data not found ', 'param' => $conditions, 'status' => 'failed'));
         if (isset($result) && !empty($result)) {
             $return = array('result' => array('content' => $result, 'status' => 'success'));
