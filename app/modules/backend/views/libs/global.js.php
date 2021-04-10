@@ -661,6 +661,7 @@
                 //---------------------------------------------------------------------------------------------//
                 if(open_total) $('span#Open').html(open_total);
                 if(close_total) $('span#Close').html(close_total);
+                
                 var span_progress1 = '<span class="badge badge-roundless" style="background-color:#ffb136;display:true;" id="Progress">0</span>';
                 $('.prog_t').html('<span class="badge badge-roundless" style="background-color:#ffb136;display:true;" id="Progress">0</span>');
                 $('.global_reopen').html('<span class="badge badge-roundless" style="background-color:#508fda;display:true;" id="Progress_reopen">0</span>');
