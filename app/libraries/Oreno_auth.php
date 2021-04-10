@@ -32,6 +32,7 @@ class Oreno_auth {
             $cond = array('field' => 'username', 'value' => $data['userid']);
         }
         $pass = base64_decode($data['password']);
+        debug($pass);
         $user = $this->get_user_by($cond, 'all');
         $result = json_decode($user);
         $return = array('result' => array('content' => $result->result->content, 'param' => $data['userid'], 'status' => 'failed'));
