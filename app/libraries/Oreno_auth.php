@@ -212,7 +212,6 @@ class Oreno_auth {
             )
                 )
         );
-        debug($result);
 
         $return = array('result' => array('content' => 'data not found ', 'param' => $conditions, 'status' => 'failed'));
         if (isset($result) && !empty($result)) {

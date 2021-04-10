@@ -22,7 +22,7 @@
         setInterval(function () {
             var href = $('#modal_response')[0];
             var open = $(href).hasClass('in');
-            if (open == true) {
+            if (open === true) {
                 var code = $('input[name="ticket_code_btn_submit_response_modal"]').val();
                 var formdata = {ticket_code: Base64.encode(code)};
                 var url_post = base_url + 'vendor/ticket/check_ticket_timeout/';
@@ -31,7 +31,7 @@
                     method: "POST",
                     data: formdata,
                     success: function (response) {
-                        if (response == 'false') {
+                        if (response === 'false') {
                             fnCloseModal();
                             window.location.reload();
                         }
@@ -54,10 +54,10 @@
     var fnCheckInsertForm = function () {
         var err = '';
         var group = $("#group").val();
-        if (group == 0) {
+        if (group === 0) {
             err += 'Please select group, ';
         }
-        if (err != '') {
+        if (err !== '') {
             fnToStr(err, 'error');
             App.stopPageLoading();
             return false;
@@ -68,7 +68,7 @@
     var fnCheckTicketOpen = function (id) {
         var formdata = {id: (id)};
         $.ajax({url: base_url + 'vendor/ticket/check_ticket_open/', method: "POST", data: formdata, success: function (response) {
-                if (response == 'false') {
+                if (response === 'false') {
                     fnToStr('Ticket is already open by other user', 'warning');
                     fnCloseModal();
                     return false;
@@ -150,7 +150,7 @@
             success: function (data) {
                 var row = JSON.parse(data);
                 var status_ = false;
-                if (row.is_active == 1) {
+                if (row.is_active === 1) {
                     status_ = true;
                 }
                 $('input[name="create_date_modal_detail_ticket"]').val(row.create_date);
@@ -162,12 +162,12 @@
                 $('input[name="problem_impact_modal_detail_ticket"]').val(row.problem_impact);
                 $('input[name="create_by_name_detail_ticket"]').val(row.create_by_name);
                 $('input[name="recreate_by_name_detail_ticket"]').val(row.recreate_by);
-                if (row.branch_id == 0) {
+                if (row.branch_id === 0) {
                     $('input[name="branch_name_modal_detail_ticket"]').val("IMI");
                 } else {
                     $('input[name="branch_name_modal_detail_ticket"]').val(row.branch['name']);
                 }
-                if (row.ticket_status == 'transfer') {
+                if (row.ticket_status === 'transfer') {
                     $('.modal-title').html('This ticket transfer from <b>' + row.ticket_transfer.user_from_name + '</b> to <b>' + row.ticket_transfer.user_to_name + '</b>');
                 } else {
                     $('.modal-title').html((row.handle_by != null) ? 'Tiket ditangani oleh <b>' + row.handle_by + '</b>' : 'Tiket ini <b>belum ditangani oleh siapa pun.</b>');
@@ -637,30 +637,34 @@
                 //---------------------------------------------------------------------------------------------//
                 //manipulate spab badge at sidebar menu and tab span start here
                 //---------------------------------------------------------------------------------------------//
-                $('span#Open').html(open_total);
-                $('span#Close').html(close_total);
+                if(typeof open_total !== 'undefined'){
+                    $('span#Open').html(open_total);
+                }
+                if(typeof close_total !== 'undefined'){
+                    $('span#Close').html(close_total);
+                }
                 var span_progress1 = '<span class="badge badge-roundless" style="background-color:#ffb136;display:true;" id="Progress">0</span>';
                 $('.prog_t').html('<span class="badge badge-roundless" style="background-color:#ffb136;display:true;" id="Progress">0</span>');
                 $('.global_reopen').html('<span class="badge badge-roundless" style="background-color:#508fda;display:true;" id="Progress_reopen">0</span>');
-                if (progress_total) {
+                if (typeof progress_total !== 'undefined') {
                     span_progress1 = '<span class="badge badge-roundless" style="background-color:#ffb136;display:true;" id="Progress">' + progress_total + '</span>';
                     $('.prog_t').html('<span class="badge badge-roundless" style="background-color:#ffb136;display:true;" id="Progress">' + progress_total + '</span>');
                 }
                 var span_progress2 = '<span class="badge badge-roundless" style="background-color:#508fda;display:true;" id="Progress_reopen">0</span>';
-                if (progress_reopen_total) {
+                if (typeof progress_reopen_total !== 'undefined') {
                     span_progress2 = '<span class="badge badge-roundless" style="background-color:#508fda;display:true;" id="Progress_reopen">' + progress_reopen_total + '</span>';
                     $('.global_reopen').html('<span class="badge badge-roundless" style="background-color:#508fda;display:true;" id="Progress_reopen">' + progress_reopen_total + '</span>');
                 }
                 $('span.bdge_prog').html(span_progress1 + ' ' + span_progress2);
                 var span2 = '<span class="badge badge-roundless" style="background-color:#f64444;display:true;" id="Transfer_in">0</span>';
                 $('.trf_in').html('<span class="badge badge-roundless" style="background-color:#f64444;display:true;" id="Transfer_in">0</span>');
-                if (transfer_in_total) {
+                if (typeof transfer_in_total !== 'undefined') {
                     span2 = '<span class="badge badge-roundless" style="background-color:#f64444;display:true;" id="Transfer_in">' + transfer_in_total + '</span>';
                     $('.trf_in').html('<span class="badge badge-roundless" style="background-color:#f64444;display:true;" id="Transfer_in">' + transfer_in_total + '</span>');
                 }
                 var span3 = '<span class="badge badge-roundless" style="background-color:#b34300;display:true;" id="Transfer_out">0</span>';
                 $('.trf_out').html('<span class="badge badge-roundless" style="background-color:#b34300;display:true;" id="Transfer_out">0</span>');
-                if (transfer_out_total) {
+                if (typeof transfer_out_total !== 'undefined') {
                     span3 = '<span class="badge badge-roundless" style="background-color:#b34300;display:true;" id="Transfer_out">' + transfer_out_total + '</span>';
                     $('.trf_out').html('<span class="badge badge-roundless" style="background-color:#b34300;display:true;" id="Transfer_out">' + transfer_out_total + '</span>');
                 }

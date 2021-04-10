@@ -166,7 +166,8 @@
                         required: "Please accept TNC first."
                     }
                 },
-                invalidHandler: function (event, validator) { //display error alert on form submit },
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                },
                 highlight: function (element) { // hightlight error inputs
                     $(element).closest('.form-group').addClass('has-error'); // set error class to the control group
                 },
