@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg
+PUBLIC "-//W3C//DTD SVG 1.1//EN"
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="64 31 1159 1722" width="1095px" height="1691px" xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <line x1="894" y1="265" x2="884" y2="265" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="883" y1="539" x2="893" y2="539" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="884" y1="265" x2="883" y2="539" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="886.5" y1="265" x2="890.03553390593" y2="268.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="886.5" y1="265" x2="890.03553390593" y2="261.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="542.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="535.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="893" y1="539" x2="883" y2="539" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="760" y1="573" x2="750" y2="573" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="883" y1="539" x2="760" y2="573" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="885.5" y1="539" x2="889.03553390593" y2="542.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="885.5" y1="539" x2="889.03553390593" y2="535.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="755" y1="573" x2="758.53553390593" y2="576.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="755" y1="573" x2="758.53553390593" y2="569.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="793" y1="841" x2="803" y2="841" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="883" y1="539" x2="893" y2="539" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="803" y1="841" x2="883" y2="539" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="800.5" y1="841" x2="796.96446609407" y2="844.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="800.5" y1="841" x2="796.96446609407" y2="837.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="542.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="535.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="893" y1="785" x2="883" y2="785" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="883" y1="539" x2="893" y2="539" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="883" y1="785" x2="883" y2="539" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="885.5" y1="785" x2="889.03553390593" y2="788.53553390593" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="885.5" y1="785" x2="889.03553390593" y2="781.46446609407" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="542.53553390593" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="535.46446609407" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="886" y1="963" x2="876" y2="963" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="883" y1="539" x2="893" y2="539" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="876" y1="963" x2="883" y2="539" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="878.5" y1="963" x2="882.03553390593" y2="966.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="878.5" y1="963" x2="882.03553390593" y2="959.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="542.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="535.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="868" y1="99" x2="858" y2="99" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="883" y1="539" x2="893" y2="539" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="858" y1="99" x2="883" y2="539" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="860.5" y1="99" x2="864.03553390593" y2="102.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="860.5" y1="99" x2="864.03553390593" y2="95.464466094067" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="542.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="888" y1="539" x2="884.46446609407" y2="535.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="492" y1="593" x2="482" y2="593" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="484" y1="264" x2="494" y2="264" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="482" y1="593" x2="484" y2="264" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="484.5" y1="593" x2="488.03553390593" y2="596.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="484.5" y1="593" x2="488.03553390593" y2="589.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="489" y1="264" x2="485.46446609407" y2="267.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="489" y1="264" x2="485.46446609407" y2="260.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="492" y1="613" x2="482" y2="613" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="484" y1="264" x2="494" y2="264" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="482" y1="613" x2="484" y2="264" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="484.5" y1="613" x2="488.03553390593" y2="616.53553390593" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="484.5" y1="613" x2="488.03553390593" y2="609.46446609407" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="489" y1="264" x2="485.46446609407" y2="267.53553390593" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="489" y1="264" x2="485.46446609407" y2="260.46446609407" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="492" y1="633" x2="482" y2="633" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="464" y1="77" x2="474" y2="77" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="482" y1="633" x2="464" y2="77" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="484.5" y1="633" x2="488.03553390593" y2="636.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="484.5" y1="633" x2="488.03553390593" y2="629.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="469" y1="77" x2="465.46446609407" y2="80.535533905933" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="469" y1="77" x2="465.46446609407" y2="73.464466094067" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="492" y1="653" x2="482" y2="653" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="353" y1="76" x2="343" y2="76" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="482" y1="653" x2="353" y2="76" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="484.5" y1="653" x2="488.03553390593" y2="656.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="484.5" y1="653" x2="488.03553390593" y2="649.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="348" y1="76" x2="351.53553390593" y2="79.535533905933" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="348" y1="76" x2="351.53553390593" y2="72.464466094067" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="492" y1="673" x2="482" y2="673" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="353" y1="422" x2="343" y2="422" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="482" y1="673" x2="353" y2="422" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="484.5" y1="673" x2="488.03553390593" y2="676.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="484.5" y1="673" x2="488.03553390593" y2="669.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="348" y1="422" x2="351.53553390593" y2="425.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="348" y1="422" x2="351.53553390593" y2="418.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="492" y1="713" x2="482" y2="713" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="353" y1="798" x2="343" y2="798" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="482" y1="713" x2="353" y2="798" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="484.5" y1="713" x2="488.03553390593" y2="716.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="484.5" y1="713" x2="488.03553390593" y2="709.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="348" y1="798" x2="351.53553390593" y2="801.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="348" y1="798" x2="351.53553390593" y2="794.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="492" y1="693" x2="482" y2="693" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="353" y1="602" x2="343" y2="602" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="482" y1="693" x2="353" y2="602" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="484.5" y1="693" x2="488.03553390593" y2="696.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="484.5" y1="693" x2="488.03553390593" y2="689.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="348" y1="602" x2="351.53553390593" y2="605.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="348" y1="602" x2="351.53553390593" y2="598.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <rect width="258" height="20" x="894" y="215" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="899" y="229" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_activities</text>
+   <rect width="258" height="20" x="894" y="235" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="899" y="249" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="894" y="255" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="269" style="fill:black;" font-family="Arial" font-size="16px">ticket_id</text>
+   <rect width="258" height="20" x="894" y="275" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="289" style="fill:black;" font-family="Arial" font-size="16px">response_time_start</text>
+   <rect width="258" height="20" x="894" y="295" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="309" style="fill:black;" font-family="Arial" font-size="16px">response_time_stop</text>
+   <rect width="258" height="20" x="894" y="315" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="329" style="fill:black;" font-family="Arial" font-size="16px">transfer_time_start</text>
+   <rect width="258" height="20" x="894" y="335" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="349" style="fill:black;" font-family="Arial" font-size="16px">transfer_time_stop</text>
+   <rect width="258" height="20" x="894" y="355" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="369" style="fill:black;" font-family="Arial" font-size="16px">solving_time_start</text>
+   <rect width="258" height="20" x="894" y="375" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="389" style="fill:black;" font-family="Arial" font-size="16px">solving_time_stop</text>
+   <rect width="258" height="20" x="894" y="395" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="409" style="fill:black;" font-family="Arial" font-size="16px">open_time</text>
+   <rect width="258" height="20" x="894" y="415" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="429" style="fill:black;" font-family="Arial" font-size="16px">close_message</text>
+   <rect width="258" height="20" x="894" y="435" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="449" style="fill:black;" font-family="Arial" font-size="16px">is_open</text>
+   <rect width="258" height="20" x="894" y="455" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="469" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="894" y="475" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="489" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="894" y="495" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="899" y="509" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="85" y="46" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="90" y="60" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_imigration_branchs</text>
+   <rect width="258" height="20" x="85" y="66" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="90" y="80" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="85" y="86" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="100" style="fill:black;" font-family="Arial" font-size="16px">code</text>
+   <rect width="258" height="20" x="85" y="106" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="120" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="258" height="20" x="85" y="126" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="140" style="fill:black;" font-family="Arial" font-size="16px">address</text>
+   <rect width="258" height="20" x="85" y="146" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="160" style="fill:black;" font-family="Arial" font-size="16px">email</text>
+   <rect width="258" height="20" x="85" y="166" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="180" style="fill:black;" font-family="Arial" font-size="16px">zip_code</text>
+   <rect width="258" height="20" x="85" y="186" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="200" style="fill:black;" font-family="Arial" font-size="16px">phone_number</text>
+   <rect width="258" height="20" x="85" y="206" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="220" style="fill:black;" font-family="Arial" font-size="16px">fax_number</text>
+   <rect width="258" height="20" x="85" y="226" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="240" style="fill:black;" font-family="Arial" font-size="16px">type</text>
+   <rect width="258" height="20" x="85" y="246" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="260" style="fill:black;" font-family="Arial" font-size="16px">parent_id</text>
+   <rect width="258" height="20" x="85" y="266" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="280" style="fill:black;" font-family="Arial" font-size="16px">level</text>
+   <rect width="258" height="20" x="85" y="286" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="300" style="fill:black;" font-family="Arial" font-size="16px">lat</text>
+   <rect width="258" height="20" x="85" y="306" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="320" style="fill:black;" font-family="Arial" font-size="16px">lng</text>
+   <rect width="258" height="20" x="85" y="326" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="340" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="258" height="20" x="85" y="346" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="360" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="85" y="366" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="380" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="85" y="386" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="400" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="893" y="509" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="898" y="523" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_tickets</text>
+   <rect width="258" height="20" x="893" y="529" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="898" y="543" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="893" y="549" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="563" style="fill:black;" font-family="Arial" font-size="16px">parent_ticket_id</text>
+   <rect width="258" height="20" x="893" y="569" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="583" style="fill:black;" font-family="Arial" font-size="16px">code</text>
+   <rect width="258" height="20" x="893" y="589" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="603" style="fill:black;" font-family="Arial" font-size="16px">content</text>
+   <rect width="258" height="20" x="893" y="609" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="623" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="258" height="20" x="893" y="629" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="643" style="fill:black;" font-family="Arial" font-size="16px">session_id</text>
+   <rect width="258" height="20" x="893" y="649" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="663" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="893" y="669" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="683" style="fill:black;" font-family="Arial" font-size="16px">issued_by</text>
+   <rect width="258" height="20" x="893" y="689" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="703" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="893" y="709" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="723" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="494" y="234" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="499" y="248" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_categories</text>
+   <rect width="258" height="20" x="494" y="254" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="499" y="268" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="494" y="274" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="288" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="258" height="20" x="494" y="294" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="308" style="fill:black;" font-family="Arial" font-size="16px">name_ina</text>
+   <rect width="258" height="20" x="494" y="314" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="328" style="fill:black;" font-family="Arial" font-size="16px">rank</text>
+   <rect width="258" height="20" x="494" y="334" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="348" style="fill:black;" font-family="Arial" font-size="16px">level</text>
+   <rect width="258" height="20" x="494" y="354" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="368" style="fill:black;" font-family="Arial" font-size="16px">icon</text>
+   <rect width="258" height="20" x="494" y="374" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="388" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="494" y="394" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="408" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="258" height="20" x="494" y="414" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="428" style="fill:black;" font-family="Arial" font-size="16px">parent_id</text>
+   <rect width="258" height="20" x="494" y="434" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="448" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="494" y="454" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="499" y="468" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="535" y="771" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="540" y="785" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_chats</text>
+   <rect width="258" height="20" x="535" y="791" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="540" y="805" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="535" y="811" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="825" style="fill:black;" font-family="Arial" font-size="16px">messages</text>
+   <rect width="258" height="20" x="535" y="831" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="845" style="fill:black;" font-family="Arial" font-size="16px">ticket_id</text>
+   <rect width="258" height="20" x="535" y="851" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="865" style="fill:black;" font-family="Arial" font-size="16px">ticket_code</text>
+   <rect width="258" height="20" x="535" y="871" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="885" style="fill:black;" font-family="Arial" font-size="16px">is_open</text>
+   <rect width="258" height="20" x="535" y="891" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="905" style="fill:black;" font-family="Arial" font-size="16px">is_show</text>
+   <rect width="258" height="20" x="535" y="911" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="925" style="fill:black;" font-family="Arial" font-size="16px">is_vendor</text>
+   <rect width="258" height="20" x="535" y="931" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="945" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="535" y="951" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="965" style="fill:black;" font-family="Arial" font-size="16px">reply_to</text>
+   <rect width="258" height="20" x="535" y="971" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="985" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="535" y="991" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="540" y="1005" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="80" y="1280" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="85" y="1294" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_files</text>
+   <rect width="258" height="20" x="80" y="1300" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="85" y="1314" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="80" y="1320" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="85" y="1334" style="fill:black;" font-family="Arial" font-size="16px">code</text>
+   <rect width="258" height="20" x="80" y="1340" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="85" y="1354" style="fill:black;" font-family="Arial" font-size="16px">path</text>
+   <rect width="258" height="20" x="80" y="1360" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="85" y="1374" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="258" height="20" x="80" y="1380" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="85" y="1394" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="80" y="1400" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="85" y="1414" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="80" y="1420" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="85" y="1434" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="893" y="735" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="898" y="749" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_handlers</text>
+   <rect width="258" height="20" x="893" y="755" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="898" y="769" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="893" y="775" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="789" style="fill:black;" font-family="Arial" font-size="16px">ticket_id</text>
+   <rect width="258" height="20" x="893" y="795" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="809" style="fill:black;" font-family="Arial" font-size="16px">user_id</text>
+   <rect width="258" height="20" x="893" y="815" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="829" style="fill:black;" font-family="Arial" font-size="16px">group_id</text>
+   <rect width="258" height="20" x="893" y="835" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="849" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="893" y="855" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="869" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="893" y="875" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="898" y="889" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="85" y="392" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="90" y="406" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_priorities</text>
+   <rect width="258" height="20" x="85" y="412" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="90" y="426" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="85" y="432" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="446" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="258" height="20" x="85" y="452" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="466" style="fill:black;" font-family="Arial" font-size="16px">style</text>
+   <rect width="258" height="20" x="85" y="472" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="486" style="fill:black;" font-family="Arial" font-size="16px">checked</text>
+   <rect width="258" height="20" x="85" y="492" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="506" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="258" height="20" x="85" y="512" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="526" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="85" y="532" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="546" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="85" y="552" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="566" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="85" y="768" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="90" y="782" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_problem_impacts</text>
+   <rect width="258" height="20" x="85" y="788" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="90" y="802" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="85" y="808" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="822" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="258" height="20" x="85" y="828" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="842" style="fill:black;" font-family="Arial" font-size="16px">name_ina</text>
+   <rect width="258" height="20" x="85" y="848" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="862" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="258" height="20" x="85" y="868" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="882" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="85" y="888" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="902" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="85" y="908" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="922" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="886" y="893" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="891" y="907" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_reopen_logs</text>
+   <rect width="258" height="20" x="886" y="913" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="891" y="927" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="886" y="933" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="891" y="947" style="fill:black;" font-family="Arial" font-size="16px">message</text>
+   <rect width="258" height="20" x="886" y="953" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="891" y="967" style="fill:black;" font-family="Arial" font-size="16px">ticket_id</text>
+   <rect width="258" height="20" x="886" y="973" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="891" y="987" style="fill:black;" font-family="Arial" font-size="16px">handle_by</text>
+   <rect width="258" height="20" x="886" y="993" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="891" y="1007" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="886" y="1013" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="891" y="1027" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="886" y="1033" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="891" y="1047" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="868" y="49" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="873" y="63" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_requests</text>
+   <rect width="258" height="20" x="868" y="69" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="873" y="83" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="868" y="89" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="873" y="103" style="fill:black;" font-family="Arial" font-size="16px">ticket_id</text>
+   <rect width="258" height="20" x="868" y="109" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="873" y="123" style="fill:black;" font-family="Arial" font-size="16px">job_list</text>
+   <rect width="258" height="20" x="868" y="129" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="873" y="143" style="fill:black;" font-family="Arial" font-size="16px">message</text>
+   <rect width="258" height="20" x="868" y="149" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="873" y="163" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="868" y="169" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="873" y="183" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="868" y="189" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="873" y="203" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="85" y="572" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="90" y="586" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_rules</text>
+   <rect width="258" height="20" x="85" y="592" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="90" y="606" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="85" y="612" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="626" style="fill:black;" font-family="Arial" font-size="16px">title</text>
+   <rect width="258" height="20" x="85" y="632" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="646" style="fill:black;" font-family="Arial" font-size="16px">response_time</text>
+   <rect width="258" height="20" x="85" y="652" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="666" style="fill:black;" font-family="Arial" font-size="16px">solving_time</text>
+   <rect width="258" height="20" x="85" y="672" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="686" style="fill:black;" font-family="Arial" font-size="16px">fine_result</text>
+   <rect width="258" height="20" x="85" y="692" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="706" style="fill:black;" font-family="Arial" font-size="16px">priority_id</text>
+   <rect width="258" height="20" x="85" y="712" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="726" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="85" y="732" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="746" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="85" y="752" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="90" y="766" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="474" y="47" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="479" y="61" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_status</text>
+   <rect width="258" height="20" x="474" y="67" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="479" y="81" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="474" y="87" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="479" y="101" style="fill:black;" font-family="Arial" font-size="16px">name</text>
+   <rect width="258" height="20" x="474" y="107" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="479" y="121" style="fill:black;" font-family="Arial" font-size="16px">style</text>
+   <rect width="258" height="20" x="474" y="127" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="479" y="141" style="fill:black;" font-family="Arial" font-size="16px">description</text>
+   <rect width="258" height="20" x="474" y="147" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="479" y="161" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="474" y="167" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="479" y="181" style="fill:black;" font-family="Arial" font-size="16px">rank</text>
+   <rect width="258" height="20" x="474" y="187" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="479" y="201" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="474" y="207" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="479" y="221" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="492" y="523" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="497" y="537" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_transactions</text>
+   <rect width="258" height="20" x="492" y="543" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="497" y="557" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="492" y="563" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="577" style="fill:black;" font-family="Arial" font-size="16px">ticket_id</text>
+   <rect width="258" height="20" x="492" y="583" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="597" style="fill:black;" font-family="Arial" font-size="16px">category_id</text>
+   <rect width="258" height="20" x="492" y="603" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="617" style="fill:black;" font-family="Arial" font-size="16px">job_id</text>
+   <rect width="258" height="20" x="492" y="623" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="637" style="fill:black;" font-family="Arial" font-size="16px">status_id</text>
+   <rect width="258" height="20" x="492" y="643" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="657" style="fill:black;" font-family="Arial" font-size="16px">branch_id</text>
+   <rect width="258" height="20" x="492" y="663" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="677" style="fill:black;" font-family="Arial" font-size="16px">priority_id</text>
+   <rect width="258" height="20" x="492" y="683" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="697" style="fill:black;" font-family="Arial" font-size="16px">rule_id</text>
+   <rect width="258" height="20" x="492" y="703" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="717" style="fill:black;" font-family="Arial" font-size="16px">problem_impact_id</text>
+   <rect width="258" height="20" x="492" y="723" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="737" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="492" y="743" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="757" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="492" y="763" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="497" y="777" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="79" y="1427" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1441" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_helpdesk_ticket_transfers</text>
+   <rect width="258" height="20" x="79" y="1447" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1461" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="79" y="1467" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1481" style="fill:black;" font-family="Arial" font-size="16px">parent_ticket_id</text>
+   <rect width="258" height="20" x="79" y="1487" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1501" style="fill:black;" font-family="Arial" font-size="16px">ticket_id</text>
+   <rect width="258" height="20" x="79" y="1507" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1521" style="fill:black;" font-family="Arial" font-size="16px">parent_ticket_code</text>
+   <rect width="258" height="20" x="79" y="1527" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1541" style="fill:black;" font-family="Arial" font-size="16px">ticket_code</text>
+   <rect width="258" height="20" x="79" y="1547" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1561" style="fill:black;" font-family="Arial" font-size="16px">notes</text>
+   <rect width="258" height="20" x="79" y="1567" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1581" style="fill:black;" font-family="Arial" font-size="16px">user_from</text>
+   <rect width="258" height="20" x="79" y="1587" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1601" style="fill:black;" font-family="Arial" font-size="16px">user_to</text>
+   <rect width="258" height="20" x="79" y="1607" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1621" style="fill:black;" font-family="Arial" font-size="16px">is_max_transfer</text>
+   <rect width="258" height="20" x="79" y="1627" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1641" style="fill:black;" font-family="Arial" font-size="16px">is_received</text>
+   <rect width="258" height="20" x="79" y="1647" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1661" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="79" y="1667" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1681" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="79" y="1687" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="84" y="1701" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+   <rect width="258" height="20" x="81" y="1118" style="fill:#007;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1132" style="fill:#fff;" font-family="Arial" font-size="16px"> tbl_hepldesk_ticket_numbers</text>
+   <rect width="258" height="20" x="81" y="1138" style="fill:#aea;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1152" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="258" height="20" x="81" y="1158" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1172" style="fill:black;" font-family="Arial" font-size="16px">code</text>
+   <rect width="258" height="20" x="81" y="1178" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1192" style="fill:black;" font-family="Arial" font-size="16px">office_id</text>
+   <rect width="258" height="20" x="81" y="1198" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1212" style="fill:black;" font-family="Arial" font-size="16px">client_id</text>
+   <rect width="258" height="20" x="81" y="1218" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1232" style="fill:black;" font-family="Arial" font-size="16px">client_group</text>
+   <rect width="258" height="20" x="81" y="1238" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1252" style="fill:black;" font-family="Arial" font-size="16px">is_active</text>
+   <rect width="258" height="20" x="81" y="1258" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1272" style="fill:black;" font-family="Arial" font-size="16px">created_by</text>
+   <rect width="258" height="20" x="81" y="1278" style="fill:none;stroke:black;"/>
+   <text width="258" height="20" x="86" y="1292" style="fill:black;" font-family="Arial" font-size="16px">create_date</text>
+</svg>
