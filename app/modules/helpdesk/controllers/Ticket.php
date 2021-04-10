@@ -51,7 +51,7 @@ class Ticket extends MY_Controller {
     }
 
     public function create() {
-        $this->load->model(array('Tbl_helpdesk_ticket_categories', 'Tbl_helpdesk_imigration_branchs', 'Tbl_helpdesk_ticket_problem_impacts'));
+        $this->load->model(array('Tbl_helpdesk_ticket_categories', 'Tbl_helpdesk_office_branchs', 'Tbl_helpdesk_ticket_problem_impacts'));
         $data['title_for_layout'] = 'welcome';
         //load ajax var
         $office_code = isset($this->auth_config->office_code) ? $this->auth_config->office_code : '';
@@ -84,7 +84,7 @@ class Ticket extends MY_Controller {
                 $fields_problem = array('a.id', 'a.name_ina txt');
                 break;
         }
-        $data['branch'] = $this->Tbl_helpdesk_imigration_branchs->find('all', array('conditions' => array('is_active' => 1)));
+        $data['branch'] = $this->Tbl_helpdesk_office_branchs->find('all', array('conditions' => array('is_active' => 1)));
         $data['problem_impact'] = $this->Tbl_helpdesk_ticket_problem_impacts->find('all', array('fields' => $fields_problem, 'conditions' => array('is_active' => 1)));
         $data['category'] = $this->Tbl_helpdesk_ticket_categories->find('all', array('fields' => $fields_ctg_ticket, 'conditions' => array('is_active' => 1, 'level' => 1)));
         $this->parser->parse('layouts/pages/metronic.phtml', $data);
@@ -580,7 +580,7 @@ class Ticket extends MY_Controller {
     public function get_ticket_detail() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_ticket_requests', 'Tbl_helpdesk_imigration_branchs'));
+            $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_ticket_requests', 'Tbl_helpdesk_office_branchs'));
             $id = base64_decode($post['id']);
             $res = $this->Tbl_helpdesk_tickets->find('first', array(
                 'fields' => array('a.*', 'b.branch_id', 'b.priority_id', 'b.category_id', 'b.job_id', 'c.name ticket_status', 'd.name category_name', 'e.name job_category_name', 'b.problem_impact_id'),
@@ -610,7 +610,7 @@ class Ticket extends MY_Controller {
                 )
             ));
             if (isset($res) && !empty($res)) {
-                $this->load->model(array('Tbl_helpdesk_ticket_handlers', 'Tbl_helpdesk_ticket_files', 'Tbl_helpdesk_imigration_branchs', 'Tbl_helpdesk_ticket_transfers', 'Tbl_helpdesk_ticket_chats','Tbl_users','Tbl_helpdesk_ticket_problem_impacts','Tbl_helpdesk_ticket_transactions'));
+                $this->load->model(array('Tbl_helpdesk_ticket_handlers', 'Tbl_helpdesk_ticket_files', 'Tbl_helpdesk_office_branchs', 'Tbl_helpdesk_ticket_transfers', 'Tbl_helpdesk_ticket_chats','Tbl_users','Tbl_helpdesk_ticket_problem_impacts','Tbl_helpdesk_ticket_transactions'));
                 $handle_by = $this->Tbl_helpdesk_ticket_handlers->find('first', array(
                     'fields' => array('a.*', 'b.email', 'b.username'),
                     'conditions' => array('ticket_id' => $id),
@@ -662,7 +662,7 @@ class Ticket extends MY_Controller {
                     'files' => $files
                 );
                 $res = array_merge($res, $t);
-                $branch = $this->Tbl_helpdesk_imigration_branchs->find('first', array('conditions' => array('a.id' => $res['branch_id'])));
+                $branch = $this->Tbl_helpdesk_office_branchs->find('first', array('conditions' => array('a.id' => $res['branch_id'])));
                 $b = array(
                     'branch' => $branch
                 );
