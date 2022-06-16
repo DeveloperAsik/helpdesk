@@ -134,23 +134,23 @@ class CI_Trackback {
 			switch ($item)
 			{
 				case 'ping_url':
-					$$item = $this->extract_urls($tb_data[$item]);
+					$item = $this->extract_urls($tb_data[$item]);
 					break;
 				case 'excerpt':
-					$$item = $this->limit_characters($this->convert_xml(strip_tags(stripslashes($tb_data[$item]))));
+					$item = $this->limit_characters($this->convert_xml(strip_tags(stripslashes($tb_data[$item]))));
 					break;
 				case 'url':
-					$$item = str_replace('&#45;', '-', $this->convert_xml(strip_tags(stripslashes($tb_data[$item]))));
+					$item = str_replace('&#45;', '-', $this->convert_xml(strip_tags(stripslashes($tb_data[$item]))));
 					break;
 				default:
-					$$item = $this->convert_xml(strip_tags(stripslashes($tb_data[$item])));
+					$item = $this->convert_xml(strip_tags(stripslashes($tb_data[$item])));
 					break;
 			}
 
 			// Convert High ASCII Characters
 			if ($this->convert_ascii === TRUE && in_array($item, array('excerpt', 'title', 'blog_name'), TRUE))
 			{
-				$$item = $this->convert_ascii($$item);
+				$item = $this->convert_ascii($item);
 			}
 		}
 
