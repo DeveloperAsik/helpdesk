@@ -15,32 +15,30 @@
     });
 
     var fnGetTab = function (id) {
-        if (id == 1) {
-            var formdata = {
-                id: Base64.encode(id)
-            };
-            $.ajax({
-                url: base_backend_url + 'tools/mvc/get_data/',
-                method: "POST", //First change type to method here
-                data: formdata,
-                success: function (response) {
-                    var row = JSON.parse(response);
-                    if (row) {
-                        if (id == 1) {
-                            $('#controller_layout').html(row.script);
-                        } else if (id == 2) {
-                            $('#model_layout').html(row.script);
-                        } else if (id == 3) {
-                            $('#view_html_layout').html(row.view_html);
-                            $('#view_js_layout').html(row.view_js);
-                        }
+        var formdata = {
+            id: Base64.encode(id)
+        };
+        $.ajax({
+            url: base_backend_url + 'tools/mvc/get_data/',
+            method: "POST", //First change type to method here
+            data: formdata,
+            success: function (response) {
+                var row = JSON.parse(response);
+                if (row) {
+                    if (id == 1) {
+                        $('#controller_layout').html(row.script);
+                    } else if (id == 2) {
+                        $('#model_layout').html(row.script);
+                    } else if (id == 3) {
+                        $('#view_html_layout').html(row.view_html);
+                        $('#view_js_layout').html(row.view_js);
                     }
-                },
-                error: function () {
-                    fnToStr('Error is occured, please contact administrator.', 'error');
                 }
-            });
-        }
+            },
+            error: function () {
+                fnToStr('Error is occured, please contact administrator.', 'error');
+            }
+        });
     };
 
     var TableDatatablesAjax = function () {
@@ -86,18 +84,21 @@
                         }
                     });
                 });
-                $('a').on('click', function () {
+                $('ul.nav.nav-tabs li a').on('click', function () {
                     var id = $(this).data('id');
-                    if (id) {
-                        var toggle = $(this).data('toggle');
-                        if (toggle == 'tab') {
-                            fnGetTab(id);
-                        }
+                    var toggle = $(this).attr('data-toggle');
+                    if (id && toggle == 'tab') {
+                        fnGetTab(id);
                     }
                 });
                 $('input[name="exist_model"]').on('click', function () {
                     var val = $(this).val();
-                    $('#nmodel').fadeIn();
+                    if (val == 1) {
+                        $('#nmodel').fadeIn();
+                    } else {
+                        $('#nmodel').fadeOut();
+
+                    }
                 });
 
                 $('#class_base_url').typeahead(null, {
@@ -178,7 +179,7 @@
                     var is_random_date = $('#random_create_date').val();
                     var formdata = {
                         total: total,
-                        user:user,
+                        user: user,
                         is_random_date: is_random_date,
                         category: category,
                         ticket_status: ticket_status,

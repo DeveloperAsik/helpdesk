@@ -22,10 +22,10 @@ class Oreno_generate_file {
 
     //put your code here
 
-    public function init($filename = null, $type = 'kanim', $filetype = 'xlsx') {
+    public function init($filename = null, $type = 'branch', $filetype = 'xlsx') {
         switch ($type) {
-            case 'kanim':
-                $this->fn_get_kanim_file($filename, $filetype);
+            case 'branch':
+                $this->fn_get_branch_file($filename, $filetype);
                 break;
             case 'vendor':
                 $this->fn_get_vendor_file($filename, $filetype);
@@ -33,7 +33,7 @@ class Oreno_generate_file {
         }
     }
 
-    public function fn_get_kanim_file($filename, $type) {
+    public function fn_get_branch_file($filename, $type) {
         if ($filename != null) {
             $spreadsheet = new Spreadsheet();
             $title_file = $filename;
@@ -45,7 +45,7 @@ class Oreno_generate_file {
                     ->setKeywords('PhpOffice')
                     ->setCategory('PhpOffice');
             $sheet = $spreadsheet->getActiveSheet();
-            $sheet->setTitle('Unggah data kelompok kanim');
+            $sheet->setTitle('Unggah data kelompok kantor cabang');
             $i = 5;
             /*
              * sheet style
@@ -86,12 +86,12 @@ class Oreno_generate_file {
             $sheet->setCellValue('B1', $text_config_information1);
             $sheet->mergeCells('B2:F2');
             $text_config_information2 = '
-               Kode kelompok pengguna Kanim : 2 (employee) | otomatis di generate
+               Kode kelompok pengguna kantor cabang : 2 (employee) | otomatis di generate
             ';
             $sheet->setCellValue('B2', $text_config_information2);
             $sheet->mergeCells('B3:F3');
             $text_config_information3 = '
-               Kode Kanim : JD (KANTOR IMIGRASI KELAS I JAKARTA PUSAT)
+               Kode
             ';
             $sheet->setCellValue('B3', $text_config_information3);
             $sheet->mergeCells('B4:F4');
@@ -120,7 +120,7 @@ class Oreno_generate_file {
              * start here
              */
 
-            $sheet->setCellValue('B5', 'UNGGAH DATA KELOMPOK PENGGUNA (KANIM)');
+            $sheet->setCellValue('B5', 'UNGGAH DATA KELOMPOK PENGGUNA');
             $sheet->getStyle('B' . $i . ':L' . $i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
             $sheet->getStyle('B' . $i . ':L' . $i)->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
             // Set Column Name
@@ -244,12 +244,12 @@ class Oreno_generate_file {
             $sheet->setCellValue('B1', $text_config_information1);
             $sheet->mergeCells('B2:F2');
             $text_config_information2 = '
-               Kode kelompok pengguna KSO (vendor) : 3 (vendor) | otomatis di generate
+               Kode kelompok pengguna (vendor) : 3 (vendor) | otomatis di generate
             ';
             $sheet->setCellValue('B2', $text_config_information2);
             $sheet->mergeCells('B3:F3');
             $text_config_information3 = '
-               Kode Kanim : SIG (PT TELKOM SIGNET)
+               Kode : 
             ';
             $sheet->setCellValue('B3', $text_config_information3);
             $sheet->mergeCells('B4:F4');
@@ -278,7 +278,7 @@ class Oreno_generate_file {
              * start here
              */
 
-            $sheet->setCellValue('B5', 'UNGGAH DATA KELOMPOK PENGGUNA (KANIM)');
+            $sheet->setCellValue('B5', 'UNGGAH DATA KELOMPOK PENGGUNA');
             $sheet->getStyle('B' . $i . ':L' . $i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
             $sheet->getStyle('B' . $i . ':L' . $i)->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
             // Set Column Name

@@ -106,7 +106,7 @@ if (!function_exists('generate_number')) {
         $string = '';
         for ($i = 0; $i < $length; $i++) {
             $pos = rand(0, strlen($char) - 1);
-            $string .= $char{$pos};
+            $string .= $char[$pos];
         }
         return $string;
     }
@@ -127,7 +127,7 @@ if (!function_exists('generate_code')) {
         $string = '';
         for ($i = 0; $i < $length; $i++) {
             $pos = rand(0, strlen($char) - 1);
-            $string .= $char{$pos};
+            $string .= $char[$pos];
         }
         return $string;
     }
@@ -346,7 +346,7 @@ if (!function_exists('idn_date')) {
     function idn_date($timestamp = '', $date_format = 'l, j F Y | H:i', $suffix = 'WIB') {
         if (trim($timestamp) == '') {
             $timestamp = time();
-        } elseif (!ctype_digit($timestamp)) {
+        } elseif (!is_int($timestamp)) {
             $timestamp = strtotime($timestamp);
         }
         # remove S (st,nd,rd,th) there are no such things in indonesia :p

@@ -73,7 +73,7 @@
                 </div>
                 <div class="desc"> <?php echo $this->lang->line('global_employee'); ?> </div>
             </div>
-            <a class="more" href="<?php echo base_backend_url('accounts/immigration/view'); ?>" target="__blank"> <?php echo $this->lang->line('global_view_more'); ?>
+            <a class="more" href="<?php echo base_backend_url('accounts/officer/view'); ?>" target="__blank"> <?php echo $this->lang->line('global_view_more'); ?>
                 <i class="m-icon-swapright m-icon-white"></i>
             </a>
         </div>
@@ -88,7 +88,7 @@
                     <span data-counter="counterup"><?php echo isset($_ajax_var_total_kanim) ? $_ajax_var_total_kanim : 0; ?></span></div>
                 <div class="desc"> <?php echo $this->lang->line('global_office_branch'); ?> </div>
             </div>
-            <a class="more" href="<?php echo base_backend_url('tickets/immigration_branch/view'); ?>" target="__blank"> <?php echo $this->lang->line('global_view_more'); ?>
+            <a class="more" href="<?php echo base_backend_url('tickets/office_branch/view'); ?>" target="__blank"> <?php echo $this->lang->line('global_view_more'); ?>
                 <i class="m-icon-swapright m-icon-white"></i>
             </a>
         </div>

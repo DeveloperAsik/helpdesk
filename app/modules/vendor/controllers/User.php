@@ -269,7 +269,7 @@ class User extends MY_Controller {
     public function get_user($id = 1) {
         if ($id == 1) {
             $this->load->model('Tbl_helpdesk_office_users');
-            $res = $this->Tbl_helpdesk_timtik_users->find('all', array(
+            $res = $this->Tbl_helpdesk_users->find('all', array(
                 'fields' => array('a.*'),
                 'conditions' => array('a.is_active' => 1)
                     )

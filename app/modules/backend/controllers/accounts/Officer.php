@@ -37,8 +37,8 @@ class Officer extends MY_Controller {
             static_url('templates/metronics/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js'),
         );
         $this->load_js($js_files);
-        $this->load->model('Tbl_helpdesk_office_branchs');
-        $data['branchs'] = $this->Tbl_helpdesk_office_branchs->find('list', array('order' => array('key' => 'name', 'type' => 'ASC')));
+        $this->load->model('Tbl_helpdesk_branchs');
+        $data['branchs'] = $this->Tbl_helpdesk_branchs->find('list', array('order' => array('key' => 'name', 'type' => 'ASC')));
         $this->parser->parse('layouts/pages/metronic.phtml', $data);
     }
 
@@ -85,10 +85,10 @@ class Officer extends MY_Controller {
                     );
                 }
             }
-            $this->load->model(array('Tbl_users', 'Tbl_user_groups', 'Tbl_helpdesk_employees', 'Tbl_helpdesk_employee_users', 'Tbl_helpdesk_office_branchs'));
+            $this->load->model(array('Tbl_users', 'Tbl_user_groups', 'Tbl_helpdesk_employees', 'Tbl_helpdesk_employee_users', 'Tbl_helpdesk_branchs'));
             if (isset($arr) && !empty($arr)) {
                 foreach ($arr AS $k => $v) {
-                    $branch = $this->Tbl_helpdesk_office_branchs->find('first', array('conditions' => array('code' => $v['office_id'])));
+                    $branch = $this->Tbl_helpdesk_branchs->find('first', array('conditions' => array('code' => $v['office_id'])));
                     $pass = array();
                     if (isset($v['password']) && !empty($v['password'])) {
                         $pass = array('password' => $this->oreno_auth->hash_password((base64_decode($v['password']))));
@@ -165,7 +165,7 @@ class Officer extends MY_Controller {
                     'type' => 'left'
                 ),
                 array(
-                    'table' => 'tbl_helpdesk_office_branchs c',
+                    'table' => 'tbl_helpdesk_branchs c',
                     'conditions' => 'c.id = b.branch_id',
                     'type' => 'left'
                 ),
@@ -251,7 +251,7 @@ class Officer extends MY_Controller {
                         'type' => 'LEFT'
                     ),
                     array(
-                        'table' => 'tbl_helpdesk_office_branchs d',
+                        'table' => 'tbl_helpdesk_branchs d',
                         'conditions' => 'd.id = b.branch_id',
                         'type' => 'LEFT'
                     )

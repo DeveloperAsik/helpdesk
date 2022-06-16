@@ -14,7 +14,7 @@ class Admin extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('Tbl_users', 'Tbl_helpdesk_office_users'));
+        $this->load->model(array('Tbl_users', 'Tbl_helpdesk_users'));
     }
 
     public function index() {
@@ -47,7 +47,7 @@ class Admin extends MY_Controller {
                 $cond['like'] = $cond_count['like'] = array('a.name' => $search);
             }
             $cond['conditions'] = $cond_count['conditions'] = array('c.group_id' => 1);
-            $cond['fields'] = array('a.nik', 'b.*', 'd.name group_name');
+            $cond['fields'] = array('a.*', 'b.*', 'd.name group_name');
             $cond['limit'] = array('perpage' => $length, 'offset' => $start);
             $cond['joins'] = $cond_count['joins'] = array(
                 array(
@@ -66,8 +66,8 @@ class Admin extends MY_Controller {
                     'type' => 'left'
                 )
             );
-            $total_rows = $this->Tbl_helpdesk_office_users->find('count', $cond_count);
-            $res = $this->Tbl_helpdesk_office_users->find('all', $cond);
+            $total_rows = $this->Tbl_helpdesk_users->find('count', $cond_count);
+            $res = $this->Tbl_helpdesk_users->find('all', $cond);
             $arr = array();
             if (isset($res) && !empty($res)) {
                 $i = $start + 1;
@@ -127,7 +127,7 @@ class Admin extends MY_Controller {
                 'conditions' => array('a.id' => base64_decode($post['id'])),
                 'joins' => array(
                     array(
-                        'table' => 'tbl_helpdesk_timtik_users b',
+                        'table' => 'tbl_helpdesk_users b',
                         'conditions' => 'b.user_id = a.id',
                         'type' => 'left'
                     ),
@@ -154,7 +154,7 @@ class Admin extends MY_Controller {
     public function insert() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $this->load->model(array('Tbl_user_groups', 'Tbl_helpdesk_office_users'));
+            $this->load->model(array('Tbl_user_groups', 'Tbl_helpdesk_users'));
             $status = 0;
             if ($post['active'] == 'true') {
                 $status = 1;
@@ -196,7 +196,7 @@ class Admin extends MY_Controller {
                         'created_by' => (int) base64_decode($this->auth_config->user_id),
                         'create_date' => date_now()
                     );
-                    $this->Tbl_helpdesk_office_users->insert($arr_timtik);
+                    $this->Tbl_helpdesk_users->insert($arr_timtik);
                     echo 'success';
                 } else {
                     echo 'failed';
@@ -210,7 +210,7 @@ class Admin extends MY_Controller {
     public function update() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $this->load->model('Tbl_helpdesk_office_users');
+            $this->load->model('Tbl_helpdesk_users');
             $user_id = base64_decode($post['id']);
             $status = 0;
             if ($post['active'] == "true") {
@@ -230,7 +230,7 @@ class Admin extends MY_Controller {
             $arr = array_merge($arr, $pass);
             $res = $this->Tbl_users->update($arr, $user_id);
             if ($res == true) {
-                $timtik = $this->Tbl_helpdesk_office_users->find('first', array('conditions' => array('user_id' => $user_id)));
+                $timtik = $this->Tbl_helpdesk_users->find('first', array('conditions' => array('user_id' => $user_id)));
                 $arr_timtik = array(
                     'nik' => $post['nik'],
                     'name' => $post['username'],
@@ -238,7 +238,7 @@ class Admin extends MY_Controller {
                     'user_id' => $user_id,
                     'is_active' => $status
                 );
-                $this->Tbl_helpdesk_office_users->update($arr_timtik, $timtik['id']);
+                $this->Tbl_helpdesk_users->update($arr_timtik, $timtik['id']);
                 echo 'success';
             } else {
                 echo 'failed';
@@ -272,7 +272,7 @@ class Admin extends MY_Controller {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
             $this->load->library('Oreno_log');
-            $this->load->model(array('Tbl_user_groups', 'Tbl_helpdesk_office_users'));
+            $this->load->model(array('Tbl_user_groups', 'Tbl_helpdesk_users'));
             if (is_array($post['id'])) {
                 $arr_res = 1;
                 foreach ($post['id'] AS $key => $val) {
@@ -280,8 +280,8 @@ class Admin extends MY_Controller {
                     $user = $this->Tbl_users->find('first', array('conditions' => array('id' => $val)));
                     //find at Tbl_user_groups
                     $group_user = $this->Tbl_user_groups->find('first', array('conditions' => array('user_id' => $val)));
-                    //find at tbl_helpdesk_timtik_users
-                    $timtik_user = $this->Tbl_helpdesk_office_users->find('first', array('conditions' => array('user_id' => $val)));
+                    //find at tbl_helpdesk_users
+                    $timtik_user = $this->Tbl_helpdesk_users->find('first', array('conditions' => array('user_id' => $val)));
 
                     //create log file at destination path for tbl_user
                     $this->oreno_log->init_($user, $this->setLogPath($val, $group_user['group_id'], 'tbl_user'));
@@ -292,9 +292,9 @@ class Admin extends MY_Controller {
                         $this->Tbl_user_groups->delete($group_user['id']);
                     }
                     if ($timtik_user != null) {
-                        //create log file at destination path for tbl_helpdesk_timtik_users
-                        $this->oreno_log->init_($timtik_user, $this->setLogPath($val, $group_user['group_id'], 'tbl_helpdesk_timtik_users'));
-                        $this->Tbl_helpdesk_office_users->delete($timtik_user['id']);
+                        //create log file at destination path for tbl_helpdesk_users
+                        $this->oreno_log->init_($timtik_user, $this->setLogPath($val, $group_user['group_id'], 'tbl_helpdesk_users'));
+                        $this->Tbl_helpdesk_users->delete($timtik_user['id']);
                     }
                 }
                 if ($arr_res == true) {
@@ -308,8 +308,8 @@ class Admin extends MY_Controller {
                 $user = $this->Tbl_users->find('first', array('conditions' => array('id' => $id)));
                 //find at Tbl_user_groups
                 $group_user = $this->Tbl_user_groups->find('first', array('conditions' => array('user_id' => $id)));
-                //find at tbl_helpdesk_timtik_users
-                $timtik_user = $this->Tbl_helpdesk_office_users->find('first', array('conditions' => array('user_id' => $id)));
+                //find at tbl_helpdesk_users
+                $timtik_user = $this->Tbl_helpdesk_users->find('first', array('conditions' => array('user_id' => $id)));
 
                 //create log file at destination path for tbl_user
                 $this->oreno_log->init_($user, $this->setLogPath($id, $group_user['group_id'], 'tbl_user'));
@@ -320,9 +320,9 @@ class Admin extends MY_Controller {
                     $this->Tbl_user_groups->delete($group_user['id']);
                 }
                 if ($timtik_user != null) {
-                    //create log file at destination path for tbl_helpdesk_timtik_users
-                    $this->oreno_log->init_($timtik_user, $this->setLogPath($id, $group_user['group_id'], 'tbl_helpdesk_timtik_users'));
-                    $this->Tbl_helpdesk_office_users->delete($timtik_user['id']);
+                    //create log file at destination path for tbl_helpdesk_users
+                    $this->oreno_log->init_($timtik_user, $this->setLogPath($id, $group_user['group_id'], 'tbl_helpdesk_users'));
+                    $this->Tbl_helpdesk_users->delete($timtik_user['id']);
                 }
                 if ($res == true) {
                     echo 'success';

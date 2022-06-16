@@ -38,7 +38,7 @@ class Oreno_auth {
         if ($result->result->status == 'success') {
             $userid = $result->result->content->username;
             $pass_hashed = $result->result->content->password;
-            //verfiy password
+            //verify password
             $CI->load->model('Tbl_user_groups');
             $group = $CI->Tbl_user_groups->find('first', array('conditions' => array('user_id' => $result->result->content->id)));
             if (password_verify($pass, $pass_hashed)) {
@@ -85,7 +85,7 @@ class Oreno_auth {
                         'conditions' => array('a.user_id' => $id),
                         'joins' => array(
                             array(
-                                'table' => 'tbl_helpdesk_office_branchs b',
+                                'table' => 'tbl_helpdesk_branchs b',
                                 'conditions' => 'b.id = a.branch_id',
                                 'type' => 'left'
                             )

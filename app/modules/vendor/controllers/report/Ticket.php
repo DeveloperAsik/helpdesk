@@ -159,7 +159,7 @@ class Ticket extends MY_Controller {
             LEFT JOIN tbl_helpdesk_ticket_categories g ON g.id = b.job_id
             LEFT JOIN tbl_helpdesk_ticket_rules i ON i.id = b.rule_id
             LEFT JOIN (SELECT ticket_id, job_list, message FROM tbl_helpdesk_ticket_requests j WHERE create_date IN (SELECT max(create_date) FROM tbl_helpdesk_ticket_requests j WHERE j.is_active = 1)) AS j ON j.ticket_id = a.id
-            LEFT JOIN tbl_helpdesk_imigration_branchs k ON k.id = b.branch_id
+            LEFT JOIN tbl_helpdesk_branchs k ON k.id = b.branch_id
             LEFT JOIN tbl_helpdesk_ticket_reopen_logs n ON n.ticket_id = a.id AND n.is_active = 1
             LEFT JOIN tbl_helpdesk_activities o ON o.ticket_id = a.id AND o.is_active = 1
             LEFT JOIN tbl_users p ON p.id = o.created_by
@@ -541,7 +541,7 @@ class Ticket extends MY_Controller {
                 LEFT JOIN tbl_helpdesk_ticket_categories g ON g.id = b.job_id
                 LEFT JOIN tbl_helpdesk_ticket_rules i ON i.id = b.rule_id
                 LEFT JOIN (SELECT ticket_id, job_list, message FROM tbl_helpdesk_ticket_requests j WHERE create_date IN (SELECT max(create_date) FROM tbl_helpdesk_ticket_requests j WHERE j.is_active = 1)) AS j ON j.ticket_id = a.id
-                LEFT JOIN tbl_helpdesk_imigration_branchs k ON k.id = b.branch_id
+                LEFT JOIN tbl_helpdesk_branchs k ON k.id = b.branch_id
                 LEFT JOIN tbl_helpdesk_ticket_reopen_logs n ON n.ticket_id = a.id AND n.is_active = 1
                 LEFT JOIN tbl_helpdesk_activities o ON o.ticket_id = a.id AND o.is_active = 1
                 LEFT JOIN tbl_users p ON p.id = o.created_by
@@ -844,7 +844,7 @@ class Ticket extends MY_Controller {
             LEFT JOIN tbl_helpdesk_ticket_rules i ON i.id = b.rule_id                    
             LEFT JOIN tbl_users j ON j.id = a.created_by
             LEFT JOIN tbl_helpdesk_ticket_requests k ON k.ticket_id = a.id
-            LEFT JOIN tbl_helpdesk_imigration_branchs l ON l.id = b.branch_id
+            LEFT JOIN tbl_helpdesk_branchs l ON l.id = b.branch_id
             LEFT JOIN tbl_helpdesk_ticket_reopen_logs o ON o.ticket_id = a.id
         ';
         $conditions = 'WHERE a.id LIKE "%' . $id . '%" ';

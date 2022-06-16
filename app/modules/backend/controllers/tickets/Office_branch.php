@@ -17,7 +17,7 @@ class Office_branch extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('Tbl_helpdesk_office_branchs'));
+        $this->load->model(array('Tbl_helpdesk_branchs'));
     }
 
     public function index() {
@@ -33,7 +33,7 @@ class Office_branch extends MY_Controller {
             static_url('templates/metronics/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js'),
         );
         $this->load_js($js_files);
-        $data['types'] = array( 'DIREKT', 'KANIM', 'KANWIL', 'RUDENI', 'TPI' );
+        $data['types'] = array( 'CABANG', 'CABANG-PEMBANTU', 'AGENT' );
         $this->parser->parse('layouts/pages/metronic.phtml', $data);
     }
 
@@ -46,14 +46,14 @@ class Office_branch extends MY_Controller {
             $length = $post['length'];
             $search = trim($post['search']['value']);
             $cond_count = array();
-            $cond['table'] = $cond_count['table'] = 'Tbl_helpdesk_office_branchs';
+            $cond['table'] = $cond_count['table'] = 'Tbl_helpdesk_branchs';
             $cond['fields'] = array('a.*');
             $cond['limit'] = array('perpage' => $length, 'offset' => $start);
             if (isset($search) && !empty($search)) {
                 $cond['or_like'] = $cond_count['or_like'] = array('a.name' => $search);
             }
-            $total_rows = $this->Tbl_helpdesk_office_branchs->find('count', $cond_count);
-            $res = $this->Tbl_helpdesk_office_branchs->find('all', $cond);
+            $total_rows = $this->Tbl_helpdesk_branchs->find('count', $cond_count);
+            $res = $this->Tbl_helpdesk_branchs->find('all', $cond);
             $arr = array();
             if (isset($res) && !empty($res)) {
                 $i = $start + 1;
@@ -110,7 +110,7 @@ class Office_branch extends MY_Controller {
     public function get_data() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $res = $this->Tbl_helpdesk_office_branchs->find('first', array(
+            $res = $this->Tbl_helpdesk_branchs->find('first', array(
                 'conditions' => array('id' => base64_decode($post['id']))
             ));
             if (isset($res) && !empty($res)) {
@@ -144,7 +144,7 @@ class Office_branch extends MY_Controller {
                 'created_by' => (int) base64_decode($this->auth_config->user_id),
                 'create_date' => date_now()
             );
-            $result = $this->Tbl_helpdesk_office_branchs->insert($arr_insert);
+            $result = $this->Tbl_helpdesk_branchs->insert($arr_insert);
             if ($result == true) {
                 echo 'success';
             } else {
@@ -174,7 +174,7 @@ class Office_branch extends MY_Controller {
                 'description' => $post['description'],
                 'is_active' => $status,
             );
-            $res = $this->Tbl_helpdesk_office_branchs->update($arr, base64_decode($post['id']));
+            $res = $this->Tbl_helpdesk_branchs->update($arr, base64_decode($post['id']));
             if ($res == true) {
                 echo 'success';
             } else {
@@ -196,7 +196,7 @@ class Office_branch extends MY_Controller {
             $arr = array(
                 'is_active' => $status
             );
-            $res = $this->Tbl_helpdesk_office_branchs->update($arr, $id);
+            $res = $this->Tbl_helpdesk_branchs->update($arr, $id);
             if ($res == true) {
                 echo 'success';
             } else {
@@ -211,7 +211,7 @@ class Office_branch extends MY_Controller {
             if (is_array($post['id'])) {
                 $arr_res = 1;
                 foreach ($post['id'] AS $key => $val) {
-                    $arr_res = $this->Tbl_helpdesk_office_branchs->delete($val);
+                    $arr_res = $this->Tbl_helpdesk_branchs->delete($val);
                 }
                 if ($arr_res == true) {
                     echo 'success';
@@ -220,7 +220,7 @@ class Office_branch extends MY_Controller {
                 }
             } else {
                 $id = base64_decode($post['id']);
-                $res = $this->Tbl_helpdesk_office_branchs->delete($id);
+                $res = $this->Tbl_helpdesk_branchs->delete($id);
                 if ($res == true) {
                     echo 'success';
                 } else {

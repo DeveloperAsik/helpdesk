@@ -1,8 +1,3 @@
-<!--BEGIN LOGO -->
-<!-- <div class="logo">
-    <img style="width:10%"  src="<?php //echo static_url('images\logo\helpdesk-logo.png') ?>" alt="" /> 
-</div> -->
-<!-- END LOGO -->
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!-- BEGIN LOGIN FORM -->

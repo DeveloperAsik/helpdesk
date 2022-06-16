@@ -51,7 +51,7 @@ class Master extends MY_Controller {
         ini_set('memory_limit', '2048M');
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $this->load->model(array('Tbl_helpdesk_office_branchs', 'Tbl_helpdesk_ticket_priorities', 'Tbl_helpdesk_ticket_requests', 'Tbl_helpdesk_ticket_reopen_logs'));
+            $this->load->model(array('Tbl_helpdesk_branchs', 'Tbl_helpdesk_ticket_priorities', 'Tbl_helpdesk_ticket_requests', 'Tbl_helpdesk_ticket_reopen_logs'));
             //init config for datatables
             $draw = $post['draw'];
             $start = $post['start'];
@@ -120,7 +120,7 @@ class Master extends MY_Controller {
                 LEFT JOIN `tbl_helpdesk_ticket_categories` `f` ON `f`.`id` = `b`.`job_id`
                 LEFT JOIN `tbl_helpdesk_ticket_handlers` `g` ON `g`.`ticket_id` = `a`.`id`
                 LEFT JOIN `tbl_helpdesk_ticket_priorities` `h` ON `h`.`id` = `b`.`priority_id`
-                LEFT JOIN `tbl_helpdesk_office_branchs` `i` ON `i`.`id` = `b`.`branch_id`
+                LEFT JOIN `tbl_helpdesk_branchs` `i` ON `i`.`id` = `b`.`branch_id`
                 $joins 
                 WHERE `a`.`is_active` = 1 $conditions_search $cond_search_opt 
                 LIMIT $start, $length
@@ -148,7 +148,7 @@ class Master extends MY_Controller {
                     if ($d['is_active'] == 1) {
                         $status = 'checked';
                     }
-                    $branch_code = $this->Tbl_helpdesk_office_branchs->get_code($d['branch_id']);
+                    $branch_code = $this->Tbl_helpdesk_branchs->get_code($d['branch_id']);
                     if ($this->auth_config->group_id == 1) {
                         $branch_code = 'Tim TIK';
                     }
@@ -559,7 +559,7 @@ class Master extends MY_Controller {
                     );
                     $result = array_merge($result, $t);
                     if ($result['branch_id'] && $result['branch_id'] != 0) {
-                        $branch = $this->Tbl_helpdesk_office_branchs->find('first', array('conditions' => array('a.id' => $result['branch_id'])));
+                        $branch = $this->Tbl_helpdesk_branchs->find('first', array('conditions' => array('a.id' => $result['branch_id'])));
                         $b = array(
                             'branch' => $branch
                         );
@@ -972,7 +972,7 @@ class Master extends MY_Controller {
     }
 
     public function create() {
-        $this->load->model(array('Tbl_helpdesk_ticket_categories', 'Tbl_helpdesk_office_branchs', 'Tbl_helpdesk_ticket_problem_impacts'));
+        $this->load->model(array('Tbl_helpdesk_ticket_categories', 'Tbl_helpdesk_branchs', 'Tbl_helpdesk_ticket_problem_impacts'));
         $data['title_for_layout'] = $this->lang->line('global_title_for_layout_master_ticket_create');
         //load ajax var
         $var = array(
@@ -1004,7 +1004,7 @@ class Master extends MY_Controller {
                 $fields_problem = array('a.id', 'a.name_ina txt');
                 break;
         }
-        $data['branch'] = $this->Tbl_helpdesk_office_branchs->find('all', array('conditions' => array('is_active' => 1)));
+        $data['branch'] = $this->Tbl_helpdesk_branchs->find('all', array('conditions' => array('is_active' => 1)));
         $data['problem_impact'] = $this->Tbl_helpdesk_ticket_problem_impacts->find('all', array('fields' => $fields_problem, 'conditions' => array('is_active' => 1)));
         $data['category'] = $this->Tbl_helpdesk_ticket_categories->find('all', array('fields' => $fields_ctg_ticket, 'conditions' => array('is_active' => 1, 'level' => 1)));
         $this->parser->parse('layouts/pages/metronic.phtml', $data);
@@ -1588,7 +1588,7 @@ class Master extends MY_Controller {
     public function transfer_ticket() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_office_branchs', 'Tbl_helpdesk_ticket_transfers', 'Tbl_user_groups', 'Tbl_helpdesk_ticket_handlers', 'Tbl_helpdesk_vendor_users', 'Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_ticket_chats', 'Tbl_helpdesk_activities', 'Tbl_helpdesk_ticket_files'));
+            $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_branchs', 'Tbl_helpdesk_ticket_transfers', 'Tbl_user_groups', 'Tbl_helpdesk_ticket_handlers', 'Tbl_helpdesk_vendor_users', 'Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_ticket_chats', 'Tbl_helpdesk_activities', 'Tbl_helpdesk_ticket_files'));
             $user_to = 0;
             $parent_ticket = $this->Tbl_helpdesk_tickets->query("SELECT
                     a.*, 
@@ -1619,7 +1619,7 @@ class Master extends MY_Controller {
                  * Genereate new ticket
                  */
                 $get_office_code = $this->get_office_code_from_ticket($post['ticket_code']);
-                $imi_branchs = $this->Tbl_helpdesk_office_branchs->find('first', array('conditions' => array('code' => $get_office_code)));
+                $imi_branchs = $this->Tbl_helpdesk_branchs->find('first', array('conditions' => array('code' => $get_office_code)));
                 $new_ticket_code = $this->get_ticket_last_code($get_office_code);
                 $arr = array(
                     "parent_ticket_id" => $post['ticket_id'],

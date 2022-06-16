@@ -37,8 +37,8 @@ class Mvc extends MY_Controller {
             static_url('templates/metronics/assets/global/plugins/typeahead/typeahead.bundle.min.js')
         );
         $this->load_js($js_files);
-        $this->load->model(array('Tbl_helpdesk_ticket_status', 'Tbl_users', 'Tbl_helpdesk_imigration_branchs', 'Tbl_helpdesk_ticket_problem_impacts', 'Tbl_helpdesk_ticket_categories'));
-        $data['branch'] = $this->Tbl_helpdesk_imigration_branchs->find('all', array('conditions' => array('is_active' => 1)));
+        $this->load->model(array('Tbl_helpdesk_ticket_status', 'Tbl_users', 'Tbl_helpdesk_branchs', 'Tbl_helpdesk_ticket_problem_impacts', 'Tbl_helpdesk_ticket_categories'));
+        $data['branch'] = $this->Tbl_helpdesk_branchs->find('all', array('conditions' => array('is_active' => 1)));
         $data['problem_impact'] = $this->Tbl_helpdesk_ticket_problem_impacts->find('all', array('conditions' => array('is_active' => 1)));
         $data['category'] = $this->Tbl_helpdesk_ticket_categories->find('all', array('conditions' => array('is_active' => 1, 'level' => 1)));
         $data['ticket_status'] = $this->Tbl_helpdesk_ticket_status->find('list', array('conditions' => array('is_active' => 1)));
@@ -246,17 +246,14 @@ class Mvc extends MY_Controller {
                 }
                 echo 'Insert new ticket into db : <br/>';
                 foreach ($arr AS $key => $value) {
-                    $vl = '';
-                    if($post['user']){
-                        $vl = array('user_id' => $post['user']);
-                    }
                     if ($post['is_random_date'] == 1) {
                         $value['create_date'] = date('Y-' . str_pad(generate_number(1), 2, '0', STR_PAD_LEFT) . '-' . str_pad(generate_number(1), 2, '0', STR_PAD_LEFT) . ' ' . str_pad(generate_number(1), 2, '0', STR_PAD_LEFT) . ':' . str_pad(generate_number(1), 2, '0', STR_PAD_LEFT) . ':00');
                     }
                     if ($value['create_date'] == '0000-00-00 00:00:00') {
                         $value['create_date'] = date('Y-' . str_pad(generate_number(1), 2, '0', STR_PAD_LEFT) . '-' . str_pad(generate_number(1), 2, '0', STR_PAD_LEFT) . ' ' . str_pad(generate_number(1), 2, '0', STR_PAD_LEFT) . ':' . str_pad(generate_number(1), 2, '0', STR_PAD_LEFT) . ':00');
                     }
-                    $this->do_insert_ticket($value, $vl);
+                    $value['user_id'] = (int) $post['user'];
+                    $this->do_insert_ticket($value);
                     echo "Successfully create new ticket with code " . $value['code'] . '<br/><hr/>';
                 }
                 echo '<hr/>' . "Finish create " . $post['total'] . '<hr/>';
@@ -272,6 +269,7 @@ class Mvc extends MY_Controller {
                 'code' => $post['code'],
                 'content' => $post['issue'],
                 'description' => '-',
+                'issued_by' => $post['user_id'],
                 'is_active' => 1,
                 'created_by' => 1,
                 'create_date' => isset($create_date) ? $create_date : date_now()
@@ -293,7 +291,7 @@ class Mvc extends MY_Controller {
                     'category_id' => (int) $post['category'],
                     'job_id' => (int) $post['job'],
                     'status_id' => $post['ticket_status'],
-                    'branch_id' => 155,
+                    'branch_id' => 1,
                     'problem_impact_id' => $impact,
                     'priority_id' => $priority,
                     'rule_id' => $rule_id['id'],
@@ -362,7 +360,7 @@ class Mvc extends MY_Controller {
                         'is_vendor' => 1,
                         'is_active' => 1,
                         'reply_to' => 1,
-                        'created_by' => 1,
+                        'created_by' => $post['user_id'],
                         'create_date' => isset($create_date) ? $create_date : date_now()
                     );
                     $this->Tbl_helpdesk_ticket_chats->insert($arr_insert);
@@ -416,10 +414,10 @@ class Mvc extends MY_Controller {
             switch ($param) {
                 case 'admin':
                     $str .= '#Select field from table db_helpdesk ...<br/>';
-                    $str .= '#Truncate tbl_helpdesk_timtik_users; <br/>';
-                    $query = "TRUNCATE `tbl_helpdesk_timtik_users`";
+                    $str .= '#Truncate tbl_helpdesk_users; <br/>';
+                    $query = "TRUNCATE `tbl_helpdesk_users`";
                     $this->Tbl_helpdesk_tickets->query($query, 'update');
-                    $str .= '#Successfully reset tbl_helpdesk_timtik_users...';
+                    $str .= '#Successfully reset tbl_helpdesk_users...';
                     break;
                 case 'vendor':
                     $str .= '#Select field from table db_helpdesk ...<br/>';

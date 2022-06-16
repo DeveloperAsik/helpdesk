@@ -42,7 +42,7 @@ class MY_Controller extends MX_Controller {
         $arr = array();
         if ($this->config) {
             foreach ($this->config AS $key => $val) {
-                if (!is_array($val)) {
+                if (isset($val) && !empty($val) && !is_array($val)) {
                     $arr[] = 'var ' . $key . ' = "' . $val . '";';
                 }
             }
@@ -78,7 +78,7 @@ class MY_Controller extends MX_Controller {
         //load var for menu
         $module = $this->config->session_name;
         $sess = $this->_session_auth($module);
-        if ($sess['is_logged_in']) {
+        if (isset($sess['is_logged_in']) && !empty($sess['is_logged_in']) && $sess['is_logged_in']) {
             $mn = $this->menu($this->get_module_id(), false, 1);
         } else {
             $mn = $this->menu($this->get_module_id(), false, 0);
@@ -118,7 +118,7 @@ class MY_Controller extends MX_Controller {
         $result = $this->Tbl_configs->find('all', array('conditions' => array('is_static' => 0, 'is_active' => 1)));
         if ($result) {
             foreach ($result AS $key => $val) {
-                $arr{$val['keyword']} = $val['value'];
+                $arr[$val['keyword']] = $val['value'];
             }
         }
         if (isset($arr) && !empty($arr)) {
@@ -193,36 +193,38 @@ class MY_Controller extends MX_Controller {
     public function auth_config() {
         $session_name = $this->config->session_name;
         $sess = $this->_session_auth($session_name);
-        switch ($sess['group_id']) {
-            case 1:
-                $sess['global_uri'] = base_url('backend/');
-                break;
-            case 2:
-                $sess['global_uri'] = base_url('');
-                break;
-            case 3:
-                $sess['global_uri'] = base_url('vendor/');
-                break;
-            case 4:
-                $sess['global_uri'] = base_url('monitor/');
-                break;
-        }
-        if (isset($sess['is_logged_in']) && !empty($sess['is_logged_in'])) {
-            $arr = '';
-            foreach ($sess AS $key => $val) {
-                if (!empty($arr))
-                    $arr .= ' ';
-                $arr .= 'var ' . $key . ' = "' . $val . '";';
+        if (isset($sess['group_id']) && !empty($sess['group_id'])) {
+            switch ($sess['group_id']) {
+                case 1:
+                    $sess['global_uri'] = base_url('backend/');
+                    break;
+                case 2:
+                    $sess['global_uri'] = base_url('');
+                    break;
+                case 3:
+                    $sess['global_uri'] = base_url('vendor/');
+                    break;
+                case 4:
+                    $sess['global_uri'] = base_url('monitor/');
+                    break;
             }
-            $this->load->vars('_load_auth_config_var', $sess);
-            $this->load->vars('_load_auth_config_ajax_var', $arr);
-            $this->auth_config = new stdClass();
-            if (isset($sess) && !empty($sess)) {
+            if (isset($sess['is_logged_in']) && !empty($sess['is_logged_in'])) {
+                $arr = '';
                 foreach ($sess AS $key => $val) {
-                    $this->auth_config->{$key} = $val;
+                    if (!empty($arr))
+                        $arr .= ' ';
+                    $arr .= 'var ' . $key . ' = "' . $val . '";';
                 }
+                $this->load->vars('_load_auth_config_var', $sess);
+                $this->load->vars('_load_auth_config_ajax_var', $arr);
+                $this->auth_config = new stdClass();
+                if (isset($sess) && !empty($sess)) {
+                    foreach ($sess AS $key => $val) {
+                        $this->auth_config->{$key} = $val;
+                    }
+                }
+                return $this->auth_config;
             }
-            return $this->auth_config;
         }
     }
 
@@ -489,11 +491,11 @@ class MY_Controller extends MX_Controller {
     }
 
     public function get_total_office() {
-        $this->load->model('Tbl_helpdesk_office_branchs');
+        $this->load->model('Tbl_helpdesk_branchs');
         $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
         $obj_cache = base64_encode('get_total_office');
         if (!$total_rows = $this->cache->get($obj_cache)) {
-            $total_rows = $this->Tbl_helpdesk_office_branchs->find('count');
+            $total_rows = $this->Tbl_helpdesk_branchs->find('count');
             // Save into the cache for 10 minutes
             $this->cache->save($obj_cache, $total_rows, 43200);
         }
@@ -563,7 +565,7 @@ class MY_Controller extends MX_Controller {
         }
     }
 
-    public function get_ticket_last_code($branch_code = 'IMI', $created_by = null) {
+    public function get_ticket_last_code($branch_code = 'HLP', $created_by = null) {
         $this->load->model(array('Tbl_helpdesk_tickets'));
         if ($this->auth_config) {
             $code = strtoupper(date('Y.m.d') . '.' . $branch_code);
@@ -883,8 +885,9 @@ class MY_Controller extends MX_Controller {
     }
 
     public function _logout() {
-        $this->session->sess_destroy();
-        $this->oreno_auth->destroy_session($this->_session_auth());
+        session_destroy();
+        //$this->session->sess_destroy('');
+        //$this->oreno_auth->destroy_session($this->_session_auth(''));
     }
 
     protected function get_permission() {
@@ -1110,8 +1113,8 @@ class MY_Controller extends MX_Controller {
         if ($code != null) {
             $code = explode('.', $code);
             if ($opt == 'id') {
-                $this->load->model('Tbl_helpdesk_office_branchs');
-                $r = $this->Tbl_helpdesk_office_branchs->find('first', array('conditions' => array('code' => $code[3])));
+                $this->load->model('Tbl_helpdesk_branchs');
+                $r = $this->Tbl_helpdesk_branchs->find('first', array('conditions' => array('code' => $code[3])));
                 return $r['id'];
             } else {
                 return $code[3];

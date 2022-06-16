@@ -32,8 +32,8 @@ class Monitor extends MY_Controller {
             static_url('templates/metronics/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js'),
         );
         $this->load_js($js_files);
-        $this->load->model('Tbl_helpdesk_office_branchs');
-        $data['branchs'] = $this->Tbl_helpdesk_office_branchs->find('list', array('order' => array('key' => 'name', 'type' => 'ASC')));
+        $this->load->model('Tbl_helpdesk_branchs');
+        $data['branchs'] = $this->Tbl_helpdesk_branchs->find('list', array('order' => array('key' => 'name', 'type' => 'ASC')));
         $this->parser->parse('layouts/pages/metronic.phtml', $data);
     }
 
@@ -60,7 +60,7 @@ class Monitor extends MY_Controller {
                     'type' => 'left'
                 ),
                 array(
-                    'table' => 'tbl_helpdesk_office_branchs c',
+                    'table' => 'tbl_helpdesk_branchs c',
                     'conditions' => 'c.id = b.branch_id',
                     'type' => 'left'
                 ),

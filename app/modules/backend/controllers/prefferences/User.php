@@ -63,8 +63,8 @@ class User extends MY_Controller {
 
     public function get_user($id = 1) {
         if ($id == 1) {
-            $this->load->model('Tbl_helpdesk_timtik_users');
-            $res = $this->Tbl_helpdesk_timtik_users->find('all', array(
+            $this->load->model('Tbl_helpdesk_users');
+            $res = $this->Tbl_helpdesk_users->find('all', array(
                 'fields' => array('a.*'),
                 'conditions' => array('a.is_active' => 1)
                     )
@@ -160,7 +160,7 @@ class User extends MY_Controller {
     public function update() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $this->load->model(array('Tbl_users', 'Tbl_user_profiles', 'Tbl_helpdesk_timtik_users'));
+            $this->load->model(array('Tbl_users', 'Tbl_user_profiles', 'Tbl_helpdesk_users'));
             $user_id = base64_decode($post['id']);
             $pass = array();
             if (isset($post['password']) && !empty($post['password'])) {
