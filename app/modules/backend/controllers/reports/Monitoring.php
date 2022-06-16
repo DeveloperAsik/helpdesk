@@ -267,7 +267,7 @@ class Monitoring extends MY_Controller {
         echo json_encode($arr_chart);
     }
 
-    public function get_total_ticket_per_kanim() {
+    public function get_total_ticket_per_cabang() {
         $this->load->model(array('Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_branchs', 'Tbl_helpdesk_tickets'));
         $year = date('Y');
         $branch_ticket = $this->Tbl_helpdesk_ticket_transactions->query("SELECT a.id, a.code, a.name, COUNT(b.status_id) total FROM tbl_helpdesk_imigration_branchs a 

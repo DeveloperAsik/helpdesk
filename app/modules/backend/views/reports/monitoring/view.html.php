@@ -80,7 +80,7 @@
                             <div class="portlet box blue">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-gift"></i>Total tiket terbanyak per-kanim (<?php echo date('Y'); ?>)
+                                        <i class="fa fa-gift"></i>Total tiket terbanyak per-cabang (<?php echo date('Y'); ?>)
                                     </div>
                                     <div class="tools">
                                         <a href="javascript:;" class="collapse">

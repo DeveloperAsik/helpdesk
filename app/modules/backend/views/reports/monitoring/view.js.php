@@ -199,7 +199,7 @@
     };
 
     var fnTotalTicketPerKanim = function () {
-        var uri = base_backend_url + "reports/v2_monitoring/get_total_ticket_per_kanim";
+        var uri = base_backend_url + "reports/monitoring/get_total_ticket_per_cabang";
         $.ajax({
             url: uri,
             type: "post",
@@ -216,7 +216,7 @@
     };
 
     var fnTotalTicketPerMonthByStatus = function () {
-        var uri = base_backend_url + "reports/v2_monitoring/get_total_ticket_per_month_by_status";
+        var uri = base_backend_url + "reports/monitoring/get_total_ticket_per_month_by_status";
         $.ajax({
             url: uri,
             type: "post",
@@ -233,7 +233,7 @@
     };
 
     var fnTotalTicketPerMonthByUser = function () {
-        var uri = base_backend_url + "reports/v2_monitoring/get_total_ticket_progress_per_month";
+        var uri = base_backend_url + "reports/monitoring/get_total_ticket_progress_per_month";
         $.ajax({
             url: uri,
             type: "post",
