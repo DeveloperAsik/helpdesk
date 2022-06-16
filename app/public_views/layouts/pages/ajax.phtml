@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>{title_for_layout}</title>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    </head>
+    <body>
+        <div id="loading" hidden> {{ message }} </div>
+        <?php $this->load->view('components/flash_message.php'); ?>
+        <?php $this->load->view('components/content.html.php'); ?>
+    </body>
+</html>

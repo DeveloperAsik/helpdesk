@@ -1,0 +1,65 @@
+<!--[if lt IE 9]>
+<script src="<?php //echo static_url('templates/metronics')  ?>/assets/global/plugins/respond.min.js"></script>
+<script src="<?php //echo static_url('templates/metronics')  ?>/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+<!-- BEGIN CORE PLUGINS -->
+<script src="<?php echo static_url('lib/packages/vue/vue.js'); ?>"></script>
+<script src="<?php echo static_url('lib/packages/angularjs/1.7.8/angular.min.js'); ?>"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/jquery.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/bootstrap/js/bootstrap.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/jquery.blockui.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/uniform/jquery.uniform.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/jquery-idle-timeout/jquery.idletimeout.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/jquery-idle-timeout/jquery.idletimer.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/jquery-notific8/jquery.notific8.min.js') ?>"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/backstretch/jquery.backstretch.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('lib/single/base64.js') ?>" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<?php if (isset($_ajax_var_ticket) && !empty($_ajax_var_ticket)): ?>
+    <?php foreach ($_ajax_var_ticket AS $key => $val): ?>
+        <?php echo '<script> var ' . $key . '_total = ' . $val . '</script>'; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?php
+ if (isset($_ticket_push) && !empty($_ticket_push)): 
+    $echo ='<script> ';
+    //foreach ($_ticket_push AS $key => $val):  
+        $echo .= 'var ticket_push_' . ' = ' . $_ticket_push .';';  
+    //endforeach;  
+    $echo .= '</script>';
+    echo $echo;
+endif; 
+?>
+<?php if (isset($_lang) && !empty($_lang)): ?>
+    <?php
+    $echo = '<script> ';
+    $echo .= 'var _lang' . ' = "' . $_lang . '";';
+    $echo .= '</script>';
+    echo $echo;
+    ?>
+<?php endif; ?>
+<?php echo!empty($_ajax_var_configs) ? '<script>' . $_ajax_var_configs . '</script>' : ''; ?>
+<?php echo!empty($_ajax_var_template) ? '<script>' . $_ajax_var_template . '</script>' : ''; ?>
+<?php echo!empty($_load_ajax_var) ? '<script>' . $_load_ajax_var . '</script>' : ''; ?>
+<?php echo!empty($_load_auth_config_ajax_var) ? '<script>' . $_load_auth_config_ajax_var . '</script>' : ''; ?>
+<?php isset($_var_template->_app_js) ? $this->load->view($_var_template->_app_js) : ''; ?>
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<!-- END THEME GLOBAL SCRIPTS -->
+
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/bootbox/bootbox.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/bootstrap-toastr/toastr.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo static_url('templates/metronics/assets/global/plugins/bootbox/bootbox.min.js') ?>" type="text/javascript"></script>
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="<?php //echo static_url('templates/metronics/assets/pages/scripts/lock-2.min.js')  ?>" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<!-- END THEME LAYOUT SCRIPTS -->
+
+<?php isset($_var_template->_global_js) ? $this->load->view($_var_template->_global_js) : ''; ?>
+<?php isset($_var_template->_view_js) ? $this->load->view($_var_template->_view_js) : ''; ?>

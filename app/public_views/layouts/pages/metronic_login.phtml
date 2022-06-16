@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><?php echo isset($title_for_layout) ? $title_for_layout : '' ?></title>
+        <?php $this->load->view('includes/templates/metronic_login/include_meta.phtml'); ?>
+        <?php $this->load->view('includes/templates/metronic_login/include_css.phtml'); ?>		
+    </head>
+    <body class=" login">
+        <div id="timer"></div>
+        <audio id="messageSound">
+            <source src="<?php echo static_url("sound/definite.mp3") ?>" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="col-xs-12" style="background-color:#ccc; padding:10px; font-size:18px">
+            <marquee><div class="running_text"></div></marquee>
+        </div>
+        <div class="col-xs-12">
+            <div class="input-group col-xs-2" style="text-align:right; float:right; margin-top:20px">
+                 <!-- <?php $this->load->view('includes/tools/change_lang.html.php'); ?> -->
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <?php $this->load->view('components/content.html.php'); ?>
+        </div>
+        <?php $this->load->view('includes/tools/modal_hot_news.html.php'); ?>
+    </body>
+    <?php $this->load->view('includes/templates/metronic_login/include_js.phtml'); ?>	
+</html>

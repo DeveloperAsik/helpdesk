@@ -1,0 +1,26 @@
+    
+	filename : etc/bind/zones/db.netofcreatives
+	
+	;
+    ; BIND data file for netofcreatives.com
+    ;
+    $TTL    3h
+    @       IN      SOA     ns1.netofcreatives.com. admin.netofcreatives.com. (
+                              1        ; Serial
+                              3h       ; Refresh after 3 hours
+                              1h       ; Retry after 1 hour
+                              1w       ; Expire after 1 week
+                              1h )     ; Negative caching TTL of 1 day
+    ;
+    @       IN      NS      ns1.netofcreatives.com.
+    @       IN      NS      ns2.netofcreatives.com.
+    netofcreatives.com.     IN      MX      10      netofcreatives.com.
+    netofcreatives.com.     IN      A       101.50.3.192
+    ns1                     IN      A       101.50.3.192
+    ns2                     IN      A       101.50.3.192
+    www                     IN      CNAME   netofcreatives.com.
+    mail                    IN      A       101.50.3.192
+    ftp                     IN      CNAME   netofcreatives.com.
+	
+	
+	
