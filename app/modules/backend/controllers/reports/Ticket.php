@@ -43,7 +43,7 @@ class Ticket extends MY_Controller {
         );
         $this->load_ajax_var($var);
         $css_files = array(
-            static_url('lib/packages/jquery-ui/jq   uery-ui.min.css'),
+            static_url('lib/packages/jquery-ui/jquery-ui.min.css'),
             static_url('templates/metronics/assets/global/plugins/datatables/plugins/jquery.dataTables.min.css'),
             static_url('templates/metronics/assets/global/plugins/datatables/plugins/buttons.dataTables.min.css'),
             static_url('templates/metronics/assets/global/plugins/datatables/plugins/select.dataTables.min.css')
@@ -494,8 +494,8 @@ class Ticket extends MY_Controller {
                     </style>
                 ';
                 // letterhead
-                $Logo1 = static_url('images\logo\logo-imigrasi.png');
-                $Logo2 = static_url('images\logo\logo_pengayoman.png');
+                $Logo1 = ''; //static_url('images\logo\logo-imigrasi.png');
+                $Logo2 = ''; //static_url('images\logo\logo_pengayoman.png');
                 $txt = '';
 
                 // print letterhead
@@ -676,12 +676,15 @@ class Ticket extends MY_Controller {
                     $result .= '</table>';
                 }
                 $pdf->writeHTML($result, true, false, true, false, '');
-                $filename = 'laporan_tiket_helpdesk_' . date('dmyhis') . '.pdf';
+// reset pointer to the last page
+                $pdf->lastPage();
+                $filename = 'laporan_helpdesk_' . date('dmyhis') . '.pdf';
                 $path = DOCUMENT_ROOT . '/var/static/documents/pdf/' . $filename;
                 if (!is_dir(DOCUMENT_ROOT . '/var/static/documents/pdf/')) {
                     mkdir(DOCUMENT_ROOT . '/var/static/documents/pdf/', 0775);
                 }
                 $pdf->Output($path, 'F');
+                //$pdf->Output($filename, 'I');
                 echo base_url('/var/static/documents/pdf/' . $filename);
             }
         }
@@ -709,7 +712,7 @@ class Ticket extends MY_Controller {
                     LEFT JOIN tbl_helpdesk_ticket_reopen_logs o ON o.ticket_id = a.id';
         $conditions = 'WHERE a.id LIKE "%' . $id . '%" ';
         $ticket1 = $this->Tbl_helpdesk_tickets->query("SELECT {$fields} FROM {$tbl_name} {$joins} {$conditions}");
-        $title_file = 'V2_ticket_report_' . $ticket1[0]['code'];
+        $title_file = 'ticket_report_' . $ticket1[0]['code'];
         $spreadsheet->getProperties()->setCreator('PhpOffice')
                 ->setLastModifiedBy('PhpOffice')
                 ->setTitle('Office 2007 XLSX Test Document')

@@ -128,6 +128,7 @@
                         data: formdata,
                         success: function (response) {
                             App.stopPageLoading();
+                            //return false;
                             //toastr.success('Sukses menambahkan tiket baru ');
                             //window.location.href = base_url + 'ticket/view/open';
                              var dialog = bootbox.dialog({

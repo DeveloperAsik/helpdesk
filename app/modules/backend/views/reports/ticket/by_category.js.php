@@ -38,7 +38,7 @@
                 $('#ticket_category').on('change', function () {
                     App.startPageLoading();
                     var id = $(this).val();
-                    var uri = base_backend_url + 'reports/v2_ticket/get_category/';
+                    var uri = base_backend_url + 'reports/ticket/get_category/';
                     var formdata = {
                         id: Base64.encode(id)
                     };
@@ -73,29 +73,12 @@
                         "bDestroy": true,
                         "dom": 'Blfrtip',
                         "buttons": [
-                            // {
-                            //     title: export_file_name,
-                            //     extend: 'print',
-                            //     exportOptions: {
-                            //         columns: ':visible'
-                            //     }
-                            // },
-                            // {
-                            //     title: export_file_name,
-                            //     messageTop: 'Ticket Report',
-                            //     extend: 'pdf',
-                            //     orientation: 'landscape',
-                            //     pageSize: 'LEGAL',
-                            //     exportOptions: {
-                            //         columns: ':visible'
-                            //     }
-                            // },
                             {
                                 title: export_file_name,
                                 text: 'PDF',
                                 action: function () {
                                     $.ajax({
-                                        url: base_backend_url + 'reports/v2_ticket/gen_to_pdf',
+                                        url: base_backend_url + 'reports/ticket/gen_to_pdf',
                                         type: "POST",
                                         data: {
                                             "param1": {
@@ -143,7 +126,7 @@
                             processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
                         },
                         "ajax": {
-                            url: base_backend_url + 'reports/v2_ticket/get_list/',
+                            url: base_backend_url + 'reports/ticket/get_list/',
                             type: 'POST',
                             data: {
                                 "param1": {

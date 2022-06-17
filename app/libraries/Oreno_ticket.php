@@ -6,13 +6,14 @@ class Oreno_ticket {
         $CI = & get_instance();
         $ticket = $CI->Tbl_helpdesk_tickets->find('first', array('conditions' => array('code' => $post['code'])));
         $ticket_id = $ticket['id'];
-        $issued_by = 0;
-        if(isset($post['issued_by']) && !empty($post['issued_by'])){
-            $issued_by = $post['issued_by'];
-        }
-        $created_by = array();
-        if(isset($sess['created_by']) && !empty($sess['created_by'])){
+        $created_by = array('created_by' => base64_decode($sess['user_id']));
+        if (isset($sess['created_by']) && !empty($sess['created_by'])) {
             $created_by = array("created_by" => $sess['created_by']);
+        }
+
+        $issued_by = $created_by['created_by'];
+        if (isset($post['issued_by']) && !empty($post['issued_by'])) {
+            $issued_by = $post['issued_by'];
         }
         $arr_insert = array(
             'code' => $post['code'],
@@ -22,12 +23,12 @@ class Oreno_ticket {
             'issued_by' => $issued_by
         );
         $arr_insert = array_merge($arr_insert, $created_by);
-        if(isset($post['parent_ticket_id']) && !empty($post['parent_ticket_id'])){
+        if (isset($post['parent_ticket_id']) && !empty($post['parent_ticket_id'])) {
             $arr_insert = array_merge($arr_insert, array('parent_ticket_id' => $post['parent_ticket_id']));
         }
         $CI->Tbl_helpdesk_tickets->update($arr_insert, $ticket_id);
         if ($ticket_id) {
-            $CI->load->model(array('Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_ticket_rules', 'Tbl_helpdesk_ticket_chats','Tbl_helpdesk_ticket_logs', 'Tbl_helpdesk_activities'));
+            $CI->load->model(array('Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_ticket_rules', 'Tbl_helpdesk_ticket_chats', 'Tbl_helpdesk_ticket_logs', 'Tbl_helpdesk_activities'));
             $priority = 1;
             $impact = $post['problem_impact'];
             if ($post['problem_impact'] == 0) {
@@ -53,7 +54,7 @@ class Oreno_ticket {
             $CI->Tbl_helpdesk_ticket_transactions->insert($arr_trans);
             $arr_activity = array(
                 'ticket_id' => (int) $ticket_id,
-                'response_time_start' => date('Y-m-d H:i:s'), 
+                'response_time_start' => date('Y-m-d H:i:s'),
                 'response_time_stop' => '0000-00-00 00:00:00',
                 'transfer_time_start' => '0000-00-00 00:00:00',
                 'transfer_time_stop' => '0000-00-00 00:00:00',
@@ -65,7 +66,7 @@ class Oreno_ticket {
                 'create_date' => date_now()
             );
             $CI->Tbl_helpdesk_activities->insert($arr_activity);
-            $message  = 'Tiket berhasil dibuat';
+            $message = 'Tiket berhasil dibuat';
             $rr = array(
                 'messages' => $message,
                 'ticket_id' => (int) $ticket_id,

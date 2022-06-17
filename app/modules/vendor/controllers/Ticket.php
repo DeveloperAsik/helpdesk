@@ -56,7 +56,7 @@ class Ticket extends MY_Controller {
         ini_set('memory_limit', '1024M');
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $this->load->model(array('Tbl_helpdesk_office_branchs', 'Tbl_helpdesk_ticket_requests', 'Tbl_helpdesk_ticket_reopen_logs'));
+            $this->load->model(array('Tbl_helpdesk_branchs', 'Tbl_helpdesk_ticket_requests', 'Tbl_helpdesk_ticket_reopen_logs'));
             //init config for datatables
             $draw = $post['draw'];
             $start = $post['start'];
@@ -121,7 +121,7 @@ class Ticket extends MY_Controller {
                 LEFT JOIN `tbl_helpdesk_ticket_categories` `f` ON `f`.`id` = `b`.`job_id`
                 LEFT JOIN `tbl_helpdesk_ticket_handlers` `g` ON `g`.`ticket_id` = `a`.`id`
                 LEFT JOIN `tbl_helpdesk_ticket_priorities` `h` ON `h`.`id` = `b`.`priority_id`
-                LEFT JOIN `tbl_helpdesk_office_branchs` `i` ON `i`.`id` = `b`.`branch_id`
+                LEFT JOIN `tbl_helpdesk_branchs` `i` ON `i`.`id` = `b`.`branch_id`
                 $joins
                 WHERE `a`.`is_active` = 1 $conditions_search
                 $cond_search_opt
@@ -151,7 +151,7 @@ class Ticket extends MY_Controller {
                     if ($d['is_active'] == 1) {
                         $status = 'checked';
                     }
-                    $branch_code = $this->Tbl_helpdesk_office_branchs->get_code($d['branch_id']);
+                    $branch_code = $this->Tbl_helpdesk_branchs->get_code($d['branch_id']);
                     if ($this->auth_config->group_id == 1) {
                         $branch_code = 'Tim TIK';
                     }
@@ -593,7 +593,7 @@ class Ticket extends MY_Controller {
                     );
                     $result = array_merge($result, $t);
                     if ($result['branch_id'] && $result['branch_id'] != 0) {
-                        $branch = $this->Tbl_helpdesk_office_branchs->find('first', array('conditions' => array('a.id' => $result['branch_id'])));
+                        $branch = $this->Tbl_helpdesk_branchs->find('first', array('conditions' => array('a.id' => $result['branch_id'])));
                         $b = array(
                             'branch' => $branch
                         );
