@@ -27,8 +27,8 @@ class Oreno_generate_file {
             case 'branch':
                 $this->fn_get_branch_file($filename, $filetype);
                 break;
-            case 'vendor':
-                $this->fn_get_vendor_file($filename, $filetype);
+            case 'support':
+                $this->fn_get_support_file($filename, $filetype);
                 break;
         }
     }
@@ -191,7 +191,7 @@ class Oreno_generate_file {
         }
     }
 
-    protected function fn_get_vendor_file($filename, $type) {
+    protected function fn_get_support_file($filename, $type) {
         if ($filename != null) {
             $spreadsheet = new Spreadsheet();
             $title_file = $filename;
@@ -203,7 +203,7 @@ class Oreno_generate_file {
                     ->setKeywords('PhpOffice')
                     ->setCategory('PhpOffice');
             $sheet = $spreadsheet->getActiveSheet();
-            $sheet->setTitle('Unggah data kelompok vendor');
+            $sheet->setTitle('Unggah data kelompok support');
             $i = 5;
             /*
              * sheet style
@@ -244,7 +244,7 @@ class Oreno_generate_file {
             $sheet->setCellValue('B1', $text_config_information1);
             $sheet->mergeCells('B2:F2');
             $text_config_information2 = '
-               Kode kelompok pengguna (vendor) : 3 (vendor) | otomatis di generate
+               Kode kelompok pengguna (support) : 3 (support) | otomatis di generate
             ';
             $sheet->setCellValue('B2', $text_config_information2);
             $sheet->mergeCells('B3:F3');

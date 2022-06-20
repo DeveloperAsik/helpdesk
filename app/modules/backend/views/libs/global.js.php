@@ -15,7 +15,7 @@
     //optional ajax function start here 
     var fnCheckResponseBtn = function (id) { var return_val = false; var url_post = base_backend_url + 'tickets/master/check_status_ticket'; var formdata = { id: id }; $.ajax({ url: url_post, method: "POST", data: formdata, success: function (response) { if (response == 'true') { return true; } else { return false; } } }); };
     var fnGetTimtikUser = function () { var url_post = base_backend_url + 'prefferences/user/get_user/1'; $.ajax({ url: url_post, method: "POST", success: function (response) { $('.timtik').html(response); } }); return false; };
-    var fnGetVendorUser = function () { var url_post = base_backend_url + 'prefferences/user/get_user/2'; $.ajax({ url: url_post, method: "POST", success: function (response) { $('.vendor').html(response); } }); return false; };
+    var fnGetVendorUser = function () { var url_post = base_backend_url + 'prefferences/user/get_user/2'; $.ajax({ url: url_post, method: "POST", success: function (response) { $('.support').html(response); } }); return false; };
     var fnTicketAuth = function (status) { switch (status) { case 'close': $('#re_open').show(); $('#sbmt_message').attr('disabled', 'disabled'); $('#req_to_close').hide(); $('.caption-helper').css('color:red'); break; case 'progress': $('#re_open').hide(); $('#mark_as_solve').attr('disabled', 'disabled'); break; case 'open': $('#re_open').hide(); break; } };
     var fnInterval = function(){ 
         setInterval(function () { 
@@ -382,9 +382,9 @@
                     },
                     number: true
                 },
-                vendor_transfer_ticket: {
+                support_transfer_ticket: {
                     depends: function (elem) {
-                        return $("#vendor_transfer_ticket").val() == ''
+                        return $("#support_transfer_ticket").val() == ''
                     },
                     number: true
                 },
@@ -437,9 +437,9 @@
                     },
                     number: true
                 },
-                vendor_transfer_ticket: {
+                support_transfer_ticket: {
                     depends: function (elem) {
-                        return $("#vendor_transfer_ticket").val() == ''
+                        return $("#support_transfer_ticket").val() == ''
                     },
                     number: true
                 },
@@ -846,15 +846,15 @@
                     var id = $(this).val();
                     if (id == 1) {
                         $('#timtik_frm').fadeIn();
-                        $('#vendor_frm').fadeOut();
+                        $('#support_frm').fadeOut();
                         fnGetTimtikUser();
                         $('#timtik_transfer_ticket').attr('required', true);
-                        $('#vendor_transfer_ticket').removeAttr('required');
+                        $('#support_transfer_ticket').removeAttr('required');
                     } else if (id == 2) {
-                        $('#vendor_frm').fadeIn();
+                        $('#support_frm').fadeIn();
                         $('#timtik_frm').fadeOut();
                         fnGetVendorUser();
-                        $('#vendor_transfer_ticket').attr('required', true);
+                        $('#support_transfer_ticket').attr('required', true);
                         $('#timtik_transfer_ticket').removeAttr('required');
                     }
                 });
@@ -1117,7 +1117,7 @@
                         ticket_code: $('input[name="code_transfer_ticket"]').val(),
                         //group: $('#group_transfer_ticket').val(),
                         //timtik: $('#timtik_transfer_ticket').val(),
-                        //vendor: $('#vendor_transfer_ticket').val(),
+                        //support: $('#support_transfer_ticket').val(),
                         note: $('textarea[name="note_transfer_ticket"]').val(),
                         category: $('#ticket_transfer_category').val(),
                         job: $('#ticket_transfer_job').val()

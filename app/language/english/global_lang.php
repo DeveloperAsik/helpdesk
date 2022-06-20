@@ -98,8 +98,10 @@ $lang['global_value'] = 'Value';
 //dashboard datatable tickets
 $lang['global_code'] = 'Code';
 $lang['global_content'] = 'Content';
-$lang['global_vendor_code'] = 'Vendor Code';
-$lang['global_vendor_name'] = 'Vendor Name';
+
+$lang['global_support_title'] = 'IT Support Division';
+$lang['global_support_code'] = 'Division Code';
+$lang['global_support_name'] = 'Division Name';
 $lang['global_create_date'] = 'Create Date';
 $lang['global_create_time'] = 'Create Time';
 $lang['global_status'] = 'Status';
@@ -176,10 +178,10 @@ $lang['global_select_msg'] = 'Select Files';
 $lang['global_employee'] = 'Employee';
 $lang['global_employee_list'] = ' Officer List';
 $lang['global_office_branch'] = ' Office';
-$lang['global_vendor'] = 'Vendor';
+$lang['global_support'] = 'Vendor';
 $lang['global_job'] = 'Job';
 $lang['global_user_timtik'] = 'Office User';
-$lang['global_vendor_user'] = 'Vendor User';
+$lang['global_support_user'] = 'IT Supports';
 $lang['global_note'] = 'Note';
 $lang['global_admin_list'] = 'Admin List';
 $lang['global_group_list'] = 'Vendor Group List';
@@ -234,8 +236,8 @@ $lang['global_track_header'] = 'Track Your Ticket';
 $lang['global_ticket_create_by'] = 'Ticket Create By';
 $lang['global_previous_close_message'] = 'Previously close message';
 
-$lang['global_title_for_layout_vendor'] = 'Vendor (KSO) user list page';
-$lang['global_header_title_vendor'] = 'View vendor user list';
+$lang['global_title_for_layout_support'] = 'Vendor (KSO) user list page';
+$lang['global_header_title_support'] = 'View support user list';
 $lang['global_title_for_layout_monitor'] = 'Monitor user list page';
 $lang['global_header_title_monitor'] = 'View monitor user list';
 $lang['global_title_for_layout_imi'] = 'Imigration user list page';

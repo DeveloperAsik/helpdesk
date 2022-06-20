@@ -153,7 +153,7 @@
                             {"data": "content"},
                             {"data": "status"},
                             {"data": "response"},
-                            {"data": "vendor"},
+                            {"data": "support"},
                             {"data": "closing"},
                             {"data": "kanim"},
                             {"data": "creator"},

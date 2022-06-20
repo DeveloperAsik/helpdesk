@@ -70,8 +70,8 @@ class User extends MY_Controller {
                     )
             );
         } elseif ($id == 2) {
-            $this->load->model('Tbl_helpdesk_vendor_users');
-            $res = $this->Tbl_helpdesk_vendor_users->find('all', array(
+            $this->load->model('Tbl_helpdesk_support_users');
+            $res = $this->Tbl_helpdesk_support_users->find('all', array(
                 'fields' => array('a.id', 'a.nik', 'b.email'),
                 'conditions' => array('a.is_active' => 1),
                 'joins' => array(

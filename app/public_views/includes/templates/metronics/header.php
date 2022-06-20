@@ -5,7 +5,6 @@
         <div class="page-logo">
             <p style="float:left; margin: 5px 0; width:80%; font-size:25px; text-align:center">
                 <a href="<?php echo isset($_var_auth_conf->global_uri) ? $_var_auth_conf->global_uri : base_url(); ?>dashboard">
-                    <!--<img style="width:20%" src="<?php //echo static_url('images\logo\logo-imigrasi.png') ?>" alt="logo" />-->
                     <span style="color:#fff">HELPDESK</span>
                 </a>
             </p>
@@ -33,12 +32,12 @@
                                 <i class="icon-user"></i> <?php echo $this->lang->line('global_profile_title'); ?> 
                             </a>
                         </li>
-                        <!-- <li class="divider"> </li> -->
-                        <!-- <li>
+                        <li class="divider"> </li>
+                        <li>
                             <a href="<?php echo isset($_var_auth_conf->global_uri) ? $_var_auth_conf->global_uri : base_url(); ?>lock-screen">
                                 <i class="icon-lock"></i> <?php echo $this->lang->line('global_lockscreen_sidebar'); ?>
                             </a>
-                        </li> -->
+                        </li> 
                         <li>
                             <a href="<?php echo isset($_var_auth_conf->global_uri) ? $_var_auth_conf->global_uri : base_url(); ?>logout">
                                 <i class="icon-logout"></i> <?php echo $this->lang->line('global_logout'); ?>

@@ -7,7 +7,7 @@
         local: [
             {num: 'base_url'},
             {num: 'base_backend_url'},
-            {num: 'base_vendor_url'},
+            {num: 'base_support_url'},
             {num: 'app_url'},
             {num: 'static_url'},
             {num: 'global_view_url'}

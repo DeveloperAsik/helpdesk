@@ -206,7 +206,7 @@ class Ticket extends MY_Controller {
                         $data['content'] = substr($d['content'], 0, 80); //optional
                         $data['status'] = $d['ticket_status']; //optional
                         $data['response'] = isset($d['response_message']) ? $d['response_message'] : ''; //optional
-                        $data['vendor'] = $d['first_name']; //optional
+                        $data['support'] = $d['first_name']; //optional
                         $data['closing'] = isset($d['close_message']) ? $d['close_message'] : '-'; //optional
                         $data['kanim'] = $d['name']; //optional
                         $data['creator'] = $d['created_by']; //optional

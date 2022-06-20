@@ -899,7 +899,7 @@ class Master extends MY_Controller {
                         )
                             )
                     );
-                    if ($value['is_vendor'] == 1) {
+                    if ($value['is_support'] == 1) {
                         $by = 'Vendor[' . $user['email'] . ']';
                         if ($value['created_by'] == 1) {
                             $by = 'Superuser[' . $user['email'] . ']';
@@ -956,7 +956,7 @@ class Master extends MY_Controller {
                 'messages' => $post['message'],
                 'ticket_id' => $ticket_id,
                 'ticket_code' => $post['ticket_code'],
-                'is_vendor' => 1,
+                'is_support' => 1,
                 'is_active' => 1,
                 'reply_to' => $this->get_ticket_owner($ticket_id),
                 'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -1100,22 +1100,22 @@ class Master extends MY_Controller {
         }
     }
 
-    public function get_vendor($id = null) {
-        $this->load->model('Tbl_helpdesk_ticket_vendors');
-        $result = $this->Tbl_helpdesk_ticket_vendors->find('first', array(
-            'fields' => array('a.*', 'b.name vendor_name'),
+    public function get_support($id = null) {
+        $this->load->model('Tbl_helpdesk_ticket_supports');
+        $result = $this->Tbl_helpdesk_ticket_supports->find('first', array(
+            'fields' => array('a.*', 'b.name support_name'),
             'conditions' => array('category_id' => $id),
             'group' => array('a.id'),
             'joins' => array(
                 array(
-                    'table' => 'tbl_helpdesk_vendors b',
-                    'conditions' => 'b.id = a.vendor_id',
+                    'table' => 'tbl_helpdesk_supports b',
+                    'conditions' => 'b.id = a.support_id',
                     'type' => 'left'
                 )
             )
         ));
         if (isset($result) && !empty($result)) {
-            echo '<option value="' . $result['vendor_id'] . '">' . $result['vendor_name'] . '</option>';
+            echo '<option value="' . $result['support_id'] . '">' . $result['support_name'] . '</option>';
         } else {
             echo '';
         }
@@ -1214,7 +1214,7 @@ class Master extends MY_Controller {
                         'ticket_code' => $ticket['code'],
                         'is_open' => 0,
                         'is_show' => 0,
-                        'is_vendor' => 1,
+                        'is_support' => 1,
                         'is_active' => 1,
                         'reply_to' => $handler['user_id'],
                         'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -1228,7 +1228,7 @@ class Master extends MY_Controller {
                         'ticket_code' => $chat['ticket_code'],
                         'is_open' => $chat['is_open'],
                         'is_show' => $chat['is_show'],
-                        'is_vendor' => $chat['is_vendor'],
+                        'is_support' => $chat['is_support'],
                         'is_active' => $chat['is_active'],
                         'reply_to' => $chat['reply_to'],
                         'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -1242,7 +1242,7 @@ class Master extends MY_Controller {
                         'ticket_code' => $chat['ticket_code'],
                         'is_open' => $chat['is_open'],
                         'is_show' => $chat['is_show'],
-                        'is_vendor' => 0,
+                        'is_support' => 0,
                         'is_active' => $chat['is_active'],
                         'reply_to' => 0,
                         'created_by' => 0,
@@ -1410,7 +1410,7 @@ class Master extends MY_Controller {
                     'ticket_code' => $ticket['code'],
                     'is_open' => 0,
                     'is_show' => 0,
-                    'is_vendor' => 1,
+                    'is_support' => 1,
                     'is_active' => 1,
                     'reply_to' => $handler['user_id'],
                     'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -1526,7 +1526,7 @@ class Master extends MY_Controller {
                         'messages' => 'telah di response oleh ' . ($this->auth_config->username) . ' dan merubah kategori yang sesuai dengan kategori ' . $new_category_name . ' dan jenis pekerjaan menjadi ' . $new_job_name,
                         'ticket_id' => $ticket['id'],
                         'ticket_code' => $ticket['code'],
-                        'is_vendor' => 0,
+                        'is_support' => 0,
                         'is_active' => 1,
                         'reply_to' => 0,
                         'created_by' => 0,
@@ -1542,7 +1542,7 @@ class Master extends MY_Controller {
                         'messages' => 'telah di respon oleh ' . ($this->auth_config->username),
                         'ticket_id' => $ticket['id'],
                         'ticket_code' => $ticket['code'],
-                        'is_vendor' => 0,
+                        'is_support' => 0,
                         'is_active' => 1,
                         'reply_to' => 0,
                         'created_by' => 0,
@@ -1566,7 +1566,7 @@ class Master extends MY_Controller {
                     'messages' => $post['message'],
                     'ticket_id' => $ticket['id'],
                     'ticket_code' => $ticket['code'],
-                    'is_vendor' => 1,
+                    'is_support' => 1,
                     'is_active' => 1,
                     'reply_to' => $ticket['created_by'],
                     'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -1588,7 +1588,7 @@ class Master extends MY_Controller {
     public function transfer_ticket() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-            $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_branchs', 'Tbl_helpdesk_ticket_transfers', 'Tbl_user_groups', 'Tbl_helpdesk_ticket_handlers', 'Tbl_helpdesk_vendor_users', 'Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_ticket_chats', 'Tbl_helpdesk_activities', 'Tbl_helpdesk_ticket_files'));
+            $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_branchs', 'Tbl_helpdesk_ticket_transfers', 'Tbl_user_groups', 'Tbl_helpdesk_ticket_handlers', 'Tbl_helpdesk_support_users', 'Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_ticket_chats', 'Tbl_helpdesk_activities', 'Tbl_helpdesk_ticket_files'));
             $user_to = 0;
             $parent_ticket = $this->Tbl_helpdesk_tickets->query("SELECT
                     a.*, 
@@ -1655,7 +1655,7 @@ class Master extends MY_Controller {
                     'messages' => $post['note'],
                     'ticket_id' => $new_ticket['id'],
                     'ticket_code' => $new_ticket['code'],
-                    'is_vendor' => 1,
+                    'is_support' => 1,
                     'is_active' => 1,
                     'reply_to' => $parent_ticket_chats['reply_to'],
                     'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -1701,7 +1701,7 @@ class Master extends MY_Controller {
                     'ticket_code' => $post['ticket_code'],
                     'is_open' => 0,
                     'is_show' => 0,
-                    'is_vendor' => 0,
+                    'is_support' => 0,
                     'is_active' => 1,
                     'reply_to' => 0,
                     'created_by' => 0,
@@ -1715,7 +1715,7 @@ class Master extends MY_Controller {
                     'ticket_code' => $post['ticket_code'],
                     'is_open' => 0,
                     'is_show' => 0,
-                    'is_vendor' => 1,
+                    'is_support' => 1,
                     'is_active' => 1,
                     'reply_to' => $this->get_ticket_owner($post['ticket_id'], 'vndr'),
                     'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -1729,7 +1729,7 @@ class Master extends MY_Controller {
                     'ticket_code' => $new_ticket['code'],
                     'is_open' => 0,
                     'is_show' => 0,
-                    'is_vendor' => 0,
+                    'is_support' => 0,
                     'is_active' => 1,
                     'reply_to' => 0,
                     'created_by' => (int) base64_decode($this->auth_config->user_id),

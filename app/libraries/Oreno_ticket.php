@@ -73,7 +73,7 @@ class Oreno_ticket {
                 'ticket_code' => $post['code'],
                 'is_open' => 0,
                 'is_show' => 0,
-                'is_vendor' => 0,
+                'is_support' => 0,
                 'is_active' => 1,
                 'reply_to' => 0,
                 'created_by' => 0,

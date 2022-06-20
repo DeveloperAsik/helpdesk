@@ -13,7 +13,7 @@ class MY_Controller extends MX_Controller {
             //optional start here
             $this->get_total_user();
             $this->get_total_office();
-            $this->get_total_vendor();
+            $this->get_total_support();
             $this->get_total_ticket_category();
             $this->get_notif_ticket();
             $this->get_all_history();
@@ -202,7 +202,7 @@ class MY_Controller extends MX_Controller {
                     $sess['global_uri'] = base_url('');
                     break;
                 case 3:
-                    $sess['global_uri'] = base_url('vendor/');
+                    $sess['global_uri'] = base_url('support/');
                     break;
                 case 4:
                     $sess['global_uri'] = base_url('monitor/');
@@ -244,7 +244,7 @@ class MY_Controller extends MX_Controller {
                     $_redirect_login_data = 'dashboard';
                     $_redirect_login_status = true;
                 } elseif ($this->auth_config->group_id == 3) {
-                    $_redirect_login_data = 'vendor/dashboard';
+                    $_redirect_login_data = 'support/dashboard';
                     $_redirect_login_status = true;
                 } elseif ($this->auth_config->group_id == 4) {
                     $_redirect_login_data = 'monitor/dashboard';
@@ -270,7 +270,7 @@ class MY_Controller extends MX_Controller {
                     $_redirect_login_data = 'dashboard';
                     $_redirect_login_status = true;
                 } elseif ($this->auth_config->group_id == 3) {
-                    $_redirect_login_data = 'vendor/dashboard';
+                    $_redirect_login_data = 'support/dashboard';
                     $_redirect_login_status = true;
                 } elseif ($this->auth_config->group_id == 4) {
                     $_redirect_login_data = 'monitor/dashboard';
@@ -502,16 +502,16 @@ class MY_Controller extends MX_Controller {
         $this->load->vars('_ajax_var_total_kanim', $total_rows);
     }
 
-    public function get_total_vendor() {
-        $this->load->model('Tbl_helpdesk_vendors');
+    public function get_total_support() {
+        $this->load->model('Tbl_helpdesk_supports');
         $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-        $obj_cache = base64_encode('get_total_vendor');
+        $obj_cache = base64_encode('get_total_support');
         if (!$total_rows = $this->cache->get($obj_cache)) {
-            $total_rows = $this->Tbl_helpdesk_vendors->find('count');
+            $total_rows = $this->Tbl_helpdesk_supports->find('count');
             // Save into the cache for 10 minutes
             $this->cache->save($obj_cache, $total_rows, 43200);
         }
-        $this->load->vars('_ajax_var_total_vendor', $total_rows);
+        $this->load->vars('_ajax_var_total_support', $total_rows);
     }
 
     public function get_total_ticket_category() {
@@ -875,7 +875,7 @@ class MY_Controller extends MX_Controller {
         $redi = '';
         if (isset($sess) && !empty($sess)) {
             $redi = base_url($redirect_to);
-            if ($sess['group_name'] == 'vendor') {
+            if ($sess['group_name'] == 'support') {
                 $redi = base_url($redirect_to);
             }
         } else {

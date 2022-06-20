@@ -113,22 +113,22 @@ class Ticket extends MY_Controller {
         }
     }
 
-    public function get_vendor($id = null) {
-        $this->load->model('Tbl_helpdesk_ticket_vendors');
-        $result = $this->Tbl_helpdesk_ticket_vendors->find('first', array(
-            'fields' => array('a.*', 'b.name vendor_name'),
+    public function get_support($id = null) {
+        $this->load->model('Tbl_helpdesk_ticket_supports');
+        $result = $this->Tbl_helpdesk_ticket_supports->find('first', array(
+            'fields' => array('a.*', 'b.name support_name'),
             'conditions' => array('category_id' => $id),
             'group' => array('a.id'),
             'joins' => array(
                 array(
-                    'table' => 'tbl_helpdesk_vendors b',
-                    'conditions' => 'b.id = a.vendor_id',
+                    'table' => 'tbl_helpdesk_supports b',
+                    'conditions' => 'b.id = a.support_id',
                     'type' => 'left'
                 )
             )
         ));
         if (isset($result) && !empty($result)) {
-            echo '<option value="' . $result['vendor_id'] . '">' . $result['vendor_name'] . '</option>';
+            echo '<option value="' . $result['support_id'] . '">' . $result['support_name'] . '</option>';
             exit();
         } else {
             echo '';
@@ -503,7 +503,7 @@ class Ticket extends MY_Controller {
                         )
                             )
                     );
-                    if ($value['is_vendor'] == 1) {
+                    if ($value['is_support'] == 1) {
                         $by = 'Vendor[' . $user['email'] . ']';
                         if ($value['created_by'] == 1) {
                             $by = 'Superuser[' . $user['email'] . ']';
@@ -560,7 +560,7 @@ class Ticket extends MY_Controller {
                 'messages' => ($post['message']),
                 'ticket_id' => $ticket_id,
                 'ticket_code' => $post['ticket_code'],
-                'is_vendor' => 0,
+                'is_support' => 0,
                 'is_active' => 1,
                 'reply_to' => $this->get_ticket_owner($ticket_id,'timtik'),
                 'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -790,7 +790,7 @@ class Ticket extends MY_Controller {
                     'ticket_code' => $old_cht['ticket_code'],
                     'is_open' => $old_cht['is_open'],
                     'is_show' => $old_cht['is_show'],
-                    'is_vendor' => $old_cht['is_vendor'],
+                    'is_support' => $old_cht['is_support'],
                     'is_active' => $old_cht['is_active'],
                     'reply_to' => $old_cht['reply_to'],
                     'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -803,7 +803,7 @@ class Ticket extends MY_Controller {
                     'ticket_code' => $old_cht['ticket_code'],
                     'is_open' => $old_cht['is_open'],
                     'is_show' => 0,
-                    'is_vendor' => 0,
+                    'is_support' => 0,
                     'is_active' => $old_cht['is_active'],
                     'reply_to' => 0,
                     'created_by' => 0,
@@ -873,7 +873,7 @@ class Ticket extends MY_Controller {
                         'ticket_code' => $old_cht['ticket_code'],
                         'is_open' => $old_cht['is_open'],
                         'is_show' => $old_cht['is_show'],
-                        'is_vendor' => $old_cht['is_vendor'],
+                        'is_support' => $old_cht['is_support'],
                         'is_active' => $old_cht['is_active'],
                         'reply_to' => $this->get_ticket_owner($ticket_id),
                         'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -886,7 +886,7 @@ class Ticket extends MY_Controller {
                         'ticket_code' => $old_cht['ticket_code'],
                         'is_open' => $old_cht['is_open'],
                         'is_show' => 0,
-                        'is_vendor' => 0,
+                        'is_support' => 0,
                         'is_active' => $old_cht['is_active'],
                         'reply_to' => 0,
                         'created_by' => 0,

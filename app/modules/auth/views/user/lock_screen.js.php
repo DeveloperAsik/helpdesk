@@ -30,7 +30,7 @@
                                     window.location = base_url + 'dashboard';
                                 } else if (res.message.group == 3) {
                                     App.stopPageLoading();
-                                    window.location = base_url + 'vendor/dashboard';
+                                    window.location = base_url + 'support/dashboard';
                                 }
                             } else {
                                 $('#unlock_screen')[0].reset();

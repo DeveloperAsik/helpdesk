@@ -79,7 +79,7 @@ class Monitoring extends MY_Controller{
             $cond['limit'] = array('perpage' => $length, 'offset' => $start);
             $total_rows = $this->Tbl_helpdesk_tickets->find('count', $cond_count);
             $config = array(
-                'base_url' => base_url('vendor/report/monitoring/get_list/'),
+                'base_url' => base_url('support/report/monitoring/get_list/'),
                 'total_rows' => $total_rows,
                 'per_page' => $length,
             );

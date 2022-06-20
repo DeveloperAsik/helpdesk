@@ -23,7 +23,7 @@
             <!--</li>-->
             <?php $this->load->view('includes/templates/metronics4/sidebar_menu/helpdesk.php') ?>	
             <?php $this->load->view('includes/templates/metronics4/sidebar_menu/backend.php') ?>		
-            <?php $this->load->view('includes/templates/metronics4/sidebar_menu/vendor.php') ?>		
+            <?php $this->load->view('includes/templates/metronics4/sidebar_menu/support.php') ?>		
         </ul>
     </div>
 </div>

@@ -179,7 +179,7 @@ class Ticket extends MY_Controller {
                 if (!empty($post['param1']['problem_subject'])) {
                     $conditions .= " AND g.id = " . $post['param1']['problem_subject'] . "";
                 }
-                $jnt = 'LEFT JOIN (SELECT messages As response_message, ticket_id, min(create_date) FROM tbl_helpdesk_ticket_chats l WHERE is_vendor != 0 GROUP BY ticket_id) AS l ON l.ticket_id = a.id';
+                $jnt = 'LEFT JOIN (SELECT messages As response_message, ticket_id, min(create_date) FROM tbl_helpdesk_ticket_chats l WHERE is_support != 0 GROUP BY ticket_id) AS l ON l.ticket_id = a.id';
                 $f = ',l.response_message';
                 $act = ' LEFT JOIN (SELECT ticket_id,solving_time_start AS solving_start,   solving_time_stop AS solving_stop,response_time_start AS response_start, response_time_stop AS response_stop FROM tbl_helpdesk_activities d WHERE solving_time_stop IN (SELECT max(solving_time_stop) FROM tbl_helpdesk_activities d WHERE d.is_active = 1)) AS d ON d.ticket_id = a.id';
             } elseif (isset($post['param3']) && !empty($post['param3'])) {
@@ -266,7 +266,7 @@ class Ticket extends MY_Controller {
                         $data['content'] = substr($d['content'], 0, 80); //optional
                         $data['status'] = $d['ticket_status']; //optional
                         $data['response'] = isset($d['response_message']) ? $d['response_message'] : ''; //optional
-                        $data['vendor'] = $d['first_name']; //optional
+                        $data['support'] = $d['first_name']; //optional
                         $data['closing'] = isset($d['close_message']) ? $d['close_message'] : '-'; //optional
                         $data['kanim'] = $d['name']; //optional
                         $data['creator'] = $d['created_by']; //optional
@@ -450,7 +450,7 @@ class Ticket extends MY_Controller {
                 if (!empty($post['param1']['problem_subject'])) {
                     $conditions .= " AND g.id = " . $post['param1']['problem_subject'] . "";
                 }
-                $jnt = 'LEFT JOIN (SELECT messages As response_message, ticket_id, min(create_date) FROM tbl_helpdesk_ticket_chats l WHERE is_vendor != 0 GROUP BY ticket_id) AS l ON l.ticket_id = a.id';
+                $jnt = 'LEFT JOIN (SELECT messages As response_message, ticket_id, min(create_date) FROM tbl_helpdesk_ticket_chats l WHERE is_support != 0 GROUP BY ticket_id) AS l ON l.ticket_id = a.id';
                 $f = ',l.response_message';
                 $act = ' LEFT JOIN (SELECT ticket_id,solving_time_start AS solving_start,   solving_time_stop AS solving_stop,response_time_start AS response_start, response_time_stop AS response_stop FROM tbl_helpdesk_activities d WHERE solving_time_stop IN (SELECT max(solving_time_stop) FROM tbl_helpdesk_activities d WHERE d.is_active = 1)) AS d ON d.ticket_id = a.id';
                 $fields = 'a.*, b.status_id, c.name ticket_status,e.name priority_name, f.name category_name,p.first_name,i.fine_result,i.response_time,i.solving_time,o.close_message,o.response_time_start, o.response_time_stop,o.solving_time_start, o.solving_time_stop, j.job_list,j.message,k.name office_name,k.address, m.first_name created_by,k.phone_number,n.ticket_id ticket,d.solving_stop,d.solving_start,d.response_stop,d.response_start,g.name job_category_name' . $f;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jun 2022 pada 10.21
+-- Waktu pembuatan: 20 Jun 2022 pada 03.13
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.5
 
@@ -471,7 +471,7 @@ CREATE TABLE `tbl_groups` (
 INSERT INTO `tbl_groups` (`id`, `name`, `description`, `level`, `is_active`, `created_by`, `create_date`) VALUES
 (1, 'superuser', '-', 1, 1, 1, '2019-02-25 00:00:00'),
 (2, 'employee', '-', 2, 1, 1, '2019-02-12 00:00:00'),
-(3, 'vendor', '-', 3, 1, 1, '2019-02-12 00:00:00'),
+(3, 'support', '-', 3, 1, 1, '2019-02-12 00:00:00'),
 (4, 'monitoring', '-', 4, 1, 1, '2019-07-16 10:04:47');
 
 -- --------------------------------------------------------
@@ -1000,16 +1000,8 @@ CREATE TABLE `tbl_helpdesk_activities` (
 --
 
 INSERT INTO `tbl_helpdesk_activities` (`id`, `ticket_id`, `response_time_start`, `response_time_stop`, `transfer_time_start`, `transfer_time_stop`, `solving_time_start`, `solving_time_stop`, `open_time`, `close_message`, `is_open`, `is_active`, `created_by`, `create_date`) VALUES
-(1, 1, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '2022-07-02 03:04:00'),
-(2, 2, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '0000-00-00 00:00:00'),
-(3, 3, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '2022-05-07 03:09:00'),
-(4, 4, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '2022-04-08 08:08:00'),
-(5, 5, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '2022-01-09 06:04:00'),
-(6, 6, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '2022-03-04 08:08:00'),
-(7, 7, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '2022-06-08 06:06:00'),
-(8, 8, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '2022-08-04 00:06:00'),
-(9, 9, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '0000-00-00 00:00:00'),
-(10, 10, '2022-06-16 14:36:49', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 1, '2022-08-03 05:04:00');
+(1, 1, '2022-06-17 09:15:33', '2022-06-17 09:19:18', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-06-17 09:19:18', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 6, '2022-06-17 09:19:18'),
+(2, 2, '2022-06-20 07:28:41', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 1, 4, '2022-06-20 07:28:41');
 
 -- --------------------------------------------------------
 
@@ -1088,6 +1080,18 @@ CREATE TABLE `tbl_helpdesk_employees` (
   `create_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tbl_helpdesk_employees`
+--
+
+INSERT INTO `tbl_helpdesk_employees` (`id`, `nik`, `name`, `email`, `phone_number`, `is_active`, `created_by`, `create_date`) VALUES
+(1, '20190906023000002', 'jaksel', 'jaksel@gmaol.co.id', '', 1, 1, '2019-09-07 20:04:51'),
+(2, '20190906023000003', 'jakut', 'jakut@gmaol.co.id', '', 1, 1, '2019-09-07 20:06:37'),
+(3, '20190906023000004', 'jakbar', 'jakbar@gmaol.co.id', '', 1, 1, '2019-09-17 14:46:30'),
+(4, '20190906023000005', 'jaktim', 'jaktim@gmaol.co.id', '', 1, 1, '2019-09-17 14:51:41'),
+(5, '20190906023000005', 'ambon', 'ambon@gmaol.co.id', '', 1, 1, '2019-09-17 14:59:26'),
+(6, '20190906023000006', 'balikpapan', 'balikpapan@gmaol.co.id', '', 1, 1, '2019-09-17 16:18:26');
+
 -- --------------------------------------------------------
 
 --
@@ -1126,6 +1130,18 @@ CREATE TABLE `tbl_helpdesk_employee_users` (
   `created_by` int(32) NOT NULL,
   `create_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_helpdesk_employee_users`
+--
+
+INSERT INTO `tbl_helpdesk_employee_users` (`id`, `employee_id`, `user_id`, `branch_id`, `is_active`, `created_by`, `create_date`) VALUES
+(1, 1, 4, 1, 1, 1, '2022-06-17 04:00:46'),
+(2, 2, 5, 2, 1, 1, '2022-06-17 04:00:46'),
+(3, 3, 15, 3, 1, 1, '2022-06-17 04:00:46'),
+(4, 4, 16, 1, 1, 1, '2022-06-17 04:00:46'),
+(5, 5, 17, 2, 1, 1, '2022-06-17 04:00:46'),
+(6, 6, 18, 3, 1, 1, '2022-06-17 04:00:46');
 
 -- --------------------------------------------------------
 
@@ -1171,6 +1187,68 @@ CREATE TABLE `tbl_helpdesk_logs` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tbl_helpdesk_supports`
+--
+
+CREATE TABLE `tbl_helpdesk_supports` (
+  `id` int(32) NOT NULL,
+  `code` varchar(32) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `phone_number` varchar(16) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `fax` varchar(32) NOT NULL,
+  `description` text NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `created_by` int(32) NOT NULL,
+  `create_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_helpdesk_supports`
+--
+
+INSERT INTO `tbl_helpdesk_supports` (`id`, `code`, `name`, `address`, `phone_number`, `email`, `fax`, `description`, `is_active`, `created_by`, `create_date`) VALUES
+(1, '0976d1hd', 'Infrastruktur', '-', '021921312312', 'infra.kantor@gmaol.com', '021432423423', '-', 1, 1, '2019-04-18 00:00:00'),
+(2, '09734rtd', 'Software', '-', '021921312312', 'soft.kantor@gmaol.com', '021432423423', '-', 1, 1, '2019-04-18 00:00:00'),
+(3, '09324', 'Network', 'jakarta', '08567465', 'net.kantor@gmaol.com', '012546678', 'desc', 1, 1, '2019-08-06 10:56:51');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_helpdesk_support_users`
+--
+
+CREATE TABLE `tbl_helpdesk_support_users` (
+  `id` int(32) NOT NULL,
+  `nik` varchar(32) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `phone_number` varchar(255) NOT NULL,
+  `support_id` int(32) NOT NULL,
+  `user_id` int(32) NOT NULL,
+  `contract_id` int(32) NOT NULL,
+  `category_id` int(32) NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 0,
+  `created_by` int(32) NOT NULL,
+  `create_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_helpdesk_support_users`
+--
+
+INSERT INTO `tbl_helpdesk_support_users` (`id`, `nik`, `name`, `phone_number`, `support_id`, `user_id`, `contract_id`, `category_id`, `is_active`, `created_by`, `create_date`) VALUES
+(1, '20190906011000002', 'bayu signet', '0867218387123', 1, 6, 1, 0, 1, 1, '2019-09-08 18:33:49'),
+(2, '20190906011000003', 'valdi signet', '0867218387123', 1, 7, 1, 0, 1, 1, '2019-09-10 09:16:17'),
+(3, '20190906011000004', 'budi signet', '0867218387123', 1, 8, 1, 0, 1, 1, '2019-09-10 09:19:40'),
+(4, '20190906025000002', 'dede abc', '0867218387123', 3, 9, 1, 0, 1, 1, '2019-09-10 09:27:40'),
+(5, '20190906023000006', 'dadang abc', '0867218387123', 3, 10, 1, 0, 1, 1, '2019-09-10 09:38:43'),
+(6, '20190906023000007', 'syehbi signet', '0867218387123', 1, 12, 1, 0, 1, 1, '2019-09-12 15:33:50'),
+(7, '20190906011000004', 'budi signet', '0867218387123', 1, 13, 1, 0, 1, 1, '2019-09-12 16:27:21');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tbl_helpdesk_tickets`
 --
 
@@ -1192,16 +1270,8 @@ CREATE TABLE `tbl_helpdesk_tickets` (
 --
 
 INSERT INTO `tbl_helpdesk_tickets` (`id`, `parent_ticket_id`, `code`, `content`, `description`, `session_id`, `is_active`, `issued_by`, `created_by`, `create_date`) VALUES
-(1, 0, '2022.06.16.TEST.00001', 'nyoba 10 dulu no : 1', '-', 0, 1, 5, 1, '2022-07-02 03:04:00'),
-(2, 0, '2022.06.16.TEST.00002', 'nyoba 10 dulu no : 2', '-', 0, 1, 5, 1, '0000-00-00 00:00:00'),
-(3, 0, '2022.06.16.TEST.00003', 'nyoba 10 dulu no : 3', '-', 0, 1, 5, 1, '2022-05-07 03:09:00'),
-(4, 0, '2022.06.16.TEST.00004', 'nyoba 10 dulu no : 4', '-', 0, 1, 5, 1, '2022-04-08 08:08:00'),
-(5, 0, '2022.06.16.TEST.00005', 'nyoba 10 dulu no : 5', '-', 0, 1, 5, 1, '2022-01-09 06:04:00'),
-(6, 0, '2022.06.16.TEST.00006', 'nyoba 10 dulu no : 6', '-', 0, 1, 5, 1, '2022-03-04 08:08:00'),
-(7, 0, '2022.06.16.TEST.00007', 'nyoba 10 dulu no : 7', '-', 0, 1, 5, 1, '2022-06-08 06:06:00'),
-(8, 0, '2022.06.16.TEST.00008', 'nyoba 10 dulu no : 8', '-', 0, 1, 5, 1, '2022-08-04 00:06:00'),
-(9, 0, '2022.06.16.TEST.00009', 'nyoba 10 dulu no : 9', '-', 0, 1, 5, 1, '0000-00-00 00:00:00'),
-(10, 0, '2022.06.16.TEST.00010', 'nyoba 10 dulu no : 10', '-', 0, 1, 5, 1, '2022-08-03 05:04:00');
+(1, 0, '2022.06.17.JE.00001', 'test 1', '-', 1655430400, 1, 4, 4, '2022-06-17 09:15:22'),
+(2, 0, '2022.06.20.JE.00001', 'test lagi', '-', 1655684832, 1, 4, 4, '2022-06-20 07:27:18');
 
 -- --------------------------------------------------------
 
@@ -1267,12 +1337,23 @@ CREATE TABLE `tbl_helpdesk_ticket_chats` (
   `ticket_code` varchar(32) NOT NULL,
   `is_open` tinyint(1) NOT NULL DEFAULT 0,
   `is_show` tinyint(1) NOT NULL DEFAULT 0,
-  `is_vendor` tinyint(1) NOT NULL DEFAULT 0,
+  `is_support` tinyint(1) NOT NULL DEFAULT 0,
   `is_active` tinyint(1) NOT NULL DEFAULT 0,
   `reply_to` int(32) NOT NULL,
   `created_by` int(32) NOT NULL,
   `create_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_helpdesk_ticket_chats`
+--
+
+INSERT INTO `tbl_helpdesk_ticket_chats` (`id`, `messages`, `ticket_id`, `ticket_code`, `is_open`, `is_show`, `is_support`, `is_active`, `reply_to`, `created_by`, `create_date`) VALUES
+(1, 'Tiket berhasil dibuat', 1, '2022.06.17.JE.00001', 0, 0, 0, 1, 0, 0, '2022-06-17 09:15:33'),
+(2, 'ok', 1, '2022.06.17.JE.00001', 0, 1, 1, 1, 4, 6, '2022-06-17 09:19:18'),
+(3, 'telah di respon oleh bayu ', 1, '2022.06.17.JE.00001', 0, 0, 0, 1, 0, 0, '2022-06-17 09:19:18'),
+(4, '<p>yoyort</p>', 1, '2022.06.17.JE.00001', 0, 1, 0, 1, 6, 4, '2022-06-17 09:20:01'),
+(5, 'Tiket berhasil dibuat', 2, '2022.06.20.JE.00001', 0, 0, 0, 1, 0, 0, '2022-06-20 07:28:41');
 
 -- --------------------------------------------------------
 
@@ -1295,16 +1376,7 @@ CREATE TABLE `tbl_helpdesk_ticket_files` (
 --
 
 INSERT INTO `tbl_helpdesk_ticket_files` (`id`, `code`, `path`, `description`, `is_active`, `created_by`, `create_date`) VALUES
-(1, '2022.06.16.TEST.00001', 'reserved_images/sample.jpg', '-', 0, 1, '2022-07-02 03:04:00'),
-(2, '2022.06.16.TEST.00002', 'reserved_images/sample.jpg', '-', 0, 1, '0000-00-00 00:00:00'),
-(3, '2022.06.16.TEST.00003', 'reserved_images/sample.jpg', '-', 0, 1, '2022-05-07 03:09:00'),
-(4, '2022.06.16.TEST.00004', 'reserved_images/sample.jpg', '-', 0, 1, '2022-04-08 08:08:00'),
-(5, '2022.06.16.TEST.00005', 'reserved_images/sample.jpg', '-', 0, 1, '2022-01-09 06:04:00'),
-(6, '2022.06.16.TEST.00006', 'reserved_images/sample.jpg', '-', 0, 1, '2022-03-04 08:08:00'),
-(7, '2022.06.16.TEST.00007', 'reserved_images/sample.jpg', '-', 0, 1, '2022-06-08 06:06:00'),
-(8, '2022.06.16.TEST.00008', 'reserved_images/sample.jpg', '-', 0, 1, '2022-08-04 00:06:00'),
-(9, '2022.06.16.TEST.00009', 'reserved_images/sample.jpg', '-', 0, 1, '0000-00-00 00:00:00'),
-(10, '2022.06.16.TEST.00010', 'reserved_images/sample.jpg', '-', 0, 1, '2022-08-03 05:04:00');
+(1, '2022.06.20.JE.00001', '2022.06.20.JE.00001/kocengados.jpg', '-', 1, 4, '2022-06-20 07:28:39');
 
 -- --------------------------------------------------------
 
@@ -1321,6 +1393,13 @@ CREATE TABLE `tbl_helpdesk_ticket_handlers` (
   `created_by` int(32) NOT NULL,
   `create_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_helpdesk_ticket_handlers`
+--
+
+INSERT INTO `tbl_helpdesk_ticket_handlers` (`id`, `ticket_id`, `user_id`, `group_id`, `is_active`, `created_by`, `create_date`) VALUES
+(1, 1, 6, 3, 1, 6, '2022-06-17 09:19:18');
 
 -- --------------------------------------------------------
 
@@ -1359,6 +1438,14 @@ CREATE TABLE `tbl_helpdesk_ticket_logs` (
   `created_by` int(32) NOT NULL,
   `create_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_helpdesk_ticket_logs`
+--
+
+INSERT INTO `tbl_helpdesk_ticket_logs` (`id`, `ticket_id`, `action`, `is_active`, `created_by`, `create_date`) VALUES
+(1, 1, 'Tiket berhasil dibuat', 1, 0, '2022-06-17 09:15:33'),
+(2, 2, 'Tiket berhasil dibuat', 1, 0, '2022-06-20 07:28:41');
 
 -- --------------------------------------------------------
 
@@ -1522,16 +1609,8 @@ CREATE TABLE `tbl_helpdesk_ticket_transactions` (
 --
 
 INSERT INTO `tbl_helpdesk_ticket_transactions` (`id`, `ticket_id`, `category_id`, `job_id`, `status_id`, `branch_id`, `priority_id`, `rule_id`, `problem_impact_id`, `is_active`, `created_by`, `create_date`) VALUES
-(1, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, '2022-07-02 03:04:00'),
-(2, 2, 1, 7, 1, 1, 1, 1, 1, 1, 1, '0000-00-00 00:00:00'),
-(3, 3, 1, 7, 1, 1, 1, 1, 1, 1, 1, '2022-05-07 03:09:00'),
-(4, 4, 1, 7, 1, 1, 1, 1, 1, 1, 1, '2022-04-08 08:08:00'),
-(5, 5, 1, 7, 1, 1, 1, 1, 1, 1, 1, '2022-01-09 06:04:00'),
-(6, 6, 1, 7, 1, 1, 1, 1, 1, 1, 1, '2022-03-04 08:08:00'),
-(7, 7, 1, 7, 1, 1, 1, 1, 1, 1, 1, '2022-06-08 06:06:00'),
-(8, 8, 1, 7, 1, 1, 1, 1, 1, 1, 1, '2022-08-04 00:06:00'),
-(9, 9, 1, 7, 1, 1, 1, 1, 1, 1, 1, '0000-00-00 00:00:00'),
-(10, 10, 1, 7, 1, 1, 1, 1, 1, 1, 1, '2022-08-03 05:04:00');
+(1, 1, 1, 5, 2, 1, 1, 1, 1, 1, 4, '2022-06-17 09:15:33'),
+(2, 2, 1, 5, 1, 1, 1, 1, 1, 1, 4, '2022-06-20 07:28:41');
 
 -- --------------------------------------------------------
 
@@ -1582,68 +1661,6 @@ CREATE TABLE `tbl_helpdesk_users` (
 INSERT INTO `tbl_helpdesk_users` (`id`, `nik`, `name`, `email`, `phone_number`, `user_id`, `position_id`, `level_id`, `is_active`, `created_by`, `create_date`) VALUES
 (1, '2019090601000001', 'superuser', 'superuser@gmaol.co.id', '', 1, 0, 0, 1, 1, '2019-09-07 19:17:38'),
 (2, '2019090601000002', 'adit', 'adit@gmaol.co.id', '', 2, 0, 0, 1, 1, '2019-09-07 19:18:49');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tbl_helpdesk_vendors`
---
-
-CREATE TABLE `tbl_helpdesk_vendors` (
-  `id` int(32) NOT NULL,
-  `code` varchar(32) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `address` text NOT NULL,
-  `phone_number` varchar(16) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `fax` varchar(32) NOT NULL,
-  `description` text NOT NULL,
-  `is_active` tinyint(1) NOT NULL,
-  `created_by` int(32) NOT NULL,
-  `create_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tbl_helpdesk_vendors`
---
-
-INSERT INTO `tbl_helpdesk_vendors` (`id`, `code`, `name`, `address`, `phone_number`, `email`, `fax`, `description`, `is_active`, `created_by`, `create_date`) VALUES
-(1, '0976d1hd', 'Signet', '-', '021921312312', 'signet@gmail.com', '021432423423', '-', 1, 1, '2019-04-18 00:00:00'),
-(2, '09734rtd', 'PT Maju mundur', '-', '021921312312', 'majumundur@gmail.com', '021432423423', '-', 1, 1, '2019-04-18 00:00:00'),
-(3, '09324', 'PT ABC', 'jakarta', '08567465', 'abc@gmail.com', '012546678', 'desc', 1, 1, '2019-08-06 10:56:51');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tbl_helpdesk_vendor_users`
---
-
-CREATE TABLE `tbl_helpdesk_vendor_users` (
-  `id` int(32) NOT NULL,
-  `nik` varchar(32) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `phone_number` varchar(255) NOT NULL,
-  `vendor_id` int(32) NOT NULL,
-  `user_id` int(32) NOT NULL,
-  `contract_id` int(32) NOT NULL,
-  `category_id` int(32) NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT 0,
-  `created_by` int(32) NOT NULL,
-  `create_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tbl_helpdesk_vendor_users`
---
-
-INSERT INTO `tbl_helpdesk_vendor_users` (`id`, `nik`, `name`, `phone_number`, `vendor_id`, `user_id`, `contract_id`, `category_id`, `is_active`, `created_by`, `create_date`) VALUES
-(1, '20190906011000002', 'bayu signet', '0867218387123', 1, 6, 1, 0, 1, 1, '2019-09-08 18:33:49'),
-(2, '20190906011000003', 'valdi signet', '0867218387123', 1, 7, 1, 0, 1, 1, '2019-09-10 09:16:17'),
-(3, '20190906011000004', 'budi signet', '0867218387123', 1, 8, 1, 0, 1, 1, '2019-09-10 09:19:40'),
-(4, '20190906025000002', 'dede abc', '0867218387123', 3, 9, 1, 0, 1, 1, '2019-09-10 09:27:40'),
-(5, '20190906023000006', 'dadang abc', '0867218387123', 3, 10, 1, 0, 1, 1, '2019-09-10 09:38:43'),
-(6, '20190906023000007', 'syehbi signet', '0867218387123', 1, 12, 1, 0, 1, 1, '2019-09-12 15:33:50'),
-(7, '20190906011000004', 'budi signet', '0867218387123', 1, 13, 1, 0, 1, 1, '2019-09-12 16:27:21');
 
 -- --------------------------------------------------------
 
@@ -1834,7 +1851,7 @@ INSERT INTO `tbl_menus` (`id`, `name`, `name_ina`, `path`, `rank`, `level`, `ico
 (6, 'Close', 'Close', 'tickets/master/view/close', 4, 3, '7', '#32c5d2', 1, 1, 2, 1, 1, '-', 3, 1, '2019-05-08 13:08:10'),
 (7, 'Accounts', 'Akun', '#', 2, 1, '5', '', 0, 0, 2, 1, 1, '-', 0, 1, '2019-05-08 13:08:50'),
 (8, 'Employee Officer', 'Karyawan kantor ', 'accounts/officer/view', 0, 2, '8', '', 0, 0, 2, 1, 1, '-', 7, 1, '2019-05-08 13:09:16'),
-(9, 'vendor', 'vendor', 'accounts/vendor/view', 0, 2, '7', '', 0, 0, 2, 1, 1, '-', 7, 1, '2019-05-08 13:09:34'),
+(9, 'IT Support', 'Pendukung TI', 'accounts/support/view', 0, 2, '7', '', 0, 0, 2, 1, 1, '-', 7, 1, '2019-05-08 13:09:34'),
 (10, 'Admin', 'Admin', 'accounts/admin/view', 0, 2, '9', '', 0, 0, 2, 1, 1, '-', 7, 1, '2019-05-08 13:10:11'),
 (11, 'Master', 'Master', '#', 3, 1, '7', '', 0, 0, 2, 1, 1, '-', 0, 1, '2019-05-08 13:10:41'),
 (12, 'Options', 'Opsi', '#', 3, 2, '13', '', 0, 0, 2, 1, 1, '-', 1, 1, '2019-05-08 13:11:17'),
@@ -1949,7 +1966,7 @@ CREATE TABLE `tbl_modules` (
 INSERT INTO `tbl_modules` (`id`, `name`, `description`, `is_active`, `created_by`, `create_date`) VALUES
 (1, 'helpdesk', '-', 1, 1, '2019-01-18 00:00:00'),
 (2, 'backend', '-', 1, 1, '2019-01-18 00:00:00'),
-(3, 'vendor', '-', 1, 1, '2019-01-18 00:00:00'),
+(3, 'support', '-', 1, 1, '2019-01-18 00:00:00'),
 (4, 'api', '-', 1, 1, '2019-01-18 00:00:00'),
 (5, 'developer', '-', 1, 1, '2019-01-18 00:00:00'),
 (6, 'auth', '-', 1, 1, '2019-01-18 00:00:00'),
@@ -1979,7 +1996,7 @@ CREATE TABLE `tbl_permissions` (
 INSERT INTO `tbl_permissions` (`id`, `module`, `class`, `action`, `description`, `is_active`, `created_by`, `create_date`) VALUES
 (1, 'auth', 'user', 'login', '-', 1, 1, '2019-05-10 00:00:00'),
 (2, 'backend', 'user', 'dashboard', '-', 1, 1, '2019-05-10 00:00:00'),
-(3, 'vendor', 'user', 'dashboard', '-', 1, 1, '2019-05-10 00:00:00'),
+(3, 'support', 'user', 'dashboard', '-', 1, 1, '2019-05-10 00:00:00'),
 (4, 'helpdesk', 'user', 'dashboard', '-', 1, 1, '2019-05-10 00:00:00'),
 (5, 'backend', 'mvc', 'generate', '-', 1, 1, '2019-05-10 00:00:00'),
 (6, 'backend', 'mvc', 'index', '-', 1, 1, '2019-05-10 00:00:00'),
@@ -2058,7 +2075,7 @@ INSERT INTO `tbl_permissions` (`id`, `module`, `class`, `action`, `description`,
 (79, 'backend', 'office_branch', 'update', '-', 1, 1, '2019-05-13 10:11:51'),
 (80, 'backend', 'office_branch', 'get_list', '-', 1, 1, '2019-05-13 10:11:51'),
 (81, 'backend', 'office_branch', 'get_data', '-', 1, 1, '2019-05-13 10:11:51'),
-(82, 'backend', 'office_branch', 'get_vendor_user_list', '-', 1, 1, '2019-05-13 10:11:51'),
+(82, 'backend', 'office_branch', 'get_support_user_list', '-', 1, 1, '2019-05-13 10:11:51'),
 (83, 'backend', 'immigration', 'index', '-', 1, 1, '2019-05-13 10:56:57'),
 (84, 'backend', 'immigration', 'view', '-', 1, 1, '2019-05-13 10:56:57'),
 (85, 'backend', 'immigration', 'insert', '-', 1, 1, '2019-05-13 10:56:57'),
@@ -2067,15 +2084,15 @@ INSERT INTO `tbl_permissions` (`id`, `module`, `class`, `action`, `description`,
 (88, 'backend', 'immigration', 'update', '-', 1, 1, '2019-05-13 10:56:58'),
 (89, 'backend', 'immigration', 'get_list', '-', 1, 1, '2019-05-13 10:56:58'),
 (90, 'backend', 'immigration', 'get_data', '-', 1, 1, '2019-05-13 10:56:58'),
-(91, 'backend', 'vendor', 'index', '', 1, 1, '2019-05-13 11:01:23'),
-(92, 'backend', 'vendor', 'view', '', 1, 1, '2019-05-13 11:01:23'),
-(93, 'backend', 'vendor', 'insert', '', 1, 1, '2019-05-13 11:01:23'),
-(94, 'backend', 'vendor', 'remove', '', 1, 1, '2019-05-13 11:01:23'),
-(95, 'backend', 'vendor', 'delete', '', 1, 1, '2019-05-13 11:01:23'),
-(96, 'backend', 'vendor', 'update', '', 1, 1, '2019-05-13 11:01:23'),
-(97, 'backend', 'vendor', 'get_list', '', 1, 1, '2019-05-13 11:01:23'),
-(98, 'backend', 'vendor', 'get_data', '', 1, 1, '2019-05-13 11:01:23'),
-(99, 'backend', 'vendor', 'get_vendor_user_list', '-', 1, 1, '2019-05-13 11:02:40'),
+(91, 'backend', 'support', 'index', '', 1, 1, '2019-05-13 11:01:23'),
+(92, 'backend', 'support', 'view', '', 1, 1, '2019-05-13 11:01:23'),
+(93, 'backend', 'support', 'insert', '', 1, 1, '2019-05-13 11:01:23'),
+(94, 'backend', 'support', 'remove', '', 1, 1, '2019-05-13 11:01:23'),
+(95, 'backend', 'support', 'delete', '', 1, 1, '2019-05-13 11:01:23'),
+(96, 'backend', 'support', 'update', '', 1, 1, '2019-05-13 11:01:23'),
+(97, 'backend', 'support', 'get_list', '', 1, 1, '2019-05-13 11:01:23'),
+(98, 'backend', 'support', 'get_data', '', 1, 1, '2019-05-13 11:01:23'),
+(99, 'backend', 'support', 'get_support_user_list', '-', 1, 1, '2019-05-13 11:02:40'),
 (100, 'backend', 'admin', 'index', '-', 1, 1, '2019-05-13 11:04:28'),
 (101, 'backend', 'admin', 'view', '-', 1, 1, '2019-05-13 11:04:28'),
 (102, 'backend', 'admin', 'insert', '-', 1, 1, '2019-05-13 11:04:28'),
@@ -2176,13 +2193,13 @@ INSERT INTO `tbl_permissions` (`id`, `module`, `class`, `action`, `description`,
 (197, 'backend', 'ticket', 'get_data', '-', 1, 1, '2019-05-13 13:39:12'),
 (198, 'backend', 'ticket', 'by_category', '-', 1, 1, '2019-05-13 13:39:36'),
 (199, 'backend', 'ticket', 'by_date', '-', 1, 1, '2019-05-13 13:40:55'),
-(200, 'backend', 'vendor', 'get_vendors', '-', 1, 1, '2019-05-13 14:07:30'),
-(201, 'backend', 'vendor', 'insert_user', '-', 1, 1, '2019-05-13 14:09:34'),
-(202, 'backend', 'vendor', 'update_user', '-', 1, 1, '2019-05-13 14:10:04'),
-(203, 'backend', 'vendor', 'get_category', '-', 1, 1, '2019-05-14 14:48:37'),
-(204, 'vendor', 'ticket', 'get_list', '-', 1, 1, '2019-05-14 15:11:09'),
-(205, 'backend', 'vendor', 'get_vendor_user', '-', 1, 1, '2019-05-14 15:56:27'),
-(207, 'backend', 'vendor', 'assign_category_user', '-', 1, 1, '2019-05-14 16:34:56'),
+(200, 'backend', 'support', 'get_vendors', '-', 1, 1, '2019-05-13 14:07:30'),
+(201, 'backend', 'support', 'insert_user', '-', 1, 1, '2019-05-13 14:09:34'),
+(202, 'backend', 'support', 'update_user', '-', 1, 1, '2019-05-13 14:10:04'),
+(203, 'backend', 'support', 'get_category', '-', 1, 1, '2019-05-14 14:48:37'),
+(204, 'support', 'ticket', 'get_list', '-', 1, 1, '2019-05-14 15:11:09'),
+(205, 'backend', 'support', 'get_vendor_user', '-', 1, 1, '2019-05-14 15:56:27'),
+(207, 'backend', 'support', 'assign_category_user', '-', 1, 1, '2019-05-14 16:34:56'),
 (208, 'backend', 'master', 'detail', '-', 1, 1, '2019-05-14 16:51:13'),
 (209, 'helpdesk', 'ticket', 'index', '-', 1, 1, '2019-05-15 07:28:41'),
 (210, 'helpdesk', 'ticket', 'view', '-', 1, 1, '2019-05-15 07:28:41'),
@@ -2198,15 +2215,15 @@ INSERT INTO `tbl_permissions` (`id`, `module`, `class`, `action`, `description`,
 (221, 'helpdesk', 'ticket', 'get_ticket_detail', '-', 1, 1, '2019-05-15 07:39:49'),
 (222, 'helpdesk', 'ticket', 'insert_message', '-', 1, 1, '2019-05-15 07:40:13'),
 (223, 'helpdesk', 'ticket', 'get_content', '-', 1, 1, '2019-05-15 07:41:30'),
-(224, 'vendor', 'user', 'get_ticket_detail', '-', 1, 1, '2019-05-15 08:01:15'),
-(225, 'vendor', 'user', 'get_issue_suggest', '-', 1, 1, '2019-05-15 08:03:04'),
-(226, 'vendor', 'ticket', 'set_close', '', 1, 1, '2019-05-15 08:03:24'),
-(227, 'vendor', 'ticket', 'get_list', '', 1, 1, '2019-05-15 08:03:54'),
-(228, 'vendor', 'ticket', 'tracking', '', 1, 1, '2019-05-15 08:04:13'),
-(229, 'vendor', 'ticket', 'view', '', 1, 1, '2019-05-15 08:04:33'),
-(230, 'vendor', 'ticket', 'set_open', '', 1, 1, '2019-05-15 08:07:27'),
-(231, 'vendor', 'ticket', 'by_category', '', 1, 1, '2019-05-15 08:43:46'),
-(232, 'vendor', 'ticket', 'by_date', '', 1, 1, '2019-05-15 08:44:09'),
+(224, 'support', 'user', 'get_ticket_detail', '-', 1, 1, '2019-05-15 08:01:15'),
+(225, 'support', 'user', 'get_issue_suggest', '-', 1, 1, '2019-05-15 08:03:04'),
+(226, 'support', 'ticket', 'set_close', '', 1, 1, '2019-05-15 08:03:24'),
+(227, 'support', 'ticket', 'get_list', '', 1, 1, '2019-05-15 08:03:54'),
+(228, 'support', 'ticket', 'tracking', '', 1, 1, '2019-05-15 08:04:13'),
+(229, 'support', 'ticket', 'view', '', 1, 1, '2019-05-15 08:04:33'),
+(230, 'support', 'ticket', 'set_open', '', 1, 1, '2019-05-15 08:07:27'),
+(231, 'support', 'ticket', 'by_category', '', 1, 1, '2019-05-15 08:43:46'),
+(232, 'support', 'ticket', 'by_date', '', 1, 1, '2019-05-15 08:44:09'),
 (233, 'backend', 'user', 'my_profile', '', 1, 1, '2019-05-16 10:41:04'),
 (234, 'backend', 'user', 'my_inbox', '-', 1, 1, '2019-05-16 10:41:23'),
 (235, 'backend', 'user', 'lock_screen', '', 1, 1, '2019-05-16 10:41:56'),
@@ -2219,23 +2236,23 @@ INSERT INTO `tbl_permissions` (`id`, `module`, `class`, `action`, `description`,
 (242, 'backend', 'status', 'update', '', 1, 1, '2019-05-16 13:30:23'),
 (243, 'backend', 'status', 'get_list', '', 1, 1, '2019-05-16 13:30:23'),
 (244, 'backend', 'status', 'get_data', '', 1, 1, '2019-05-16 13:30:23'),
-(245, 'vendor', 'user', 'index', '', 1, 1, '2019-05-16 15:04:20'),
-(246, 'vendor', 'user', 'view', '', 1, 1, '2019-05-16 15:04:20'),
-(247, 'vendor', 'user', 'insert', '', 1, 1, '2019-05-16 15:04:20'),
-(248, 'vendor', 'user', 'remove', '', 1, 1, '2019-05-16 15:04:20'),
-(249, 'vendor', 'user', 'delete', '', 1, 1, '2019-05-16 15:04:20'),
-(250, 'vendor', 'user', 'update', '', 1, 1, '2019-05-16 15:04:20'),
-(251, 'vendor', 'user', 'get_list', '', 1, 1, '2019-05-16 15:04:20'),
-(252, 'vendor', 'user', 'get_data', '', 1, 1, '2019-05-16 15:04:20'),
-(253, 'vendor', 'user', 'my_profile', '', 1, 1, '2019-05-16 15:04:56'),
-(254, 'vendor', 'user', 'lock_screen', '', 1, 1, '2019-05-16 15:05:18'),
-(255, 'vendor', 'user', 'un_lock_screen', '', 1, 1, '2019-05-16 15:05:34'),
+(245, 'support', 'user', 'index', '', 1, 1, '2019-05-16 15:04:20'),
+(246, 'support', 'user', 'view', '', 1, 1, '2019-05-16 15:04:20'),
+(247, 'support', 'user', 'insert', '', 1, 1, '2019-05-16 15:04:20'),
+(248, 'support', 'user', 'remove', '', 1, 1, '2019-05-16 15:04:20'),
+(249, 'support', 'user', 'delete', '', 1, 1, '2019-05-16 15:04:20'),
+(250, 'support', 'user', 'update', '', 1, 1, '2019-05-16 15:04:20'),
+(251, 'support', 'user', 'get_list', '', 1, 1, '2019-05-16 15:04:20'),
+(252, 'support', 'user', 'get_data', '', 1, 1, '2019-05-16 15:04:20'),
+(253, 'support', 'user', 'my_profile', '', 1, 1, '2019-05-16 15:04:56'),
+(254, 'support', 'user', 'lock_screen', '', 1, 1, '2019-05-16 15:05:18'),
+(255, 'support', 'user', 'un_lock_screen', '', 1, 1, '2019-05-16 15:05:34'),
 (256, 'backend', 'user', 'get_user', '', 1, 1, '2019-05-20 08:49:44'),
 (257, 'backend', 'master', 'response_ticket', '', 1, 1, '2019-05-20 13:13:22'),
 (258, 'backend', 'category', 'get_category', '', 1, 1, '2019-05-21 08:04:43'),
-(259, 'vendor', 'ticket', 'check_status_ticket', '', 1, 1, '2019-05-21 11:09:07'),
-(260, 'vendor', 'ticket', 'get_ticket_detail', '', 1, 1, '2019-05-21 13:47:02'),
-(261, 'vendor', 'ticket', 'response_ticket', '', 1, 1, '2019-05-21 14:10:08'),
+(259, 'support', 'ticket', 'check_status_ticket', '', 1, 1, '2019-05-21 11:09:07'),
+(260, 'support', 'ticket', 'get_ticket_detail', '', 1, 1, '2019-05-21 13:47:02'),
+(261, 'support', 'ticket', 'response_ticket', '', 1, 1, '2019-05-21 14:10:08'),
 (262, 'backend', 'ticket', 'by_ticket', '', 1, 1, '2019-05-23 11:09:45'),
 (263, 'backend', 'ticket', 'generate', '', 1, 1, '2019-05-23 13:39:02'),
 (264, 'vendor', 'ticket', 'tracking', '', 1, 1, '2019-05-24 08:40:34'),
@@ -2368,34 +2385,34 @@ INSERT INTO `tbl_permissions` (`id`, `module`, `class`, `action`, `description`,
 (403, 'backend', 'officer', 'update_status', '-', 1, 1, '2019-08-02 08:00:42'),
 (404, 'backend', 'rule', 'update_status', '-', 1, 1, '2019-08-02 14:28:28'),
 (405, 'backend', 'office_branch', 'update_status', '-', 1, 1, '2019-08-02 15:00:54'),
-(406, 'backend', 'vendor', 'update_status_vendor', '-', 1, 1, '2019-08-05 08:39:16'),
-(407, 'backend', 'vendor', 'insert_vendor', '-', 1, 1, '2019-08-05 08:39:40'),
-(408, 'backend', 'vendor', 'update_vendor', '-', 1, 1, '2019-08-05 08:39:58'),
+(406, 'backend', 'support', 'update_status_vendor', '-', 1, 1, '2019-08-05 08:39:16'),
+(407, 'backend', 'support', 'insert_vendor', '-', 1, 1, '2019-08-05 08:39:40'),
+(408, 'backend', 'support', 'update_vendor', '-', 1, 1, '2019-08-05 08:39:58'),
 (409, 'backend', 'mvc', 'get_category', '-', 1, 1, '2019-08-07 09:26:10'),
 (410, 'backend', 'mvc', 'insert_ticket', '-', 1, 1, '2019-08-07 09:46:11'),
-(411, 'backend', 'vendor', 'get_data_vendor_user', '-', 1, 1, '2019-08-08 15:07:32'),
+(411, 'backend', 'support', 'get_data_vendor_user', '-', 1, 1, '2019-08-08 15:07:32'),
 (412, 'vendor', 'ticket', 'agreement_to_take_over_ticket', '-', 1, 1, '2019-08-12 11:50:33'),
 (413, 'helpdesk', 'user', 'get_history', '-', 1, 1, '2019-08-14 09:56:07'),
 (414, 'monitor', 'user', 'get_total_ticket_per_month', '-', 1, 1, '2019-08-19 13:35:00'),
 (415, 'backend', 'master', 'agreement_to_take_over_ticket', '-', 1, 1, '2019-08-23 11:29:41'),
-(416, 'vendor', 'ticket', 'check_ticket_open', '', 1, 9, '2019-08-26 11:20:04'),
-(417, 'vendor', 'tracking', 'close_ticket_request', '-', 1, 1, '2019-09-02 17:28:06'),
+(416, 'support', 'ticket', 'check_ticket_open', '', 1, 9, '2019-08-26 11:20:04'),
+(417, 'support', 'tracking', 'close_ticket_request', '-', 1, 1, '2019-09-02 17:28:06'),
 (418, 'backend', 'master', 'check_status_ticket', '-', 1, 9, '2019-09-03 19:44:10'),
 (419, 'monitor', 'user', 'get_total_ticket_per_month_by_status', '-', 1, 1, '2019-09-04 09:37:22'),
 (420, 'vendor', 'ticket', 'get_category', '-', 1, 1, '2019-09-09 13:08:24'),
 (421, 'vendor', 'ticket', 'get_data', '-', 1, 1, '2019-09-09 13:26:48'),
-(422, 'backend', 'vendor', 'delete_user', '-', 1, 1, '2019-09-12 16:58:00'),
-(423, 'vendor', 'monitoring', 'index', '-', 1, 1, '2019-09-12 17:11:47'),
-(424, 'vendor', 'monitoring', 'view', '-', 1, 1, '2019-09-12 17:11:48'),
-(425, 'vendor', 'monitoring', 'insert', '-', 1, 1, '2019-09-12 17:11:48'),
-(426, 'vendor', 'monitoring', 'remove', '-', 1, 1, '2019-09-12 17:11:48'),
-(427, 'vendor', 'monitoring', 'delete', '-', 1, 1, '2019-09-12 17:11:48'),
-(428, 'vendor', 'monitoring', 'update', '-', 1, 1, '2019-09-12 17:11:48'),
-(429, 'vendor', 'monitoring', 'get_list', '-', 1, 1, '2019-09-12 17:11:48'),
-(430, 'vendor', 'monitoring', 'get_data', '-', 1, 1, '2019-09-12 17:11:48'),
-(431, 'vendor', 'monitoring', 'get_total_ticket_per_month', '-', 1, 1, '2019-09-12 17:12:10'),
-(432, 'vendor', 'monitoring', 'get_total_ticket_per_month_by_status', '-', 1, 1, '2019-09-12 17:12:28'),
-(433, 'vendor', 'monitoring', 'get_total_ticket_per_month_by_user', '-', 1, 1, '2019-09-13 10:06:44'),
+(422, 'backend', 'support', 'delete_user', '-', 1, 1, '2019-09-12 16:58:00'),
+(423, 'support', 'monitoring', 'index', '-', 1, 1, '2019-09-12 17:11:47'),
+(424, 'support', 'monitoring', 'view', '-', 1, 1, '2019-09-12 17:11:48'),
+(425, 'support', 'monitoring', 'insert', '-', 1, 1, '2019-09-12 17:11:48'),
+(426, 'support', 'monitoring', 'remove', '-', 1, 1, '2019-09-12 17:11:48'),
+(427, 'support', 'monitoring', 'delete', '-', 1, 1, '2019-09-12 17:11:48'),
+(428, 'support', 'monitoring', 'update', '-', 1, 1, '2019-09-12 17:11:48'),
+(429, 'support', 'monitoring', 'get_list', '-', 1, 1, '2019-09-12 17:11:48'),
+(430, 'support', 'monitoring', 'get_data', '-', 1, 1, '2019-09-12 17:11:48'),
+(431, 'support', 'monitoring', 'get_total_ticket_per_month', '-', 1, 1, '2019-09-12 17:12:10'),
+(432, 'support', 'monitoring', 'get_total_ticket_per_month_by_status', '-', 1, 1, '2019-09-12 17:12:28'),
+(433, 'support', 'monitoring', 'get_total_ticket_per_month_by_user', '-', 1, 1, '2019-09-13 10:06:44'),
 (434, 'backend', 'monitoring', 'index', '-', 1, 1, '2019-09-13 10:14:18'),
 (435, 'backend', 'monitoring', 'view', '-', 1, 1, '2019-09-13 10:14:18'),
 (436, 'backend', 'monitoring', 'insert', '-', 1, 1, '2019-09-13 10:14:18'),
@@ -2428,13 +2445,13 @@ INSERT INTO `tbl_permissions` (`id`, `module`, `class`, `action`, `description`,
 (463, 'backend', 'ticket', 'get_category_select', '-', 1, 1, '2019-09-23 13:49:16'),
 (464, 'backend', 'ticket', 'generate', '-', 1, 1, '2019-09-24 11:42:37'),
 (465, 'backend', 'ticket', 'gen_to_pdf', '-', 1, 1, '2019-10-02 13:55:09'),
-(466, 'vendor', 'ticket', 'gen_to_pdf', '-', 1, 1, '2019-10-03 09:57:17'),
+(466, 'support', 'ticket', 'gen_to_pdf', '-', 1, 1, '2019-10-03 09:57:17'),
 (467, 'backend', 'monitoring', 'get_total_ticket_per_month', '-', 1, 1, '2019-10-04 11:31:41'),
 (468, 'backend', 'monitoring', 'get_total_ticket_per_kanim', '-', 1, 1, '2019-10-04 11:31:59'),
 (469, 'backend', 'monitoring', 'get_total_ticket_per_month_by_status', '-', 1, 1, '2019-10-04 11:32:19'),
 (470, 'backend', 'monitoring', 'get_total_ticket_progress_per_month', '-', 1, 1, '2019-10-04 11:32:56'),
 (471, 'backend', 'officer', 'download_sample', '-', 1, 1, '2019-10-14 14:36:29'),
-(472, 'backend', 'vendor', 'download_sample', '-', 1, 1, '2019-10-14 14:40:15'),
+(472, 'backend', 'support', 'download_sample', '-', 1, 1, '2019-10-14 14:40:15'),
 (473, 'backend', 'permission', 'index', '-', 1, 1, '2019-10-14 14:50:14'),
 (474, 'backend', 'permission', 'view', '-', 1, 1, '2019-10-14 14:50:15'),
 (475, 'backend', 'permission', 'insert', '-', 1, 1, '2019-10-14 14:50:15'),
@@ -2729,6 +2746,18 @@ ALTER TABLE `tbl_helpdesk_logs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `tbl_helpdesk_supports`
+--
+ALTER TABLE `tbl_helpdesk_supports`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tbl_helpdesk_support_users`
+--
+ALTER TABLE `tbl_helpdesk_support_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `tbl_helpdesk_tickets`
 --
 ALTER TABLE `tbl_helpdesk_tickets`
@@ -2822,18 +2851,6 @@ ALTER TABLE `tbl_helpdesk_ticket_transfers`
 -- Indeks untuk tabel `tbl_helpdesk_users`
 --
 ALTER TABLE `tbl_helpdesk_users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `tbl_helpdesk_vendors`
---
-ALTER TABLE `tbl_helpdesk_vendors`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `tbl_helpdesk_vendor_users`
---
-ALTER TABLE `tbl_helpdesk_vendor_users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3036,7 +3053,7 @@ ALTER TABLE `tbl_group_permissions`
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_activities`
 --
 ALTER TABLE `tbl_helpdesk_activities`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_branchs`
@@ -3054,7 +3071,7 @@ ALTER TABLE `tbl_helpdesk_contracts`
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_employees`
 --
 ALTER TABLE `tbl_helpdesk_employees`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_employee_monitors`
@@ -3066,7 +3083,7 @@ ALTER TABLE `tbl_helpdesk_employee_monitors`
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_employee_users`
 --
 ALTER TABLE `tbl_helpdesk_employee_users`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_login_notifications`
@@ -3081,10 +3098,22 @@ ALTER TABLE `tbl_helpdesk_logs`
   MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `tbl_helpdesk_supports`
+--
+ALTER TABLE `tbl_helpdesk_supports`
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_helpdesk_support_users`
+--
+ALTER TABLE `tbl_helpdesk_support_users`
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_tickets`
 --
 ALTER TABLE `tbl_helpdesk_tickets`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_categories`
@@ -3096,19 +3125,19 @@ ALTER TABLE `tbl_helpdesk_ticket_categories`
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_chats`
 --
 ALTER TABLE `tbl_helpdesk_ticket_chats`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_files`
 --
 ALTER TABLE `tbl_helpdesk_ticket_files`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_handlers`
 --
 ALTER TABLE `tbl_helpdesk_ticket_handlers`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_issue_suggestions`
@@ -3120,7 +3149,7 @@ ALTER TABLE `tbl_helpdesk_ticket_issue_suggestions`
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_logs`
 --
 ALTER TABLE `tbl_helpdesk_ticket_logs`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_priorities`
@@ -3162,7 +3191,7 @@ ALTER TABLE `tbl_helpdesk_ticket_status`
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_transactions`
 --
 ALTER TABLE `tbl_helpdesk_ticket_transactions`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_helpdesk_ticket_transfers`
@@ -3175,18 +3204,6 @@ ALTER TABLE `tbl_helpdesk_ticket_transfers`
 --
 ALTER TABLE `tbl_helpdesk_users`
   MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `tbl_helpdesk_vendors`
---
-ALTER TABLE `tbl_helpdesk_vendors`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `tbl_helpdesk_vendor_users`
---
-ALTER TABLE `tbl_helpdesk_vendor_users`
-  MODIFY `id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_hepldesk_ticket_numbers`

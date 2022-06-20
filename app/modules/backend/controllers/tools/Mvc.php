@@ -357,7 +357,7 @@ class Mvc extends MY_Controller {
                         'messages' => 'ticket testing',
                         'ticket_id' => $ticket_id,
                         'ticket_code' => $post['code'],
-                        'is_vendor' => 1,
+                        'is_support' => 1,
                         'is_active' => 1,
                         'reply_to' => 1,
                         'created_by' => $post['user_id'],
@@ -392,7 +392,7 @@ class Mvc extends MY_Controller {
                     $this->reset_user('admin');
                     break;
                 case 2 :
-                    $this->reset_user('vendor');
+                    $this->reset_user('support');
                     break;
                 case 3 :
                     $this->reset_user('branch');
@@ -409,7 +409,7 @@ class Mvc extends MY_Controller {
 
     protected function reset_user($param = null) {
         if ($param != null) {
-            $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_vendor_users', 'Tbl_users', 'Tbl_helpdesk_employee_users'));
+            $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_support_users', 'Tbl_users', 'Tbl_helpdesk_employee_users'));
             $str = '#Preparing data...<br/>';
             switch ($param) {
                 case 'admin':
@@ -419,12 +419,12 @@ class Mvc extends MY_Controller {
                     $this->Tbl_helpdesk_tickets->query($query, 'update');
                     $str .= '#Successfully reset tbl_helpdesk_users...';
                     break;
-                case 'vendor':
+                case 'support':
                     $str .= '#Select field from table db_helpdesk ...<br/>';
-                    $str .= '#Truncate tbl_helpdesk_vendor_users; <br/>';
-                    $query = "TRUNCATE `tbl_helpdesk_vendor_users`";
-                    $this->Tbl_helpdesk_vendor_users->query($query, 'update');
-                    $str .= '#Successfully reset tbl_helpdesk_vendor_users...';
+                    $str .= '#Truncate tbl_helpdesk_support_users; <br/>';
+                    $query = "TRUNCATE `tbl_helpdesk_support_users`";
+                    $this->Tbl_helpdesk_support_users->query($query, 'update');
+                    $str .= '#Successfully reset tbl_helpdesk_support_users...';
                     break;
                 case 'branch':
                     $employee = $this->Tbl_helpdesk_employee_users->find('all');

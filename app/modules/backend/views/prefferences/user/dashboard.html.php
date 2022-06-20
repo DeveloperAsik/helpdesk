@@ -100,11 +100,11 @@
             </div>
             <div class="details">
                 <div class="number">
-                    <span data-counter="counterup"><?php echo isset($_ajax_var_total_vendor) ? $_ajax_var_total_vendor : 0; ?></span>
+                    <span data-counter="counterup"><?php echo isset($_ajax_var_total_support) ? $_ajax_var_total_support : 0; ?></span>
                 </div>
-                <div class="desc"> <?php echo $this->lang->line('global_vendor'); ?> </div>
+                <div class="desc"> <?php echo $this->lang->line('global_support'); ?> </div>
             </div>
-            <a class="more" href="<?php echo base_backend_url('accounts/vendor/view'); ?>" target="__blank"> <?php echo $this->lang->line('global_view_more'); ?>
+            <a class="more" href="<?php echo base_backend_url('accounts/support/view'); ?>" target="__blank"> <?php echo $this->lang->line('global_view_more'); ?>
                 <i class="m-icon-swapright m-icon-white"></i>
             </a>
         </div>

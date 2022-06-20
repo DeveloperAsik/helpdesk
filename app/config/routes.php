@@ -36,15 +36,15 @@ $route['backend/my-task'] = 'backend/prefferences/user/my_task';
 $route['backend/lock-screen'] = 'backend/prefferences/user/lock_screen';
 $route['backend/unlock-screen'] = 'backend/prefferences/user/un_lock_screen';
 
-//vendor route
-$route['vendor'] = 'vendor/user/login';
-$route['vendor/auth-user'] = 'auth/user/check_data';
-$route['vendor/login'] = 'auth/user/login';
-$route['vendor/logout'] = 'auth/user/logout';
-$route['vendor/dashboard'] = 'vendor/user/dashboard';
-$route['vendor/my-profile'] = 'vendor/user/my_profile';
-$route['vendor/lock-screen'] = 'vendor/user/lock_screen';
-$route['vendor/unlock-screen'] = 'vendor/user/un_lock_screen';
+//support route
+$route['support'] = 'support/user/login';
+$route['support/auth-user'] = 'auth/user/check_data';
+$route['support/login'] = 'auth/user/login';
+$route['support/logout'] = 'auth/user/logout';
+$route['support/dashboard'] = 'support/user/dashboard';
+$route['support/my-profile'] = 'support/user/my_profile';
+$route['support/lock-screen'] = 'support/user/lock_screen';
+$route['support/unlock-screen'] = 'support/user/un_lock_screen';
 
 //monitor route
 $route['monitor'] = 'auth/user/login';

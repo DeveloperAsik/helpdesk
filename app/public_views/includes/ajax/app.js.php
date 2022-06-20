@@ -1101,7 +1101,7 @@
                                     break;
                                 case 3:
                                     App.stopPageLoading();
-                                    window.location = base_url + 'vendor/dashboard';
+                                    window.location = base_url + 'support/dashboard';
                                     break;
                                 case 4:
                                     App.stopPageLoading();

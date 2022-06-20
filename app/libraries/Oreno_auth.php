@@ -99,15 +99,15 @@ class Oreno_auth {
                         'alias' => 'kanim',
                         'employee' => true
                     );
-                } elseif ($result->result->content->group_name == 'vendor') {
-                    $CI->load->model('Tbl_helpdesk_vendor_users');
-                    $emp = $CI->Tbl_helpdesk_vendor_users->find('first', array(
+                } elseif ($result->result->content->group_name == 'support') {
+                    $CI->load->model('Tbl_helpdesk_support_users');
+                    $emp = $CI->Tbl_helpdesk_support_users->find('first', array(
                         'fields' => array('a.*', 'b.id branch_id', 'b.code', 'b.name'),
                         'conditions' => array('a.user_id' => $id),
                         'joins' => array(
                             array(
-                                'table' => 'tbl_helpdesk_vendors b',
-                                'conditions' => 'b.id = a.vendor_id',
+                                'table' => 'tbl_helpdesk_supports b',
+                                'conditions' => 'b.id = a.support_id',
                                 'type' => 'left'
                             )
                         )
