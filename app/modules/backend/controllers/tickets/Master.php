@@ -530,8 +530,13 @@ class Master extends MY_Controller {
                             )
                     );
                     $r = array(
-                        'handle_by' => $handler['handler_email']
+                        'handle_by' => 'un-handle'
                     );
+                    if ($handler != null) {
+                        $r = array(
+                            'handle_by' => $handler['handler_email']
+                        );
+                    }
                     $result = array_merge($result, $r);
                     $create_by = $this->Tbl_users->find('first', array('conditions' => array('id' => $result['created_by'])));
                     $rs = array(
