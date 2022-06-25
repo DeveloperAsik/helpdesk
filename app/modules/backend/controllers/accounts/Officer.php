@@ -44,12 +44,12 @@ class Officer extends MY_Controller {
 
     public function download_sample($filename, $type) {
         $this->load->library('oreno_generate_file');
-        $this->oreno_generate_file->init($filename, 'kanim', $type);
+        return $this->oreno_generate_file->init($filename, 'branch', $type);
     }
 
     public function import_file() {
-        if (isset($_FILES['import_file_kanim']) && !empty($_FILES['import_file_kanim'])) {
-            $path = $_FILES['import_file_kanim']['tmp_name'];
+        if (isset($_FILES['import_file']) && !empty($_FILES['import_file'])) {
+            $path = $_FILES['import_file']['tmp_name'];
             $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($path);
             $worksheet = $spreadsheet->getActiveSheet();
             $rows = [];

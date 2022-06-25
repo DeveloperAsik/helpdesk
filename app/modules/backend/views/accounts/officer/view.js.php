@@ -236,7 +236,7 @@
                     });
                 });
 
-                $('#import_file_kanim').on('submit', function (e) {
+                $('#import_file').on('submit', function (e) {
                     e.preventDefault();
                     var form = $(this);
                     var formData = new FormData(form[0]);
@@ -251,7 +251,7 @@
                         success: function (response) {
                             fnToStr('Successfully ', 'success');
                             fnCloseModal();
-                             $("#import_file_kanim")[0].reset();
+                             $("#import_file")[0].reset();
                             return false;
                         },
                         error: function (response) {

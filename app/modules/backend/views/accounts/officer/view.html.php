@@ -73,19 +73,19 @@
             <form id="import_file_kanim">
                 <div class="modal-header">
                     <button type="button" class="close" data-action="close-modal" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">Import Pengguna (Kanim)</h4>
+                    <h4 class="modal-title">Import Pengguna</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-md-3 control-label">Contoh format file (xlsx)</label>
                         <div class="col-md-9">
-                            <a id="download_sample" data-filetype="xlsx" data-filename="sample_import_file_kanim" class="form-control-static"><i class="fa fa-cloud-download"></i></a>
+                            <a id="download_sample" data-filetype="xlsx" data-filename="sample_import_file" class="form-control-static"><i class="fa fa-cloud-download"></i></a>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile" class="col-md-3 control-label">Import Pengguna Kanim</label>
+                        <label for="exampleInputFile" class="col-md-3 control-label">Import Pengguna</label>
                         <div class="col-md-9">
-                            <input type="file" id="import_file_kanim" name="import_file_kanim"/>
+                            <input type="file" id="import_file" name="import_file"/>
                             <p class="help-block">
                                 Unggah berkas disini.
                             </p>
