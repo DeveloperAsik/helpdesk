@@ -551,121 +551,73 @@ class Ticket extends MY_Controller {
             ';
             $res = $this->Tbl_helpdesk_tickets->query("SELECT {$fields} FROM {$tbl_name} {$joins} {$conditions}");
             if (isset($res) && !empty($res)) {
-                require_once DOCUMENT_ROOT . '/var/static/lib/packages/TCPDF/tcpdf.php';
-                $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-                // set document inform
-                $pdf->SetTitle('LAPORAN HELPDESK ' . date_now());
-                // set default header data
-                $pdf->SetHeaderData(null, null, 'LAPORAN TIKET HELPDESK', null);
-                
-
-                // set header and footer fonts
-                $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-                $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-
-                // set default monospaced font
-                $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-
-                // set margins
-                $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-                $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-                $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-
-                // set auto page breaks
-                $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-
-                // set image scale factor
-                $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-
-                // set font
-                $pdf->SetFont('helvetica', 'B', 20);
-
-                // add a page
-                $pdf->AddPage();
-
-                // $pdf->Write(0, 'Example of HTML tables', '', 0, 'L', true, 0, false, false, 0);
-
-                $pdf->SetFont('helvetica', '', 8);
-                                // set some text to print
-
-
-                // -----------------------------------------------------------------------------
                 $result = '
-                    <style>
-                    .a1{
-                        border:1px solid #ccc; 
-                        text-align:left; 
-                        width: 22%;
-                    }
-                    .a2{
-                        border:1px solid #ccc; 
-                        text-align:left; 
-                        width: 3%;
-                    }
-                    .a3{
-                        border:1px solid #ccc; 
-                        text-align:left; 
-                        width: 25%;
-                    }
-                    .a4{
-                        border:1px solid #ccc; 
-                        text-align:left; 
-                        width: 100%;
-                    }
-                    .a5{
-                        border:1px solid #ccc; 
-                        text-align:left; 
-                        width: 50%;
-                    }
-                    .a6{
-                        border:1px solid #ccc; 
-                        text-align:left; 
-                        width: 33.333%;
-                    }
-                    </style>
+                    <html>
+                        <head>
+                            <title></title>
+                            <style>
+                                .a1{
+                                    border:1px solid #ccc; 
+                                    text-align:left; 
+                                    width: 22%;
+                                }
+                                .a2{
+                                    border:1px solid #ccc; 
+                                    text-align:left; 
+                                    width: 3%;
+                                }
+                                .a3{
+                                    border:1px solid #ccc; 
+                                    text-align:left; 
+                                    width: 25%;
+                                }
+                                .a4{
+                                    border:1px solid #ccc; 
+                                    text-align:left; 
+                                    width: 100%;
+                                }
+                                .a5{
+                                    border:1px solid #ccc; 
+                                    text-align:left; 
+                                    width: 50%;
+                                }
+                                .a6{
+                                    border:1px solid #ccc; 
+                                    text-align:left; 
+                                    width: 33.333%;
+                                }
+                                </style>
+                            </head>
+                        <body>
                 ';
-                $txt = '<table class="table" style="width:100%;">                         
-                            <tr>
-                                <th rowspan="3" style="width:15%;"><img src="' . static_url('images/logo/logo_pengayoman.png') . '" height="80" width="80"/></th>
-                                <td style="width:70%;text-align:center; font-size:12">KEMENTERIAN HUKUM DAN HAM REPUBLIK INDONESIA</td>
-                                <th rowspan="3" style="width:15%;"><img src="' . static_url('images/logo/logo-imigrasi.png') . '" height="80" width="80"/></th>
-                            </tr>
-                            <tr>
-                                <td style="text-align:center; font-size:12">DIREKTORAT JENDERAL IMIGRASI</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align:center; font-size:8">Sentra Mulia Jalan Haji R. Rasuna Said No.Kav X-6, 8 RT.16/RW.4 Kuningan,Kuningan, Karet Kuningan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940</td>
-                            </tr>
-                        </table>';
-                // print letterhead
-                $pdf->writeHTML($txt, true, false, true, false, '');
-                //$result .= '';
-                // NON-BREAKING TABLE (nobr="true")
+                $result .= '';
                 $arr = array();
                 $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_ticket_handlers', 'Tbl_users', 'Tbl_helpdesk_ticket_problem_impacts', 'Tbl_helpdesk_ticket_files', 'Tbl_helpdesk_ticket_chats'));
                 foreach ($res as $val) {
-                    if(isset($result)){ $result .= '<div style="clear:both"><h3>Laporan Tiket (' . $val['code'] . ')</h3></div>'; }
+                    if (isset($result)) {
+                        $result .= '<div style="clear:both"><h3>Laporan Tiket (' . $val['code'] . ')</h3></div>';
+                    }
                     if ($val['solving_time_stop'] == "0000-00-00 00:00:00") {
-                            $solving_date =  "-";
-                        }else{
-                            $solving_date = date('d:m:Y H:i:s', strtotime($val['solving_time_stop']));
-                        }
-                        if ($val['response_time_stop'] == "0000-00-00 00:00:00") {
-                            $response_date =  "-";
-                        }else{
-                            $response_date = date('d:m:Y H:i:s', strtotime($val['response_time_stop']));
-                        }
-                $status = 'Tidak';
-                        if ($val['ticket'] != null) {
-                            $status = 'Ya';
-                        }
+                        $solving_date = "-";
+                    } else {
+                        $solving_date = date('d:m:Y H:i:s', strtotime($val['solving_time_stop']));
+                    }
+                    if ($val['response_time_stop'] == "0000-00-00 00:00:00") {
+                        $response_date = "-";
+                    } else {
+                        $response_date = date('d:m:Y H:i:s', strtotime($val['response_time_stop']));
+                    }
+                    $status = 'Tidak';
+                    if ($val['ticket'] != null) {
+                        $status = 'Ya';
+                    }
                     $response_time_start = $val['response_time_start'];
-                    $response_time_stop  = $val['response_time_stop'];
-                    $solving_time_start  = $val['solving_time_start'];
-                    $solving_time_stop   = $val['solving_time_stop'];
-                    if($solving_time_stop == "0000-00-00 00:00:00"){
-                             $solving_time_stop = $solving_time_start;
-                        };
+                    $response_time_stop = $val['response_time_stop'];
+                    $solving_time_start = $val['solving_time_start'];
+                    $solving_time_stop = $val['solving_time_stop'];
+                    if ($solving_time_stop == "0000-00-00 00:00:00") {
+                        $solving_time_stop = $solving_time_start;
+                    };
                     // total response and solving
                     $total_response = fn_date_diff_ticket($response_time_start, $response_time_stop, 'all');
                     $total_solving = fn_date_diff_ticket($solving_time_start, $solving_time_stop, 'all');
@@ -694,10 +646,9 @@ class Ticket extends MY_Controller {
                             )
                         )
                             )
-
                     );
                     $result .= '
-                        <table class="table" style="width:100%; border:1px solid #ccc;padding:5px">
+                        <table class="table" style="width:100%; border:1px solid #ccc;padding:5px;; color:#000">
                             <tr>
                               <th style="border:1px solid #ccc; text-align:center" colspan="6">Detail Tiket</th>
                             </tr>
@@ -705,7 +656,7 @@ class Ticket extends MY_Controller {
                               <td class="a1"><span style="font-weight:bold">Kode</span></td>
                               <td class="a2"></td>
                               <td class="a3">' . $val['code'] . '</td>
-                              <td class="a1"><span style="font-weight:bold">Petugas KSO</span></td>
+                              <td class="a1"><span style="font-weight:bold">IT Support</span></td>
                               <td class="a2"></td>
                               <td class="a3">' . $val['first_name'] . '</td>
                             </tr>
@@ -723,7 +674,7 @@ class Ticket extends MY_Controller {
                               <td class="a3">' . $val['priority_name'] . '</td>
                               <td class="a1"><span style="font-weight:bold">Tanggal di buat</span></td>
                               <td class="a2"></td>
-                              <td class="a3">' . idn_date( $val['create_date']) . '</td>
+                              <td class="a3">' . idn_date($val['create_date']) . '</td>
                             </tr>
                             <tr>
                               <td class="a1"><span style="font-weight:bold">Kategori</span></td>
@@ -731,7 +682,7 @@ class Ticket extends MY_Controller {
                               <td class="a3">' . $val['category_name'] . '</td>
                               <td class="a1"><span style="font-weight:bold">Tanggal respon</span></td>
                               <td class="a2"></td>
-                              <td class="a3">'.$response_date.'</td>
+                              <td class="a3">' . $response_date . '</td>
                             </tr>
                             <tr>
                               <td class="a1"><span style="font-weight:bold">Sub Kategori</span></td>
@@ -739,7 +690,7 @@ class Ticket extends MY_Controller {
                               <td class="a3">' . $val['job_category_name'] . '</td>
                               <td class="a1"><span style="font-weight:bold">Tanggal penyelesaian</span></td>
                               <td class="a2"></td>
-                              <td class="a3">'.$solving_date.'</td>
+                              <td class="a3">' . $solving_date . '</td>
                             </tr>
                             <tr>
                               <td class="a1"><span style="font-weight:bold">Pelapor</span></td>
@@ -747,15 +698,15 @@ class Ticket extends MY_Controller {
                               <td class="a3">' . $val['created_by'] . '</td>
                               <td class="a1"><span style="font-weight:bold">Total Respon</span></td>
                               <td class="a2"></td>
-                              <td class="a3">'.get_detail_date($total_response).'</td>
+                              <td class="a3">' . get_detail_date($total_response) . '</td>
                             </tr>
                             <tr>
-                              <td class="a1"><span style="font-weight:bold">Kantor Imigrasi</span></td>
+                              <td class="a1"><span style="font-weight:bold">Kantor Cabang / Divisi</span></td>
                               <td class="a2"></td>
                               <td class="a3">' . $val['name'] . '</td>
                               <td class="a1"><span style="font-weight:bold">Total Penyelesaian</span></td>
                               <td class="a2"></td>
-                              <td class="a3">'.get_detail_date($total_solving).'</td>
+                              <td class="a3">' . get_detail_date($total_solving) . '</td>
                             </tr>
                             <tr>
                               <td class="a1"><span style="font-weight:bold">Kontak Pelapor</span></td>
@@ -763,7 +714,7 @@ class Ticket extends MY_Controller {
                               <td class="a3">' . $val['phone_number'] . '</td>
                               <td class="a1"><span style="font-weight:bold">Re-Open</span></td>
                               <td class="a2"></td>
-                              <td class="a3">'.$status.'</td>
+                              <td class="a3">' . $status . '</td>
                             </tr>
                             <tr>
                               <td class="a4" colspan="6"><span style="font-weight:bold">Detail Permasalahan : </span></td>
@@ -778,17 +729,17 @@ class Ticket extends MY_Controller {
                               <td class="a5" colspan="3"><span style="font-weight:bold">Tanggal</span></td>
                               <td class="a5" colspan="3"><span style="font-weight:bold">Aktivitas</span></td>
                             </tr>';
-                            if(isset($history) && !empty($history)){
-                                foreach ($history as $key => $val) {
-                                    $result .= '
+                    if (isset($history) && !empty($history)) {
+                        foreach ($history as $key => $val) {
+                            $result .= '
                                         <tr>
                                             <td class="a5" colspan="3">' . idn_date($val['create_date']) . '</td>
                                             <td class="a5" colspan="3">' . $val['messages'] . '</td>
                                           </tr>
                                         ';
-                                }
-                            }
-                            $result .= '
+                        }
+                    }
+                    $result .= '
                             <tr>
                               <td class="a4" colspan="6"><span style="font-weight:bold">Riwayat Percakapan :</span></td>
                             </tr>
@@ -797,31 +748,63 @@ class Ticket extends MY_Controller {
                               <td class="a6" colspan="2"><span style="font-weight:bold">Tanggal</span></td>
                               <td class="a6" colspan="2"><span style="font-weight:bold">Pesan</span></td>
                             </tr>';
-                            if(isset($chat) && !empty($chat)){
-                                foreach ($chat as $key => $val) {
-                                    $result .= '
+                    if (isset($chat) && !empty($chat)) {
+                        foreach ($chat as $key => $val) {
+                            $result .= '
                                         <tr>
                                           <td class="a6" colspan="2">' . $val['username'] . '</td>
                                           <td class="a6" colspan="2">' . idn_date($val['create_date']) . '</td>
                                           <td class="a6" colspan="2">' . $val['messages'] . '</td>
                                         </tr>
                                     ';
-                                }
-                            }
-                            $result .= '</table>';
+                        }
+                    }
+                    $result .= '</table></body></html>';
                 }
-                $pdf->writeHTML($result, true, false, true, false, '');
-
                 $filename = 'laporan_tiket_helpdesk_' . date('dmyhis') . '.pdf';
                 $path = DOCUMENT_ROOT . '/var/static/documents/pdf/' . $filename;
                 if (!is_dir(DOCUMENT_ROOT . '/var/static/documents/pdf/')) {
                     mkdir(DOCUMENT_ROOT . '/var/static/documents/pdf/', 0775);
                 }
-                $pdf->Output($path, 'F');
-                echo static_url('documents/pdf/' . $filename);
+                
+                require DOCUMENT_ROOT . '/vendor/autoload.php';
+                $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false); 
+                 // set document inform
+                $pdf->SetTitle('LAPORAN HELPDESK ' . date_now());
+                // set default header data
+                //$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+                $pdf->SetHeaderData('', 0, 'LAPORAN TIKET HELPDESK', '');
+
+                // set header and footer fonts
+                $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+                $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+                // set default monospaced font
+                $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+                // set margins
+                $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+                $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+                $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+                // set auto page breaks
+                $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+                // set image scale factor
+                $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+//
+//                // set font
+                $pdf->SetFont('helvetica', 'B', 20);
+//
+                $pdf->SetFont('helvetica', '', 8);
+                
+                $pdf->AddPage();
+                $pdf->writeHTML($result, true, false, true, false, '');
+                $pdf->Output($path, "F");
+                
+                echo base_url('/var/static/documents/pdf/' . $filename);
             }
         }
-
     }
 
     protected function gen_to_excel($id = null) {

@@ -2,10 +2,8 @@
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
     <div class="logo">
-    <!--<img style="width:40%"  src="<?php //echo static_url('images\logo\helpdesk-logo.png') ?>" alt="" />-->
     <h3 class="uppercase" style="color:#555"><b>Helpdesk<b></h3> 
     </div>
-    <!-- <h3 class="uppercase" style="color:#555"><b>Helpdesk Imigrasi<b></h3> -->
         <!-- <br> -->
     <form class="login-form" method="post">
         <div class="form-group">

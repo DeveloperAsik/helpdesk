@@ -562,7 +562,7 @@ class Ticket extends MY_Controller {
                 'ticket_code' => $post['ticket_code'],
                 'is_support' => 0,
                 'is_active' => 1,
-                'reply_to' => $this->get_ticket_owner($ticket_id,'timtik'),
+                'reply_to' => $this->get_ticket_owner($ticket_id,2),
                 'created_by' => (int) base64_decode($this->auth_config->user_id),
                 'create_date' => date_now()
             );

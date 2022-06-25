@@ -132,7 +132,7 @@ class Monitor extends MY_Controller {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
             $res = $this->Tbl_helpdesk_employees->find('first', array(
-                'fields' => array('a.*', 'b.branch_id', 'b.user_id', 'c.*', 'd.name branch_name'),
+                'fields' => array('a.id AS employee_id','a.nik AS employee_nik','a.name AS employee_name','a.email AS employee_email','a.phone_number AS employee_phone_number', 'b.branch_id', 'b.user_id', 'c.*', 'd.name branch_name'),
                 'conditions' => array('a.id' => base64_decode($post['id'])),
                 'joins' => array(
                     array(
@@ -146,7 +146,7 @@ class Monitor extends MY_Controller {
                         'type' => 'LEFT'
                     ),
                     array(
-                        'table' => 'tbl_helpdesk_office_branchs d',
+                        'table' => 'tbl_helpdesk_branchs d',
                         'conditions' => 'd.id = b.branch_id',
                         'type' => 'LEFT'
                     )

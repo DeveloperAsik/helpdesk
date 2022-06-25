@@ -43,7 +43,7 @@
                         active: state
                     };
                     $.ajax({
-                        url: base_backend_url + 'tickets/immigration_branch/update_status/',
+                        url: base_backend_url + 'tickets/office_branch/update_status/',
                         method: "POST", //First change type to method here
                         data: formdata,
                         success: function (response) {
@@ -91,6 +91,7 @@
                                         $('input[name="zip_code"]').val(row.zip_code);
                                         $('input[name="phone_number"]').val(row.phone_number);
                                         $('input[name="fax_number"]').val(row.fax_number);
+                                        $('#type option[value='+row.type+']').attr('selected','selected');
                                         $("[name='status_frm']").bootstrapSwitch('state', status_);
                                         $('textarea[name="address"]').val(row.address);
                                         $('textarea[name="description"]').val(row.description);
@@ -111,7 +112,7 @@
                                     $('.bootbox ').hide();
                                     return false;
                                 }
-                                var uri = base_backend_url + 'tickets/immigration_branch/delete/';
+                                var uri = base_backend_url + 'tickets/office_branch/delete/';
                                 id = [];
                                 $("input.select_tr:checkbox:checked").each(function () {
                                     id.push($(this).data("id"));
@@ -131,7 +132,7 @@
                 $("#add_edit").submit(function () {
                     var id = $('input[name="id"]').val();
                     var is_active = $("[name='status_frm']").bootstrapSwitch('state');
-                    var uri = base_backend_url + 'tickets/immigration_branch/insert/';
+                    var uri = base_backend_url + 'tickets/office_branch/insert/';
                     var txt = 'add new branch';
                     var formdata = {
                         type: $('#type').val(),
@@ -146,7 +147,7 @@
                         active: is_active
                     };
                     if (id) {
-                        uri = base_backend_url + 'tickets/immigration_branch/update/';
+                        uri = base_backend_url + 'tickets/office_branch/update/';
                         txt = 'update branch';
                         formdata = {
                             id: Base64.encode(id),

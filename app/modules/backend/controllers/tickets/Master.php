@@ -778,9 +778,13 @@ class Master extends MY_Controller {
             $this->load->model('Tbl_helpdesk_activities');
             $ticket_id = base64_decode($post['ticket_id']);
             $tick = $this->Tbl_helpdesk_activities->find('first', array('conditions' => array('ticket_id' => $ticket_id)));
-            $res = $this->Tbl_helpdesk_activities->update(array('open_time' => '0000-00-00 00:00:00', 'is_open' => 0), $tick['id']);
-            if (isset($res) && !empty($res)) {
-                echo 'success';
+            if ($tick != null) {
+                $res = $this->Tbl_helpdesk_activities->update(array('open_time' => '0000-00-00 00:00:00', 'is_open' => 0), $tick['id']);
+                if (isset($res) && !empty($res)) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
             } else {
                 echo 'failed';
             }
@@ -1423,7 +1427,7 @@ class Master extends MY_Controller {
                 );
                 $this->Tbl_helpdesk_ticket_chats->insert($arr_ticket_chat);
                 $rr_in = array(
-                    'ticket_id' => $id,
+                    'ticket_id' => $ticket_id,
                     'action' => 'reopen ticket',
                     'is_active' => 1,
                     'created_by' => (int) base64_decode($this->auth_config->user_id),
@@ -1722,7 +1726,7 @@ class Master extends MY_Controller {
                     'is_show' => 0,
                     'is_support' => 1,
                     'is_active' => 1,
-                    'reply_to' => $this->get_ticket_owner($post['ticket_id'], 'vndr'),
+                    'reply_to' => $this->get_ticket_owner($post['ticket_id'], 1),
                     'created_by' => (int) base64_decode($this->auth_config->user_id),
                     'create_date' => date_now()
                 );

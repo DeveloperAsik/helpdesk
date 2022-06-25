@@ -33,7 +33,7 @@
             init: function () {
                 $('a.btn').on('click', function (e) {
                     e.preventDefault();
-                    var value = $(this).attr('data-value');
+                    var value = $(this).attr('data-id');
                     if (value == "add" || value == "edit") {
                         fnGetUser();
                         fnGetGroup();

@@ -31,6 +31,14 @@
         //fnRefreshDataTable();
         App.stopPageLoading();
     };
+    var fnResetBtn = function () {
+        App.startPageLoading();
+        $("#opt_delete").hide();
+        $("#opt_remove").hide();
+        $("#opt_add").show();
+        $("#opt_edit").hide();
+        App.stopPageLoading();
+    };
 
     var fnActionId = function (url_post, id, options) {
         var formdata = {
@@ -52,7 +60,7 @@
         return false;
     };
 
-    var fnGetRunningText = function(){
+    var fnGetRunningText = function () {
         var url_post = base_url + 'auth/user/get_running_text';
         $.ajax({
             url: url_post,
@@ -61,6 +69,7 @@
                 $('.running_text').html(response);
             }
         });
+        return false;
     };
 
     var GlobalAjax = function () {
@@ -68,7 +77,10 @@
             //main function to initiate the module
             init: function () {
                 fnGetRunningText();
-                $('.running_text').on('click', 'a.btn', function () {
+                $('.running_text').on('click', 'a.btn', function (e) {
+                    e.preventDefault();
+                    console.log('iyey');
+                    //return false;
                     var id = $(this).attr('data-id');
                     var url_post = base_url + 'auth/user/get_detail_running_text';
                     var formdata = {
@@ -83,18 +95,22 @@
                             $('.header_rt').html(row.name);
                             $('.lead').html(row.content_summary);
                             $('.content_rt').html(row.content_full);
+                            $('#modal_hot_news').modal('show');
+                            return false;
                         }
                     });
                 });
                 $('button[type="button"]').on('click', function () {
                     var dismiss = $(this).attr('data-dismiss');
+                    var id = $(this).attr('data-id');
                     App.startPageLoading();
+                    console.log(dismiss);//return false;
+
                     switch (dismiss) {
                         case 'modal':
-                            setInterval(function () {
-                                $('.modal').modal('hide');
-                                fnResetBtn();
-                            }, 1100);
+                            if (id == 'modal_hot_news') {
+                                $('#modal_hot_news').modal('hide');
+                            }
                             break;
                     }
                     App.stopPageLoading();

@@ -11,7 +11,7 @@
  *
  * @author SuperUser
  */
-class Monitoring extends MY_Controller{
+class Monitoring extends MY_Controller {
 
     //put your code here
 
@@ -41,22 +41,6 @@ class Monitoring extends MY_Controller{
             static_url('templates/metronics/assets/global/plugins/amcharts/amstockcharts/amstock.js')
         );
         $this->load_js($js_files);
-        // $variable =  array(
-        //     array('id' => 1,'name'=>'test'),
-        //     array('id' => 2,'name'=>'test2'),
-        //     array('id' => 3,'name'=>'test3')
-        // );
-        // // untuk lempar di php (view html)
-        // $data['var_data'] = $variable;
-        
-        // // untuk lempat di ajax (view js)
-        // $arr = array(
-        //     array(
-        //         'keyword' =>'var_data',
-        //         'value' =>  str_replace('"',"'",json_encode($variable))
-        //     )
-        // );
-        // $this->load_ajax_var($arr);
         $this->parser->parse('layouts/pages/metronic.phtml', $data);
     }
 
@@ -111,7 +95,7 @@ class Monitoring extends MY_Controller{
                             </div>
                         </div>
                     </div>';
-					$data['num'] = $i;
+                    $data['num'] = $i;
                     $data['name'] = $d['name']; //optional	
                     $data['active'] = $action_status; //optional	
                     $data['description'] = $d['description']; //optional
@@ -133,7 +117,7 @@ class Monitoring extends MY_Controller{
     }
 
     public function get_data() {
-		$post = $this->input->post(NULL, TRUE);
+        $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
             $res = $this->Tbl_helpdesk_tickets->find('first', array(
                 'conditions' => array('id' => base64_decode($post['id']))
@@ -217,55 +201,55 @@ class Monitoring extends MY_Controller{
     public function remove() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-			if(is_array($post['id'])){
-				$arr_res = 1;
-				foreach($post['id'] AS $key => $val){
-					$arr_res = $this->Tbl_helpdesk_tickets->remove($val);
-				}
-				if($arr_res == true){
-					echo 'success';
-				} else {
-					echo 'failed';
-				}
-			}else{
-				$id = base64_decode($post['id']);
-				$res = $this->Tbl_helpdesk_tickets->remove($id);
-				if ($res == true) {
-					echo 'success';
-				} else {
-					echo 'failed';
-				}
-			}
+            if (is_array($post['id'])) {
+                $arr_res = 1;
+                foreach ($post['id'] AS $key => $val) {
+                    $arr_res = $this->Tbl_helpdesk_tickets->remove($val);
+                }
+                if ($arr_res == true) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+            } else {
+                $id = base64_decode($post['id']);
+                $res = $this->Tbl_helpdesk_tickets->remove($id);
+                if ($res == true) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+            }
         }
     }
 
     public function delete() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-			if(is_array($post['id'])){
-				$arr_res = 1;
-				foreach($post['id'] AS $key => $val){
-					$arr_res = $this->Tbl_helpdesk_tickets->delete($val);
-				}
-				if($arr_res == true){
-					echo 'success';
-				} else {
-					echo 'failed';
-				}
-			}else{
-				$id = base64_decode($post['id']);
-				$res = $this->Tbl_helpdesk_tickets->delete($id);
-				if ($res == true) {
-					echo 'success';
-				} else {
-					echo 'failed';
-				}
-			}
+            if (is_array($post['id'])) {
+                $arr_res = 1;
+                foreach ($post['id'] AS $key => $val) {
+                    $arr_res = $this->Tbl_helpdesk_tickets->delete($val);
+                }
+                if ($arr_res == true) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+            } else {
+                $id = base64_decode($post['id']);
+                $res = $this->Tbl_helpdesk_tickets->delete($id);
+                if ($res == true) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+            }
         }
     }
 
     public function get_total_ticket_per_month() {
-        $this->load->model(array('Tbl_helpdesk_tickets','tbl_helpdesk_ticket_handlers'));
+        $this->load->model(array('Tbl_helpdesk_tickets', 'tbl_helpdesk_ticket_handlers'));
         $user = (int) base64_decode($this->auth_config->user_id);
         $year = date('Y');
         $ticket_date = $this->Tbl_helpdesk_tickets->query("SELECT id, YEAR(create_date) AS year, MONTH(create_date) AS month, MONTHNAME(create_date) AS 'month_name' FROM tbl_helpdesk_tickets WHERE create_date LIKE '{$year}%' GROUP BY month_name ORDER BY month ASC");
@@ -273,7 +257,6 @@ class Monitoring extends MY_Controller{
         foreach ($ticket_date AS $key => $val) {
             $dt = $val['year'] . '-' . str_pad($val['month'], 2, '0', STR_PAD_LEFT);
             $ticket_list = $this->Tbl_helpdesk_tickets->query("SELECT COUNT(id) AS total FROM tbl_helpdesk_tickets WHERE is_active = 1 AND create_date LIKE '{$dt}%' AND created_by = {$user}");
-            // debug($this->db->last_query());
             $arr_chart[] = array(
                 'month' => $val['month_name'],
                 'total' => (int) $ticket_list[0]['total']
@@ -281,20 +264,16 @@ class Monitoring extends MY_Controller{
         }
         echo json_encode($arr_chart);
     }
-    
 
-    public function get_total_ticket_per_month_by_status(){
-        $this->load->model(array('Tbl_helpdesk_ticket_status','Tbl_helpdesk_ticket_transactions'));
+    public function get_total_ticket_per_month_by_status() {
+        $this->load->model(array('Tbl_helpdesk_ticket_status', 'Tbl_helpdesk_ticket_transactions'));
         $user = (int) base64_decode($this->auth_config->user_id);
         $year = date('Y');
         $ticket_status = $this->Tbl_helpdesk_ticket_transactions->query("SELECT a.id, a.name, COUNT(b.status_id) total FROM tbl_helpdesk_ticket_status a LEFT JOIN tbl_helpdesk_ticket_transactions b ON b.status_id = a.id WHERE b.created_by = {$user} GROUP BY a.id ");
-        // debug($ticket_status);
-        // debug($this->db->last_query());
         $arr_chart = array();
         foreach ($ticket_status AS $key => $val) {
             $status_id = $val['id'];
             $ticket_list = $this->Tbl_helpdesk_ticket_transactions->query("SELECT COUNT(id) total FROM tbl_helpdesk_ticket_transactions WHERE status_id = {$status_id} AND created_by = {$user}");
-            // debug($this->db->last_query());
             $arr_chart[] = array(
                 'status' => $val['name'],
                 'total' => (int) $ticket_list[0]['total']
@@ -304,7 +283,7 @@ class Monitoring extends MY_Controller{
     }
 
     public function get_total_ticket_progress_per_month() {
-        $this->load->model(array('Tbl_helpdesk_ticket_status','Tbl_helpdesk_ticket_transactions','Tbl_helpdesk_tickets'));
+        $this->load->model(array('Tbl_helpdesk_ticket_status', 'Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_tickets'));
         $user = (int) base64_decode($this->auth_config->user_id);
         $year = date('Y');
         $ticket_date = $this->Tbl_helpdesk_tickets->query("SELECT id, YEAR(create_date) AS year, MONTH(create_date) AS month, MONTHNAME(create_date) AS 'month_name' FROM tbl_helpdesk_tickets WHERE create_date LIKE '{$year}%' GROUP BY month_name ORDER BY month ASC");
@@ -312,15 +291,12 @@ class Monitoring extends MY_Controller{
         foreach ($ticket_date AS $key => $val) {
             $dt = $val['year'] . '-' . str_pad($val['month'], 2, '0', STR_PAD_LEFT);
             $ticket_list = $this->Tbl_helpdesk_tickets->query("SELECT COUNT(a.id) AS total FROM tbl_helpdesk_tickets a LEFT JOIN tbl_helpdesk_ticket_transactions b ON b.ticket_id = a.id WHERE a.created_by = {$user} AND a.create_date LIKE '{$dt}%' AND b.status_id = 2");
-            // debug($this->db->last_query());
             $arr_chart[] = array(
                 'month' => $val['month_name'],
                 'total' => (int) $ticket_list[0]['total']
             );
         }
-        // debug($arr_chart);
         echo json_encode($arr_chart);
     }
-
 
 }

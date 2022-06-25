@@ -21,7 +21,7 @@ class Office_branch extends MY_Controller {
     }
 
     public function index() {
-        redirect(base_backend_url('tickets/immigration_branch/view/'));
+        redirect(base_backend_url('tickets/office_branch/view/'));
     }
 
     public function view() {

@@ -477,9 +477,7 @@ class Ticket extends MY_Controller {
                 // set document inform
                 $pdf->SetTitle('LAPORAN HELPDESK ' . date_now());
                 // set default header data
-                $pdf->SetHeaderData(null, null, 'LAPORAN TIKET HELPDESK', null);
-                
-
+                $pdf->SetHeaderData('', 0, 'LAPORAN TIKET HELPDESK', '');
                 // set header and footer fonts
                 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
                 $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));

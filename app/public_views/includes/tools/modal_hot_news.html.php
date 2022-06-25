@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <button type="button" class="close" data-dismiss="modal" data-id="modal_hot_news" aria-hidden="true"></button>
                 <h4 class="modal-title"><b><center>INFORMASI</center></b><?php //echo $this->lang->line('global_view_detail_ticket');   ?><small style="float:right; margin-right:20px" class="handle_by"></small></h4>
             </div>
             <div class="modal-body">

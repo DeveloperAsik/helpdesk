@@ -434,7 +434,7 @@ class User extends MY_Controller {
                     'ticket_code' => $post['ticket_code'],
                     'is_support' => 1,
                     'is_active' => 1,
-                    'reply_to' => $this->get_ticket_owner($post['ticket_id'], 'vndr'),
+                    'reply_to' => $this->get_ticket_owner($post['ticket_id'], 1),
                     'created_by' => (int) base64_decode($this->auth_config->user_id),
                     'create_date' => date_now()
                 );

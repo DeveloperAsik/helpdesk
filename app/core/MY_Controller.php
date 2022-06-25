@@ -10,7 +10,6 @@ class MY_Controller extends MX_Controller {
         $sess = $this->_session_auth($this->config->session_name);
         if (isset($sess['is_logged_in']) && !empty($sess['is_logged_in']) && $sess != null) {
             $this->get_total_ticket();
-            //optional start here
             $this->get_total_user();
             $this->get_total_office();
             $this->get_total_support();
@@ -18,10 +17,9 @@ class MY_Controller extends MX_Controller {
             $this->get_notif_ticket();
             $this->get_all_history();
         }
-        //optional end here;
     }
 
-    function init() {
+    public function init() {
         $this->lang();
         if ($_SESSION['_lang']) {
             $this->load->vars('_lang', strtolower($_SESSION['_lang']));
@@ -848,8 +846,7 @@ class MY_Controller extends MX_Controller {
     public function get_module_id() {
         $this->load->model('Tbl_modules');
         $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-        $res = $this->Tbl_modules->get_id($this->template_configs->_module);
-        return $res;
+        return $this->Tbl_modules->get_id($this->template_configs->_module);
     }
 
     public function _session_auth($sess_name = null) {
@@ -886,8 +883,6 @@ class MY_Controller extends MX_Controller {
 
     public function _logout() {
         session_destroy();
-        //$this->session->sess_destroy('');
-        //$this->oreno_auth->destroy_session($this->_session_auth(''));
     }
 
     protected function get_permission() {
@@ -1011,8 +1006,8 @@ class MY_Controller extends MX_Controller {
     public function get_new_tickets() {
         $this->load->model('Tbl_helpdesk_tickets');
         $res = $this->Tbl_helpdesk_tickets->query('SELECT * FROM tbl_helpdesk_tickets WHERE is_active = 1 ORDER BY create_date DESC LIMIT 0, 50');
+        $arr = array();
         if ($res != null) {
-            $arr = array();
             foreach ($res AS $key => $value) {
                 $time_lapse = fn_date_diff_ticket($value['create_date'], date('Y-m-d H:i:s'), 'max');
                 if ($time_lapse['year'] == 0) {
@@ -1027,8 +1022,8 @@ class MY_Controller extends MX_Controller {
                     }
                 }
             }
-            return $arr;
         }
+        return $arr;
     }
 
     public function get_ticket_owner($id = null, $sender = '', $is_ajax = false) {
@@ -1045,7 +1040,7 @@ class MY_Controller extends MX_Controller {
                     }
                 }
             }
-        } elseif ($sender == 'timtik') {
+        } elseif ($sender == 2) {
             if ($id != null) {
                 $this->load->model('Tbl_helpdesk_ticket_handlers');
                 $opt = array('conditions' => array('a.ticket_id' => $id));

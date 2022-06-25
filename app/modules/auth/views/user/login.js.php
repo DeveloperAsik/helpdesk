@@ -104,11 +104,11 @@
                                 } else {
                                     App.stopPageLoading();
                                     // toastr.error('Username/Email or Password did not match or not found at db system!!!');
-                                    toastr.error('NIP atau Kata Sandi tidak cocok atau tidak ditemukan di database !!');
+                                    toastr.error('Surel pengguna atau Kata Sandi tidak cocok atau tidak ditemukan di database !!');
                                 }
                             } else {
                                 App.stopPageLoading();
-                                toastr.error('NIP atau Kata Sandi tidak cocok atau tidak ditemukan di database !!');
+                                toastr.error('Surel pengguna atau Kata Sandi tidak cocok atau tidak ditemukan di database !!');
                             }
                             return false;
                         },

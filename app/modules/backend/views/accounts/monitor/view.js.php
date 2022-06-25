@@ -85,8 +85,8 @@
                                         }
                                         $('input[name="id"]').val(row.id);
                                         $('input[name="user_id"]').val(row.user_id);
-                                        $('input[name="nik"]').val(row.nik);
-                                        $('input[name="username"]').val(row.name);
+                                        $('input[name="nik"]').val(row.employee_nik);
+                                        $('input[name="username"]').val(row.employee_name);
                                         $('input[name="fname"]').val(row.first_name);
                                         $('input[name="lname"]').val(row.last_name);
                                         $('input[name="email"]').val(row.email);

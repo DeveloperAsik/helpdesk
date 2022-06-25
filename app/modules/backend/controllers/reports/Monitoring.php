@@ -270,7 +270,7 @@ class Monitoring extends MY_Controller {
     public function get_total_ticket_per_cabang() {
         $this->load->model(array('Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_branchs', 'Tbl_helpdesk_tickets'));
         $year = date('Y');
-        $branch_ticket = $this->Tbl_helpdesk_ticket_transactions->query("SELECT a.id, a.code, a.name, COUNT(b.status_id) total FROM tbl_helpdesk_imigration_branchs a 
+        $branch_ticket = $this->Tbl_helpdesk_ticket_transactions->query("SELECT a.id, a.code, a.name, COUNT(b.status_id) total FROM tbl_helpdesk_branchs a 
             LEFT JOIN tbl_helpdesk_ticket_transactions b ON b.branch_id = a.id 
             LEFT JOIN tbl_helpdesk_tickets c ON c.id = b.ticket_id
             WHERE c.create_date LIKE '{$year}%'

@@ -240,8 +240,8 @@ $lang['global_title_for_layout_support'] = 'Vendor (KSO) user list page';
 $lang['global_header_title_support'] = 'View support user list';
 $lang['global_title_for_layout_monitor'] = 'Monitor user list page';
 $lang['global_header_title_monitor'] = 'View monitor user list';
-$lang['global_title_for_layout_imi'] = 'Imigration user list page';
-$lang['global_header_title_imi'] = 'View Imigrations user list';
+$lang['global_title_for_layout_imi'] = 'Cabang user list page';
+$lang['global_header_title_imi'] = 'View Cabang user list';
 $lang['global_title_for_layout_admin'] = 'Admin user list page';
 $lang['global_header_title_admin'] = 'View Admin user list';
 
@@ -279,6 +279,8 @@ $lang['global_title_for_layout_lock_screen'] = 'You are at lock-screen page...';
 
 $lang['global_title_for_layout_report_by_category'] = 'Report by category page';
 $lang['global_header_title_report_by_category'] = 'View report by category';
+$lang['global_title_for_layout_report_by_ticket'] = 'Report by ticket code page';
+$lang['global_header_title_report_by_ticket'] = 'View report by ticket code';
 
 $lang['global_title_for_layout_category'] = 'Category list page';
 $lang['global_header_title_category'] = 'View category list';

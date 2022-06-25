@@ -1,6 +1,6 @@
 <?php
 
-require_once DOCUMENT_ROOT . '/var/static/lib/packages/phpexcel/autoload.php';
+require_once DOCUMENT_ROOT . '/vendor/autoload.php';
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -423,12 +423,11 @@ class Ticket extends MY_Controller {
             $where = 'WHERE c.is_active = 1';
             $res = $this->Tbl_helpdesk_tickets->query("SELECT {$fields} FROM {$tbl_name} {$joins} {$where} {$conditions}");
             if (isset($res) && !empty($res)) {
-                require_once DOCUMENT_ROOT . '/var/static/lib/packages/TCPDF/tcpdf.php';
                 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
                 // set document inform
                 $pdf->SetTitle('LAPORAN HELPDESK ' . date_now());
                 // set default header data
-                $pdf->SetHeaderData(null, null, 'LAPORAN TIKET HELPDESK', null);
+                $pdf->SetHeaderData('', 0, 'LAPORAN TIKET HELPDESK', '');
 
                 // set header and footer fonts
                 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -821,7 +820,7 @@ class Ticket extends MY_Controller {
         $spreadsheet->setActiveSheetIndex(1);
         $sheet = $spreadsheet->setActiveSheetIndex(1);
         $sheet->mergeCells('B1:E1');
-        $sheet->setCellValue('B1', 'Report : Close V2_ticket ' . $ticket1[0]['code']);
+        $sheet->setCellValue('B1', 'Report : Close Ticket ' . $ticket1[0]['code']);
         $sheet->getRowDimension('1')->setRowHeight(40);
         $sheet->getStyle('B1:E1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $no = 1;
@@ -930,7 +929,7 @@ class Ticket extends MY_Controller {
         $spreadsheet->setActiveSheetIndex(2);
         $sheet = $spreadsheet->setActiveSheetIndex(2);
         $sheet->mergeCells('B1:E1');
-        $sheet->setCellValue('B1', 'Report : Close V2_ticket ' . $ticket1[0]['code']);
+        $sheet->setCellValue('B1', 'Report : Close Ticket ' . $ticket1[0]['code']);
         $sheet->getRowDimension('1')->setRowHeight(40);
         $sheet->getRowDimension('2')->setRowHeight(20);
         $sheet->getRowDimension('3')->setRowHeight(20);
@@ -978,7 +977,7 @@ class Ticket extends MY_Controller {
         $sheet->getRowDimension(4)->setRowHeight(-1);
         $sheet->getStyle('E3:E5')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('B2:B5')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
-        $spreadsheet->getActiveSheet()->setTitle('SLA Response V2_ticket');
+        $spreadsheet->getActiveSheet()->setTitle('SLA Response Ticket');
         $sheet->getStyle('B1:E1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('ccccc');
         $styleArray = [
             'borders' => [

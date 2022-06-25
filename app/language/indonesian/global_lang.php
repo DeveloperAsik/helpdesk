@@ -243,7 +243,7 @@ $lang['global_header_title_support'] = 'Lihat daftar support';
 $lang['global_title_for_layout_monitor'] = 'Halaman daftar kelompok pengguna Monitor';
 $lang['global_header_title_monitor'] = 'Lihat daftar monitor';
 $lang['global_title_for_layout_imi'] = 'Halaman daftar kelompok pengguna dari kantor';
-$lang['global_header_title_imi'] = 'Lihat daftar Imigration';
+$lang['global_header_title_imi'] = 'Lihat daftar Cabang';
 $lang['global_title_for_layout_admin'] = 'Halaman daftar kelompok pengguna Admin';
 $lang['global_header_title_admin'] = 'Lihat daftar Admin';
 
@@ -281,6 +281,8 @@ $lang['global_title_for_layout_lock_screen'] = 'Halaman layar terkunci';
 
 $lang['global_title_for_layout_report_by_category'] = 'Halaman laporan berdasarkan kategori';
 $lang['global_header_title_report_by_category'] = 'Lihat laporan berdasarkan kategori';
+$lang['global_title_for_layout_report_by_ticket'] = 'Halaman laporan berdasarkan kode tiket';
+$lang['global_header_title_report_by_ticket'] = 'Lihat laporan berdasarkan kode tiket';
 
 $lang['global_title_for_layout_category'] = 'Halaman daftar kategori';
 $lang['global_header_title_category'] = 'Lihat daftar kategori';

@@ -297,7 +297,6 @@
                     var id = Base64.encode($('input[name="frm_support_id"]').val());
                     var is_active = $("[name='status_vndr_frm']").bootstrapSwitch('state');
                     var uri = base_backend_url + 'accounts/support/insert_support/';
-                    var pass = $('input=[name="password"]').val();
                     var formdata = {
                         code: $('input[name="vndr_code"]').val(),
                         name: $('input[name="vndr_name"]').val(),
@@ -330,13 +329,13 @@
                             fnToStr('Successfully', 'success');
                             fnCloseModal();
                             fnResetBtn();
-                            $(".table").DataTable().ajax.reload();
+                            $("#data_support").DataTable().ajax.reload();
                         },
                         error: function () {
                             fnToStr('Failed', 'error');
                             fnCloseModal();
                             fnResetBtn();
-                            $(".table").DataTable().ajax.reload();
+                            $("#data_support").DataTable().ajax.reload();
                         }
                     });
                     return false;
@@ -387,13 +386,13 @@
                             fnToStr('Successfully', 'success');
                             fnCloseModal();
                             fnResetBtn();
-                            $(".table").DataTable().ajax.reload();
+                            $("#data_support_user").DataTable().ajax.reload();
                         },
                         error: function () {
                             fnToStr('Failed', 'error');
                             fnCloseModal();
                             fnResetBtn();
-                            $(".table").DataTable().ajax.reload();
+                            $("#data_support_user").DataTable().ajax.reload();
                         }
                     });
                     return false;

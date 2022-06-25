@@ -1,7 +1,7 @@
 <?php
 
-if (!function_exists('debug')) {
-  function debug($text) {
+if (!function_exists('dd')) {
+  function dd($text) {
   	$time = microtime();
   	$time = explode(' ', $time);
   	$time = $time[1] + $time[0];

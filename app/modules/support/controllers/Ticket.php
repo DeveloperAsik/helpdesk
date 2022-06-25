@@ -810,7 +810,7 @@ class Ticket extends MY_Controller {
                 'ticket_code' => $ticket['code'],
                 'is_support' => 1,
                 'is_active' => 1,
-                'reply_to' => $this->get_ticket_owner($ticket['id'], 'vndr'),
+                'reply_to' => $this->get_ticket_owner($ticket['id'], 1),
                 'created_by' => (int) base64_decode($this->auth_config->user_id),
                 'create_date' => date_now()
             );

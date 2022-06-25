@@ -11,7 +11,7 @@
  *
  * @author SuperUser
  */
-class Tickets extends MY_Controller{
+class Tickets extends MY_Controller {
 
     //put your code here
 
@@ -88,7 +88,7 @@ class Tickets extends MY_Controller{
                             </div>
                         </div>
                     </div>';
-					$data['num'] = $i;
+                    $data['num'] = $i;
                     $data['name'] = $d['name']; //optional	
                     $data['active'] = $action_status; //optional	
                     $data['description'] = $d['description']; //optional
@@ -110,7 +110,7 @@ class Tickets extends MY_Controller{
     }
 
     public function get_data() {
-		$post = $this->input->post(NULL, TRUE);
+        $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
             $res = $this->Tbl_helpdesk_tickets->find('first', array(
                 'conditions' => array('id' => base64_decode($post['id']))
@@ -194,50 +194,50 @@ class Tickets extends MY_Controller{
     public function remove() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-			if(is_array($post['id'])){
-				$arr_res = 1;
-				foreach($post['id'] AS $key => $val){
-					$arr_res = $this->Tbl_helpdesk_tickets->remove($val);
-				}
-				if($arr_res == true){
-					echo 'success';
-				} else {
-					echo 'failed';
-				}
-			}else{
-				$id = base64_decode($post['id']);
-				$res = $this->Tbl_helpdesk_tickets->remove($id);
-				if ($res == true) {
-					echo 'success';
-				} else {
-					echo 'failed';
-				}
-			}
+            if (is_array($post['id'])) {
+                $arr_res = 1;
+                foreach ($post['id'] AS $key => $val) {
+                    $arr_res = $this->Tbl_helpdesk_tickets->remove($val);
+                }
+                if ($arr_res == true) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+            } else {
+                $id = base64_decode($post['id']);
+                $res = $this->Tbl_helpdesk_tickets->remove($id);
+                if ($res == true) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+            }
         }
     }
 
     public function delete() {
         $post = $this->input->post(NULL, TRUE);
         if (isset($post) && !empty($post)) {
-			if(is_array($post['id'])){
-				$arr_res = 1;
-				foreach($post['id'] AS $key => $val){
-					$arr_res = $this->Tbl_helpdesk_tickets->delete($val);
-				}
-				if($arr_res == true){
-					echo 'success';
-				} else {
-					echo 'failed';
-				}
-			}else{
-				$id = base64_decode($post['id']);
-				$res = $this->Tbl_helpdesk_tickets->delete($id);
-				if ($res == true) {
-					echo 'success';
-				} else {
-					echo 'failed';
-				}
-			}
+            if (is_array($post['id'])) {
+                $arr_res = 1;
+                foreach ($post['id'] AS $key => $val) {
+                    $arr_res = $this->Tbl_helpdesk_tickets->delete($val);
+                }
+                if ($arr_res == true) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+            } else {
+                $id = base64_decode($post['id']);
+                $res = $this->Tbl_helpdesk_tickets->delete($id);
+                if ($res == true) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+            }
         }
     }
 

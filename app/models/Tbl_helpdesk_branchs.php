@@ -12,7 +12,7 @@
  */
 class Tbl_helpdesk_branchs extends MY_Model {
 
-    public $tableName = 'tbl_helpdesk_imigration_branchs';
+    public $tableName = 'tbl_helpdesk_branchs';
 
     public function __construct() {
         parent::__construct();
