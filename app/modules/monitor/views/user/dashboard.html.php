@@ -85,7 +85,7 @@
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-gift"></i>Total ticket per month (2019)
+                    <i class="fa fa-gift"></i>Total ticket per month
                 </div>
                 <div class="tools">
                     <a href="javascript:;" class="collapse">
@@ -100,11 +100,11 @@
             </div>
         </div>
     </div>
-	<div class="col-md-6">
+    <div class="col-md-6">
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-gift"></i>Total ticket per month by status ticket (2019) 
+                    <i class="fa fa-gift"></i>Total ticket per month by status ticket  
                 </div>
                 <div class="tools">
                     <a href="javascript:;" class="collapse">
@@ -119,11 +119,11 @@
             </div>
         </div>
     </div>
-	<div class="col-md-6">
+    <div class="col-md-6">
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-gift"></i>Total Progress ticket per month (2019) 
+                    <i class="fa fa-gift"></i>Total Progress ticket per month
                 </div>
                 <div class="tools">
                     <a href="javascript:;" class="collapse">

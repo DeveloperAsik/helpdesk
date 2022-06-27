@@ -8,15 +8,12 @@
     var fnResetBtn = function () { App.startPageLoading(); $("#opt_delete").hide(); $("#opt_remove").hide(); $("#opt_add").show(); $("#opt_edit").hide(); App.stopPageLoading(); };
     var fnRefreshDataTable = function () { 
         var tbl = $(".table-scrollable table")[0].id;
-        if (tbl){ $("#tbl").DataTable().ajax.reload(); }
+        if (tbl){ $("#"+tbl).DataTable().ajax.reload(); }
     };
     var fnAjaxPost = function (url_post, formdata, options) {$.ajax({ url: url_post, method: "POST", data: formdata, success: function (response) { if (options) { fnToStr(options + ' is successfully!', 'success'); } else { fnToStr('successfully!', 'success'); } if ($(".table")[0]) { fnRefreshDataTable(); } }, error: function () { if (options) { fnToStr(options + ' is failed, please try again or call superuser to help!', 'error'); } else { fnToStr('failed, please try again or call superuser to help!', 'error'); } if ($(".table")[0]) { fnRefreshDataTable(); } } });};
     var fnActionId = function (url_post, id, options) { $.ajax({ url: url_post + id, method: "POST", success: function (response) { fnToStr(options + ' is successfully!', 'success'); if ($(".table")[0]){ fnRefreshDataTable(); } }, error: function () { fnToStr(options + ' is failed, please try again or call superuser to help!', 'error'); if ($(".table")[0]){ fnRefreshDataTable(); } } }); return false; };
     var fnResetCheckbox = function(){ $('.select_all').prop('checked', false); $('.select_tr').prop('checked', false); };
     //stable ajax function end here 
-
-    
-
     var GlobalAjax = function () {
         return {
             //main function to initiate the module

@@ -55,6 +55,9 @@ $route['monitor/dashboard'] = 'monitor/user/dashboard';
 $route['monitor/my-profile'] = 'monitor/user/my_profile';
 $route['monitor/lock-screen'] = 'monitor/user/lock_screen';
 $route['monitor/unlock-screen'] = 'monitor/user/un_lock_screen';
+$route['monitor/reports'] = 'monitor/reports/tickets/view';
+$route['monitor/tickets'] = 'monitor/tickets/view';
+$route['monitor/users'] = 'monitor/user/view';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

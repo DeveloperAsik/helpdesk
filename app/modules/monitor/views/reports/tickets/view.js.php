@@ -1,186 +1,188 @@
 <script>
-    var TableDatatablesAjax = function () {
+    var getDate = function (element) {
+        var date;
+        try {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+        } catch (error) {
+            date = null;
+        }
+        return date;
+    };
+
+    var fnReset = function () {
+        $("#report_btn_table")[0].reset();
+    };
+
+    var Ajax = function () {
         return {
             //main function to initiate the module
             init: function () {
-                var table = $('#datatable_ajax').DataTable({
-                    "lengthMenu": [[10, 25, 50], [10, 25, 50]],
-                    "sPaginationType": "bootstrap",
-                    "paging": true,
-                    "pagingType": "full_numbers",
-                    "ordering": false,
-                    "serverSide": true,
-                    "ajax": {
-                        url: base_url + 'reports/tickets/get_list/',
-                        type: 'POST'
-                    },
-                    "columns": [
-                        {"data": "rowcheck"},
-                        {"data": "num"},
-                        {"data": "name"},
-                        {"data": "active"},
-                        {"data": "description"}
-                    ],
-                    "drawCallback": function (master) {
-                        $('.make-switch').bootstrapSwitch();
-                    }
-                });
+                var dateFormat = "mm/dd/yy",
+                        from = $("#from")
+                        .datepicker({
+                            defaultDate: "+1w",
+                            changeMonth: true,
+                            numberOfMonths: 1
+                        })
+                        .on("change", function () {
+                            to.datepicker("option", "minDate", getDate(this));
+                        }),
+                        to = $("#to").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1
+                }).on("change", function () { from.datepicker("option", "maxDate", getDate(this)); });
 
-                $('#datatable_ajax').on('switchChange.bootstrapSwitch', 'input[name="status"]', function (event, state) {
-                    console.log(state); // true | false
-                    var id = $(this).attr('data-id');
+                $('#ticket_category').on('change', function () {
+                    // alert('test');
+                    App.startPageLoading();
+                    var id = $(this).val();
+                    var uri = base_url + 'monitor/reports/tickets/get_category';
                     var formdata = {
-                        id: Base64.encode(id),
-                        active: state
+                        id: Base64.encode(id)
                     };
-                    $.ajax({
-                        url: base_url + 'reports/tickets/update_status/',
-                        method: "POST", //First change type to method here
-                        data: formdata,
-                        success: function (response) {
-                            toastr.success('Successfully ' + response);
-                            return false;
-                        },
-                        error: function () {
-                            toastr.error('Failed ' + response);
-                            return false;
-                        }
-
-                    });
-                });
-
-                $('a.btn').on('click', function () {
-                    var action = $(this).attr('data-id');
-                    var count = $('input.select_tr:checkbox').filter(':checked').length;
-                    switch (action) {
-                        case 'add':
-                            $('.modal-title').html('Insert New Tickets');
-                            break;
-
-                        case 'edit':
-                            $('.modal-title').html('Update Exist Tickets');
-                            var status_ = $(this).hasClass('disabled');
-                            var id = $('input.select_tr:checkbox:checked').attr('data-id');
-                            if (status_ == 0) {
-                                var formdata = {
-                                    id: Base64.encode(id)
-                                };
-                                $.ajax({
-                                    url: base_url + 'reports/tickets/get_data/',
-                                    method: "POST", //First change type to method here
-                                    data: formdata,
-                                    success: function (response) {
-                                        var row = JSON.parse(response);
-                                        var status_ = false;
-                                        if (row.is_active == 1) {
-                                            status_ = true;
-                                        }
-                                        $('input[name="id"]').val(row.id);
-                                        $('input[name="name"]').val(row.name);
-                                        $("[name='status']").bootstrapSwitch('state', status_);
-                                        $('textarea[name="description"]').val(row.description);
-                                        $('#modal_add_edit').modal('show');
-                                    },
-                                    error: function () {
-                                        fnToStr('Error is occured, please contact administrator.', 'error');
-                                    }
-                                });
-                                return false;
-                            }
-                            break;
-
-                        case 'remove':
-                            bootbox.confirm("Are you sure to remove this id?", function (result) {
-                                if (result == true) {
-                                    var uri = base_url + 'reports/tickets/remove/';
-                                    if (count > 1) {
-                                        var ids = [];
-                                        $("input.select_tr:checkbox:checked").each(function () {
-                                            ids.push($(this).data("id"));
-                                        });
-                                    } else {
-                                        var ids = $('input.select_tr:checkbox:checked').attr('data-id');
-                                    }
-                                    fnActionId(uri, ids, 'remove');
-                                    fnRefreshDataTable();
-                                    fnResetBtn();
-                                } else {
-                                    fnToStr('You re cancelling remove this id', 'info');
-                                    fnRefreshDataTable();
-                                    fnResetBtn();
-                                }
-                            });
-                            break;
-
-                        case 'delete':
-                            bootbox.confirm("Are you sure to delete this id?", function (result) {
-                                if (result == true) {
-                                    var uri = base_url + 'reports/tickets/delete/';
-                                    if (count > 1) {
-                                        id = [];
-                                        $("input.select_tr:checkbox:checked").each(function () {
-                                            id.push($(this).data("id"));
-                                        });
-                                    }
-                                    fnActionId(uri, id, 'remove');
-                                    fnRefreshDataTable();
-                                    fnResetBtn();
-                                } else {
-                                    fnToStr('You re cancelling delete this id', 'info');
-                                    fnRefreshDataTable();
-                                    fnResetBtn();
-                                }
-                            });
-                            break;
-
-                        case 'refresh':
-                            fnRefreshDataTable();
-                            break;
-                    }
-                });
-
-                $("#add_edit").submit(function () {
-                    var id = $('input[name="id"]').val();
-                    var is_active = $("[name='status']").bootstrapSwitch('state');
-                    var uri = base_url + 'reports/tickets/insert/';
-                    var txt = 'add new group';
-                    var formdata = {
-                        name: $('input[name="name"]').val(),
-                        description: $('textarea[name="description"]').val(),
-                        active: is_active
-                    };
-                    if (id)
-                    {
-                        uri = base_url + 'reports/tickets/update/';
-                        txt = 'update group';
-                        formdata = {
-                            id: Base64.encode(id),
-                            name: $('input[name="name"]').val(),
-                            description: $('textarea[name="description"]').val(),
-                            active: is_active
-                        };
-                    }
+                    console.log(formdata);
                     $.ajax({
                         url: uri,
-                        method: "POST", //First change type to method here
+                        type: "post",
                         data: formdata,
                         success: function (response) {
-                            toastr.success('Successfully ' + txt);
-                            fnCloseModal();
+                            App.stopPageLoading();
+                            if (response) {
+                                $('#problem_subject').html(response);
+                            }
+                            return false;
                         },
-                        error: function () {
-                            toastr.error('Failed ' + txt);
-                            fnCloseModal();
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            App.stopPageLoading();
+                            console.log(textStatus, errorThrown);
+                            return false;
                         }
-
                     });
                     return false;
                 });
+
+                $("#report_btn_table").submit(function (e) {
+                    e.preventDefault();
+                    var from_date = $('#from').val();
+                    var to_date = $('#to').val();
+                    var ticket_status = $('#ticket_status').val();
+                    var ticket_category = $('#ticket_category').val();
+                    var problem_subject = $('#problem_subject').val();
+                    if (from_date == '' && to_date == '' && ticket_status == '0' && ticket_category == '0' && problem_subject) {
+                        fnToStr('Silahkan pilih parameter pencarian terlebih dahulu', 'warning', 2000);
+                        return false;
+                    }
+                    $('#datatable_ajax').fadeIn();
+                    
+                    var table = $('#datatable_ajax').DataTable({
+                        "bDestroy": true,
+                        "dom": 'Blfrtip',
+                        "buttons": [
+                            {
+                                title: export_file_name,
+                                text: 'PDF',
+                                action: function () {
+                                    $.ajax({
+                                        url: base_url + 'monitor/reports/tickets/gen_to_pdf',
+                                        type: "POST",
+                                        data: {
+                                            "param1": {
+                                                "from_date": from_date,
+                                                "to_date": to_date,
+                                                "ticket_status": ticket_status,
+                                                "ticket_category": ticket_category,
+                                                "problem_subject": problem_subject
+                                            }
+                                        },
+                                        success: function (data) {  
+                                            window.open(data);
+                                        },
+                                        error: function (data) {
+                                            console.log('error');
+                                        }
+                                    });
+                                }
+                            },
+                            {
+                                title: export_file_name,
+                                messageTop: 'Ticket Report',
+                                extend: 'excel',
+                                exportOptions: {
+                                    columns: ':visible'
+                                }
+                            }
+                            // {
+                            //     extend: 'colvis',
+                            //     collectionLayout: 'fixed two-column'
+                            // }
+                        ],
+                        "columnDefs": [{
+                            targets: [-1, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+                            visible: false
+                        }],
+                        "lengthMenu": [[10, 25, 50], [10, 25, 50]],
+                        "sPaginationType": "bootstrap",
+                        "paging": true,
+                        "pagingType": "full_numbers",
+                        "ordering": true,
+                        "serverSide": true,
+                        "processing": true,
+                        "language": {
+                            processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
+                        },
+                        "ajax": {
+                                url: base_url + 'monitor/reports/tickets/get_list/',
+                            type: 'POST',
+                            data: {
+                                "param1": {
+                                    "from_date": from_date,
+                                    "to_date": to_date,
+                                    "ticket_status": ticket_status,
+                                    "ticket_category": ticket_category,
+                                    "problem_subject": problem_subject
+                                }
+                            }
+                        },
+                        "columns": [
+                            {"data": "num"},
+                            {"data": "code"},
+                            {"data": "category"},
+                            {"data": "sub_category"},
+                            {"data": "priority"},
+                            {"data": "content"},
+                            {"data": "status"},
+                            {"data": "response"},
+                            {"data": "support"},
+                            {"data": "closing"},
+                            {"data": "office"},
+                            {"data": "creator"},
+                            {"data": "contact"},
+                            {"data": "open_date"},
+                            {"data": "open_time"},
+                            {"data": "response_date"},
+                            {"data": "response_time"},
+                            {"data": "closing_date"},
+                            {"data": "closing_time"},
+                            {"data": "total_response"},
+                            {"data": "total_solving"},
+                            {"data": "status_ticket"},
+                            {"data": "active"}
+                        ],
+                        "drawCallback": function () {
+                            $('.make-switch').bootstrapSwitch();
+                        }
+                    });
+                    return false;
+                });
+
+                $('#cancel').on('click', function () {
+                    fnReset();
+                });
             }
         };
-
     }();
-
     jQuery(document).ready(function () {
-        TableDatatablesAjax.init();
-    });</script>
+        Ajax.init();
+    });
+ </script>

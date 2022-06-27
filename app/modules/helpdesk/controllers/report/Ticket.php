@@ -1,6 +1,6 @@
 <?php
 
-require_once DOCUMENT_ROOT . '/var/static/lib/packages/phpexcel/autoload.php';
+require_once DOCUMENT_ROOT . '/vendor/autoload.php';
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -216,7 +216,6 @@ class Ticket extends MY_Controller {
                 LEFT JOIN `tbl_helpdesk_ticket_categories` `g` ON `g`.`id` = `b`.`category_id`
                 LEFT JOIN `tbl_helpdesk_ticket_priorities` `h` ON `h`.`id` = `b`.`priority_id`
                 $where $conditions";
-            debug($query_total);
             $total_rows = count($this->Tbl_helpdesk_tickets->query($query_total));
             $res = $this->Tbl_helpdesk_tickets->query("SELECT {$fields} FROM {$tbl_name} {$joins} {$where} {$conditions} LIMIT {$start}, {$length}"); // ORDER BY a.create_date DESC GROUP BY a.id  ORDER BY a.create_date DESC GROUP BY a.id
             if (isset($res) && !empty($res) && $res != null) {
@@ -472,7 +471,6 @@ class Ticket extends MY_Controller {
             $where = 'WHERE c.is_active = 1 AND a.created_by =' . $user . '';
             $res = $this->Tbl_helpdesk_tickets->query("SELECT {$fields} FROM {$tbl_name} {$joins} {$where} {$conditions}"); 
             if (isset($res) && !empty($res)) {
-                require_once DOCUMENT_ROOT . '/var/static/lib/packages/TCPDF/tcpdf.php';
                 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
                 // set document inform
                 $pdf->SetTitle('LAPORAN HELPDESK ' . date_now());

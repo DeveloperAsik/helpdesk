@@ -291,23 +291,25 @@ if (!function_exists('fn_date_diff')) {
 if (!function_exists('fn_date_diff_ticket')) {
 
     function fn_date_diff_ticket($date_1, $date_2, $type = 'min') {
-        $datetime1 = date_create($date_1);
-        $datetime2 = date_create($date_2);
-        $interval = date_diff($datetime1, $datetime2);
-        $times = array(
-            'year' => $interval->y,
-            'month' => $interval->m,
-            'day' => $interval->d,
-            'hour' => $interval->h,
-            'minute' => $interval->i,
-            'second' => $interval->s
-        );
-        // 2 hari 22 jam 23 menit 22 detik
-        // 1200 menit
-        if ($type == 'min') {
-            return $times['minute'];
-        } else {
-            return $times;
+        if ($date_1 && $date_2) {
+            $datetime1 = date_create($date_1);
+            $datetime2 = date_create($date_2);
+            $interval = date_diff($datetime1, $datetime2);
+            $times = array(
+                'year' => $interval->y,
+                'month' => $interval->m,
+                'day' => $interval->d,
+                'hour' => $interval->h,
+                'minute' => $interval->i,
+                'second' => $interval->s
+            );
+            // 2 hari 22 jam 23 menit 22 detik
+            // 1200 menit
+            if ($type == 'min') {
+                return $times['minute'];
+            } else {
+                return $times;
+            }
         }
     }
 
@@ -560,6 +562,7 @@ if (!function_exists('ConvertZero')) {
         }
         return $day;
     }
+
 }
 
 

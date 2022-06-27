@@ -143,24 +143,142 @@ class User extends MY_Controller {
         }
         echo json_encode($arr_chart);
     }
-    
-    public function get_total_ticket_per_month_by_status(){
+
+    public function get_total_ticket_per_month_by_status() {
+        $this->load->model(array('Tbl_helpdesk_tickets', 'Tbl_helpdesk_ticket_transactions', 'Tbl_helpdesk_ticket_status'));
+        $ticket_status = $this->Tbl_helpdesk_ticket_status->query("SELECT *
+            FROM tbl_helpdesk_ticket_status
+        ");
+        $arr_chart = array();
+        foreach ($ticket_status AS $key => $val) {
+            $ticket_list = $this->Tbl_helpdesk_ticket_transactions->query("SELECT COUNT(a.id) AS total, a.status_id, b.name AS status_name
+            FROM tbl_helpdesk_ticket_transactions AS a
+            LEFT JOIN tbl_helpdesk_ticket_status AS b ON b.id = a.status_id
+            WHERE a.status_id = {$val['id']}
+            GROUP BY a.ticket_id");
+            $arr_chart[] = array(
+                'status' => $val['name'],
+                'total' => isset($ticket_list[0]['total']) ? (int) $ticket_list[0]['total'] : 0
+            );
+        }
+        $response = array('key' => array('l' => 'status', 'b' => 'total'), 'data' => $arr_chart);
+        echo json_encode($response);
+    }
+
+    public function get_total_ticket_per_month_by_status_progress() {
         $this->load->model('Tbl_helpdesk_tickets');
         $year = date('Y');
         $ticket_date = $this->Tbl_helpdesk_tickets->query("SELECT id, YEAR(create_date) AS year, MONTH(create_date) AS month, MONTHNAME(create_date) AS 'month_name' 
-            FROM tbl_helpdesk_tickets 
-            LEFT JOIN 
+            FROM tbl_helpdesk_tickets GROUP BY month_name
         ");
         $arr_chart = array();
         foreach ($ticket_date AS $key => $val) {
             $dt = $val['year'] . '-' . str_pad($val['month'], 2, '0', STR_PAD_LEFT);
-            $ticket_list = $this->Tbl_helpdesk_tickets->query("SELECT COUNT(id) AS total FROM tbl_helpdesk_tickets WHERE is_active = 1 AND create_date LIKE '{$dt}%'");
+            $ticket_list = $this->Tbl_helpdesk_tickets->query("SELECT COUNT(a.id) AS total 
+                FROM tbl_helpdesk_tickets AS a
+                LEFT JOIN tbl_helpdesk_ticket_transactions AS b ON b.ticket_id = a.id
+                WHERE a.is_active = 1 
+                AND b.status_id = 2
+                AND a.create_date LIKE '{$dt}%'");
             $arr_chart[] = array(
                 'month' => $val['month_name'],
                 'total' => (int) $ticket_list[0]['total']
             );
         }
-        echo json_encode($arr_chart);
+        $response = array('key' => array('l' => 'month', 'b' => 'total'), 'data' => $arr_chart);
+        echo json_encode($response);
+    }
+
+    public function view() {
+        $data['title_for_layout'] = $this->lang->line('global_title_for_layout_imi');
+        $data['view-header-title'] = $this->lang->line('global_header_title_imi');
+        $js_files = array(
+            static_url('templates/metronics/assets/global/scripts/datatable.js'),
+            static_url('templates/metronics/assets/global/plugins/datatables/datatables.min.js'),
+            static_url('templates/metronics/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js'),
+        );
+        $this->load_js($js_files);
+        $this->load->model('Tbl_helpdesk_branchs');
+        $data['branchs'] = $this->Tbl_helpdesk_branchs->find('list', array('order' => array('key' => 'name', 'type' => 'ASC')));
+        $this->parser->parse('layouts/pages/metronic_horizontal.phtml', $data);
+    }
+
+    public function get_list() {
+        $post = $this->input->post(NULL, TRUE);
+        if (isset($post) && !empty($post)) {
+            //init config for datatables
+            $draw = $post['draw'];
+            $start = $post['start'];
+            $length = $post['length'];
+            $search = trim($post['search']['value']);
+            $cond_count = array();
+            $cond['table'] = $cond_count['table'] = 'Tbl_helpdesk_employees';
+            $cond['conditions'] = array('e.group_id' => 2);
+            $cond['fields'] = array('a.*', 'c.code branch_code', 'c.name branch_name');
+            $cond['limit'] = array('perpage' => $length, 'offset' => $start);
+            if (isset($search) && !empty($search)) {
+                $cond['or_like'] = $cond_count['or_like'] = array('a.name' => $search);
+            }
+            $cond['joins'] = $cond_count['joins'] = array(
+                array(
+                    'table' => 'tbl_helpdesk_employee_users b',
+                    'conditions' => 'b.employee_id = a.id',
+                    'type' => 'left'
+                ),
+                array(
+                    'table' => 'tbl_helpdesk_branchs c',
+                    'conditions' => 'c.id = b.branch_id',
+                    'type' => 'left'
+                ),
+                array(
+                    'table' => 'tbl_users d',
+                    'conditions' => 'd.id = b.user_id',
+                    'type' => 'left'
+                ),
+                array(
+                    'table' => 'tbl_user_groups e',
+                    'conditions' => 'e.user_id = b.user_id',
+                    'type' => 'left'
+                )
+            );
+            $total_rows = $this->Tbl_helpdesk_employees->find('count', $cond_count);
+            $res = $this->Tbl_helpdesk_employees->find('all', $cond);
+            $arr = array();
+            if (isset($res) && !empty($res)) {
+                $i = $start + 1;
+                foreach ($res as $d) {
+                    $status = '';
+                    if ($d['is_active'] == 1) {
+                        $status = 'checked';
+                    }
+                    $action_status = '<div class="form-employee">
+                        <div class="col-md-9" style="height:30px">
+                            <input type="checkbox" class="make-switch" disabled data-size="small" data-value="' . $d['is_active'] . '" data-id="' . $d['id'] . '" name="status" ' . $status . '/>
+                        </div>
+                    </div>';
+                    $data['num'] = $i;
+                    $data['nik'] = $d['nik'];
+                    $data['name'] = $d['name']; //optional	
+                    $data['email'] = $d['email']; //optional
+                    $data['phone_number'] = $d['phone_number']; //optional
+                    $data['branch_code'] = $d['branch_code']; //optional
+                    $data['branch_name'] = $d['branch_name']; //optional
+                    $data['active'] = $action_status; //optional	
+                    $arr[] = $data;
+                    $i++;
+                }
+            }
+            $output = array(
+                'draw' => $draw,
+                'recordsTotal' => $total_rows,
+                'recordsFiltered' => $total_rows,
+                'data' => $arr,
+            );
+            //output to json format
+            echo json_encode($output);
+        } else {
+            echo json_encode(array());
+        }
     }
 
 }

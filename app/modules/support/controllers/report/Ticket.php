@@ -1,6 +1,6 @@
 <?php
 
-require_once DOCUMENT_ROOT . '/var/static/lib/packages/phpexcel/autoload.php';
+require_once DOCUMENT_ROOT . '/vendor/autoload.php';
 
 /*
  * To change this license header, choose License Headers in Project Properties.

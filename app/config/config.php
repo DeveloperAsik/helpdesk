@@ -9,6 +9,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
     $config['base_helpdesk_url'] = "http://{$_SERVER['HTTP_HOST']}/" . APPLICATION . "/helpdesk/";
     $config['base_backend_url'] = "http://{$_SERVER['HTTP_HOST']}/" . APPLICATION . "/backend/";
     $config['base_support_url'] = "http://{$_SERVER['HTTP_HOST']}/" . APPLICATION . "/support/";
+    $config['base_monitor_url'] = "http://{$_SERVER['HTTP_HOST']}/" . APPLICATION . "/monitor/";
     $config['base_api_url'] = "http://{$_SERVER['HTTP_HOST']}/" . APPLICATION . "/api/";
 } else {
     $config['base_url'] = "http://{$_SERVER['HTTP_HOST']}" . '/';
@@ -18,6 +19,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
     $config['base_helpdesk_url'] = "http://{$_SERVER['HTTP_HOST']}/helpdesk/";
     $config['base_backend_url'] = "http://{$_SERVER['HTTP_HOST']}/backend/";
     $config['base_support_url'] = "http://{$_SERVER['HTTP_HOST']}/support/";
+    $config['base_monitor_url'] = "http://{$_SERVER['HTTP_HOST']}/monitor/";
     $config['base_api_url'] = "http://{$_SERVER['HTTP_HOST']}/api/";
 }
 $config['static_url'] = $config['base_url'] . 'var/static/';

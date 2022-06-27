@@ -1,56 +1,114 @@
 <div class="row">
+    <div class="col-md-12 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="glyphicon glyphicon-filter"></i>
+                    <span class="caption-subject font-dark sbold uppercase"><?php echo $this->lang->line('global_report_filter'); ?></span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form class="form-horizontal" role="form" id="report_btn_table" autocomplete="off">
+                    <div class="col-md-6">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"><?php echo $this->lang->line('global_start_date'); ?></label>
+                                <div class="col-sm-2">
+                                    <input class="form-control" type="text" name="from" id="from" style="width: 130px"/>
+                                </div>
+
+                                <label class="col-sm-3 control-label" style="margin-left: 10%;"><?php echo $this->lang->line('global_end_date'); ?></label>
+                                <div class="col-sm-2">
+                                    <input class="form-control" type="text" name="to" id="to" style="width:130px"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"><?php echo $this->lang->line('global_report_status'); ?></label>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="ticket_status" id="ticket_status">
+                                        <option value="0"><?php echo $this->lang->line('global_select_all'); ?></option>
+                                        <?php if (isset($status) && !empty($status)): ?>
+                                            <?php foreach ($status AS $key => $val): ?>
+                                                <option value="<?php echo $val['id'] ?>"><?php echo $val['name'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"><?php echo $this->lang->line('global_report_categories'); ?></label>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="ticket_category" id="ticket_category">
+                                        <option value="0"><?php echo $this->lang->line('global_select_all'); ?></option>
+                                        <?php if (isset($category) && !empty($category)): ?>
+                                            <?php foreach ($category AS $key => $val): ?>
+                                                <option value="<?php echo $val['id'] ?>"><?php echo $val['name'] ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"><?php echo $this->lang->line('global_problem_subject'); ?></label>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="problem_subject" id="problem_subject">
+                                        <option value="0"><?php echo $this->lang->line('global_select_all'); ?></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="submit" class="btn green"><?php echo $this->lang->line('global_submit'); ?></button>
+                                <button type="button" class="btn default" id="cancel"><?php echo $this->lang->line('global_cancel'); ?></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="col-md-12">
         <!-- Begin: life time stats -->
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">{view-header-title}</span>
-                </div>
-                <div class="actions">
-                    <div class="btn-group">
-                        <a style="font-size:10px; text-align:center" title="Insert new" class="btn dark btn-outline sbold col-ms-2" data-toggle="modal" data-id="add" href="#modal_add_edit" id="opt_add">
-                            <i class="fa fa-plus-square"></i>
-                        </a>
-                        <a style="font-size:10px; text-align:center" title="Update exist" class="btn dark btn-outline sbold disabled col-ms-2" data-toggle="modal" data-id="edit" href="#modal_add_edit" id="opt_edit" disabled="">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
-                        <a style="font-size:10px; text-align:center" title="Remove" class="btn dark btn-outline sbold disabled col-ms-2" data-value="remove" data-id="remove" id="opt_remove" disabled="">
-                            <i class="fa fa-remove"></i>
-                        </a>
-                        <a style="font-size:10px; text-align:center" title="Delete" class="btn dark btn-outline sbold disabled col-ms-2" data-value="delete" data-id="delete" id="opt_delete" disabled="">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                        <a style="font-size:10px; text-align:center" title="Refresh" class="btn dark btn-outline sbold col-ms-2" data-value="refresh" data-id="refresh" id="opt_refresh">
-                            <i class="fa fa-refresh"></i>
-                        </a>
-                    </div>
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span class="caption-subject font-dark sbold uppercase"><?php echo $this->lang->line('global_report_category_title'); ?></span>
                 </div>
             </div>
             <div class="portlet-body">
-                <div class="table-container">
-                    <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax">
+                <div class="table-container tbl_result" >
+                    <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax" hidden>
                         <thead>
-                            <tr role="row" class="heading">
-                                <th width="2%">
-                                    <div class="form-group form-md-checkboxes">
-                                        <div class="md-checkbox-list">
-                                            <div class="md-checkbox">
-                                                <input type="checkbox" id="select_all" name="select_all" class="md-check">
-                                                <label for="select_all">
-                                                    <span></span>
-                                                    <span class="check" style="left:20px;"></span>
-                                                    <span class="box" style="left:14px;"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </th>
-								<th width="5%"> # </th>
-                                <th width="15%"> Name </th>
-                                <th width="15%"> Status </th>
-                                <th width="200"> Description </th>
-                            </tr>							
+                            <tr>
+                                <th width="5%"> # </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_code'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_category'); ?> </th>
+                                <th width="15%"> <?php echo $this->lang->line('global_problem_subject'); ?>  </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_priority'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_issue'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_status'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_response_message'); ?> </th> 
+                                <th width="12%"> <?php echo $this->lang->line('global_employee'); ?></th>
+                                <th width="12%"> <?php echo $this->lang->line('global_closing_message'); ?></th>
+                                <th width="12%"> <?php echo $this->lang->line('global_office_branch'); ?></th>
+                                <th width="12%"> <?php echo $this->lang->line('global_ticket_reporter'); ?></th>
+                                <th width="12%"> <?php echo $this->lang->line('global_contact'); ?></th>
+                                <th width="12%"> <?php echo $this->lang->line('global_create_date'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_create_time'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_response_date'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_response_time'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_solving_date'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_solving_time'); ?> </th>
+                                <th width="12%"> <?php echo $this->lang->line('global_response_total'); ?></th>
+                                <th width="12%"> <?php echo $this->lang->line('global_solving_total'); ?></th>
+                                <th width="15%"> <?php echo $this->lang->line('global_re_open'); ?></th>
+                                <th width="12%"> <?php echo $this->lang->line('global_active'); ?> </th>
+                            </tr>								
                         </thead>
                         <tbody></tbody>
                     </table>
@@ -58,46 +116,5 @@
             </div>
         </div>
         <!-- End: life time stats -->
-    </div>
-</div>
-<!-- /.modal -->
-<div id="modal_add_edit" class="modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="POST" id="add_edit">
-                <div class="modal-header">
-                    <button type="button" class="close" data-action="close-modal" aria-hidden="true"></button>
-                    <h4 class="modal-title" id="title_mdl"></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="control-label">Name</label>
-                                    <div class="input-icon right">
-                                        <i class="fa fa-info-circle tooltips" data-original-title="Email address" data-container="body"></i>
-                                        <input class="form-control" type="text" name="name" /> 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea class="form-control" rows="3" name="description"></textarea>
-                                </div>
-                                <div class="form-group" style="height:30px">
-                                    <label>Active</label><br/>
-                                    <input type="checkbox" class="make-switch" data-size="small" name="status"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="text" name="id" hidden />
-                    <button type="button" data-action="close-modal" class="btn dark btn-outline">Close</button>
-                    <button type="submit" class="btn green">Save changes</button>
-                </div>
-            </form>
-        </div>
     </div>
 </div>
